@@ -1,0 +1,861 @@
+/* =========================================
+   1. CẤU TRÚC CHUNG & FIX HEADER CHE
+   ========================================= */
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* ĐẨY NỘI DUNG XUỐNG ĐỂ TRÁNH HEADER CHE */
+main.main-content {
+  margin-top: 100px; /* Cách đỉnh 100px (tùy chiều cao header của bạn) */
+  padding-bottom: 60px;
+  min-height: 80vh;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* =========================================
+   2. THANH TÌM KIẾM (STYLE ĐỒNG BỘ)
+   ========================================= */
+.search-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  padding: 8px 8px 8px 25px;
+  border-radius: 50px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); /* Bóng đổ mềm */
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 40px auto;
+  border: 1px solid #f0f0f0;
+  position: relative;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  position: relative;
+  cursor: pointer;
+}
+
+.input-group .icon {
+  font-size: 20px;
+  margin-right: 12px;
+}
+
+.input-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-text label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #999;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+
+.input-text .display-value {
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+
+.divider {
+  width: 1px;
+  height: 35px;
+  background: #e5e5e5;
+  margin: 0 25px;
+}
+
+/* Nút Tìm Xe */
+.btn-search {
+  height: 45px;
+  padding: 0 35px;
+  background-color: #00d1b2; /* Màu chuẩn */
+  color: white;
+  border: none;
+  border-radius: 40px;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 209, 178, 0.3);
+}
+
+.btn-search:hover {
+  background-color: #00b89c;
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   3. DROPDOWN & MODAL
+   ========================================= */
+/* Dropdown Địa điểm */
+.custom-dropdown {
+  display: none;
+  position: absolute;
+  top: 150%;
+  left: -10px;
+  width: 220px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+  padding: 10px 0;
+  border: 1px solid #eee;
+}
+
+.custom-dropdown.active {
+  display: block;
+}
+
+.location-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.location-list li {
+  padding: 12px 20px;
+  font-size: 14px;
+  color: #555;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.location-list li:hover {
+  background-color: #f0fdfa;
+  color: #00d1b2;
+}
+
+/* Modal Thời gian */
+.time-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(3px);
+}
+
+.time-modal.active {
+  display: flex;
+}
+
+.time-modal-content {
+  background: white;
+  width: 90%;
+  max-width: 450px;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.time-header {
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close-small {
+  cursor: pointer;
+  font-size: 24px;
+  color: #999;
+}
+
+.time-row-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.time-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.input-style {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  font-family: inherit;
+}
+.input-style:focus {
+  border-color: #00d1b2;
+}
+
+/* =========================================
+   4. DANH SÁCH XE & CARD
+   ========================================= */
+.filter-bar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 30px;
+  justify-content: center;
+}
+
+.filter-item {
+  padding: 10px 24px;
+  border-radius: 30px;
+  border: 1px solid #ddd;
+  background: white;
+  color: #666;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.filter-item.active,
+.filter-item:hover {
+  background: #00d1b2;
+  color: white;
+  border-color: #00d1b2;
+  box-shadow: 0 4px 10px rgba(0, 209, 178, 0.2);
+}
+
+.car-list-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* Style Card Xe - Giống trang chi tiết */
+.car-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #f0f0f0;
+  cursor: pointer;
+}
+
+.car-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.image-box {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.car-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.discount-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #ff4d4f;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.status-tags {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+}
+
+.tag-item {
+  background: rgba(255, 255, 255, 0.9);
+  color: #00d1b2;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  backdrop-filter: blur(4px);
+}
+
+.info-box {
+  padding: 20px;
+}
+
+.car-title {
+  font-size: 18px;
+  font-weight: 800;
+  margin: 0 0 8px 0;
+  color: #222;
+}
+
+.specifications {
+  display: flex;
+  gap: 15px;
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.location-line {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 15px;
+}
+
+.separator {
+  border-top: 1px solid #eee;
+  margin: 15px 0;
+}
+
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.rating {
+  font-weight: 700;
+  color: #333;
+  font-size: 14px;
+}
+
+.pricing {
+  text-align: right;
+}
+
+.price-old {
+  font-size: 12px;
+  color: #bbb;
+  text-decoration: line-through;
+}
+
+.price-now {
+  font-size: 18px;
+  font-weight: 800;
+  color: #00d1b2;
+}
+
+.price-extra {
+  display: block;
+  font-size: 11px;
+  color: #888;
+  margin-top: 2px;
+}
+
+/* =========================================
+   5. PHÂN TRANG (PAGINATION)
+   ========================================= */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.pagination {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.page-number,
+.page-nav {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #eee;
+  background: white;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #666;
+  transition: 0.3s;
+}
+
+/* Sửa màu xanh dương cũ thành màu xanh ngọc */
+.page-number.active {
+  background-color: #00d1b2;
+  color: white;
+  border-color: #00d1b2;
+  box-shadow: 0 4px 10px rgba(0, 209, 178, 0.3);
+}
+
+.page-number:hover:not(.active),
+.page-nav:hover:not(.disabled) {
+  border-color: #00d1b2;
+  color: #00d1b2;
+}
+
+.page-nav.disabled {
+  color: #ccc;
+  cursor: default;
+}
+/* ====================================================
+   CSS STYLE CHO CARD XE (GIỐNG HÌNH MẪU)
+   ==================================================== */
+
+/* 1. KHUNG BAO NGOÀI CỦA THẺ */
+.similar-cars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Bắt buộc chia 3 cột bằng nhau */
+  gap: 25px; /* Khoảng cách giữa các xe */
+  width: 100%;
+  margin-top: 20px;
+  box-sizing: border-box; /* Đảm bảo padding không làm vỡ layout */
+}
+.sim-car-card {
+  background-color: #fff;
+  border-radius: 12px; /* Bo góc mềm mại */
+  overflow: visible; /* Để avatar có thể nổi lên trên */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Đổ bóng nhẹ */
+  border: 1px solid #f0f0f0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.sim-car-card:hover {
+  transform: translateY(-5px); /* Hiệu ứng bay lên khi di chuột */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* 2. KHUNG CHỨA ẢNH (THUMBNAIL) */
+.car-thumb {
+  position: relative;
+  width: 100%;
+  height: 190px; /* Chiều cao cố định cho ảnh */
+  border-radius: 12px 12px 0 0;
+  overflow: hidden; /* Cắt ảnh thừa */
+}
+
+.car-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Đảm bảo ảnh không bị méo */
+}
+
+/* 3. TAG GIẢM GIÁ (Góc trái trên) */
+.discount-tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #ff4d4f; /* Màu đỏ nổi bật */
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  z-index: 2;
+}
+
+/* 4. AVATAR CHỦ XE (QUAN TRỌNG: Nằm đè lên ranh giới) */
+.owner-avatar-overlay {
+  position: absolute;
+  bottom: 10px; /* Cách đáy ảnh 10px */
+  left: 15px;
+  width: 40px;
+  height: 40px;
+  z-index: 5;
+}
+
+.owner-avatar-overlay img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid #fff; /* Viền trắng tách biệt */
+  object-fit: cover;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* 5. BADGE MIỄN THẾ CHẤP (Góc phải dưới ảnh) */
+.car-badges {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  gap: 5px;
+}
+
+.badge-pill {
+  background-color: rgba(255, 255, 255, 0.95); /* Nền trắng mờ */
+  color: #00d1b2; /* Chữ xanh ngọc */
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px; /* Bo tròn hình viên thuốc */
+  display: flex;
+  align-items: center;
+  gap: 4px; /* Khoảng cách giữa icon và chữ */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 6. PHẦN NỘI DUNG BÊN DƯỚI */
+.car-info-body {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Tên xe */
+.car-name {
+  font-size: 16px;
+  font-weight: 800; /* Chữ đậm */
+  color: #222;
+  margin: 0;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+/* Thông số kỹ thuật (Số tự động, 4 chỗ...) */
+.car-specs {
+  display: flex;
+  gap: 15px;
+  font-size: 13px;
+  color: #666;
+  align-items: center;
+}
+
+.car-specs span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.car-specs i {
+  color: #888; /* Icon màu xám nhạt */
+}
+
+/* Địa điểm */
+.car-location {
+  font-size: 13px;
+  color: #555;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f0f0f0; /* Đường gạch ngang mờ */
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* 7. CHÂN THẺ (FOOTER - Đánh giá & Giá tiền) */
+.car-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end; /* Căn đáy để giá tiền nằm thẳng hàng */
+}
+
+/* Cột trái: Đánh giá */
+.footer-left .rating {
+  font-weight: 700;
+  font-size: 14px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.footer-left .rating i {
+  color: #ffcc00; /* Ngôi sao màu vàng */
+}
+
+.footer-left .trips {
+  font-size: 12px;
+  color: #999;
+  margin-top: 2px;
+}
+
+/* Cột phải: Giá tiền */
+.footer-right {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+}
+
+.old-price {
+  font-size: 12px;
+  color: #bbb;
+  text-decoration: line-through; /* Gạch ngang giá cũ */
+  margin-bottom: 0;
+}
+
+.new-price {
+  font-size: 18px;
+  font-weight: 800;
+  color: #00d1b2; /* Màu xanh chủ đạo */
+  line-height: 1.2;
+}
+
+.new-price span {
+  font-size: 12px;
+  font-weight: 400;
+  color: #666;
+}
+
+.hourly-price {
+  font-size: 11px;
+  color: #00d1b2; /* Chữ nhỏ màu xanh */
+  font-weight: 600;
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+}
+
+/* Responsive: Trên màn hình nhỏ thì chuyển về 2 hoặc 1 cột */
+@media (max-width: 1024px) {
+  .similar-cars-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .similar-cars-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* Responsive */
+@media (max-width: 1024px) {
+  .car-list-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .car-list-grid {
+    grid-template-columns: 1fr;
+  }
+  .search-box {
+    flex-direction: column;
+    height: auto;
+    border-radius: 20px;
+    padding: 20px;
+  }
+  .divider {
+    display: none;
+  }
+  .btn-search {
+    width: 100%;
+    margin-top: 15px;
+  }
+  .input-group {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}
+/* Hộp chứa chính */
+.update-box {
+  width: 100%;
+  max-width: 450px;
+  margin: 60px auto;
+  background: #ffffff;
+  width: 100%;
+  max-width: 450px;
+  padding: 50px 30px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Bóng đổ mềm */
+  transition: transform 0.3s ease;
+  position: center;
+}
+
+.update-box:hover {
+  transform: translateY(-5px); /* Hiệu ứng nổi lên khi di chuột */
+}
+
+/* Icon bánh răng */
+.icon-gear {
+  font-size: 60px;
+  color: #00d1b2; /* Màu xanh dương */
+  margin-bottom: 20px;
+}
+
+/* Tiêu đề */
+.update-box h2 {
+  margin: 0 0 15px;
+  font-size: 28px;
+  color: #2c3e50;
+  font-weight: 700;
+}
+
+/* Đoạn văn */
+.update-box p {
+  font-size: 16px;
+  color: #7f8c8d;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+/* Nút quay lại */
+.btn-home {
+  display: inline-block;
+  text-decoration: none;
+  background: ##00d1b2;
+  color: #ffffff;
+  padding: 12px 30px;
+  border-radius: 50px; /* Bo tròn hình viên thuốc */
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+.btn-home:hover {
+  background: #00d1b2;
+  box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+  transform: scale(1.05);
+}
+
+/* --- Lớp phủ nền mờ (Overlay) --- */
+.modal {
+  display: none; /* Mặc định ẩn, JS sẽ đổi thành flex khi click */
+  position: fixed;
+  z-index: 9999; /* Đảm bảo nằm trên cùng */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Màu đen mờ */
+  justify-content: center; /* Căn giữa ngang */
+  align-items: center; /* Căn giữa dọc */
+}
+
+/* --- Hộp nội dung chính --- */
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px; /* Độ rộng tối đa */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+  animation: slideDown 0.3s ease;
+}
+
+/* Hiệu ứng trượt nhẹ từ trên xuống */
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Header */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.close-btn {
+  font-size: 28px;
+  font-weight: bold;
+  color: #aaa;
+  cursor: pointer;
+}
+.close-btn:hover {
+  color: #000;
+}
+
+/* Grid chọn xe */
+.car-type-grid {
+  display: flex;
+  justify-content: space-around; /* Chia đều khoảng cách 2 xe */
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.car-type-item {
+  border: 2px solid #eee;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  cursor: pointer;
+  width: 45%;
+  transition: all 0.2s;
+}
+
+.car-type-item img {
+  width: 100%;
+  max-width: 80px; /* Giới hạn kích thước ảnh */
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.car-type-item p {
+  margin: 0;
+  font-weight: bold;
+  color: #555;
+}
+
+/* Hiệu ứng khi Hover và khi Được chọn (Active) */
+.car-type-item:hover {
+  border-color: #00d1b2; /* Màu xanh lá khi di chuột */
+}
+
+.active-seat {
+  border-color: #00d1b2;
+  background-color: #eafbf3; /* Nền xanh nhạt khi chọn */
+  color: #00d1b2;
+}
+
+/* Footer & Nút Áp dụng */
+.modal-footer {
+  text-align: center;
+}
+
+.btn-apply {
+  background-color: #00d1b2;
+  color: white;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.3s;
+}
+
+.btn-apply:hover {
+  background-color: #00d1b2;
+}

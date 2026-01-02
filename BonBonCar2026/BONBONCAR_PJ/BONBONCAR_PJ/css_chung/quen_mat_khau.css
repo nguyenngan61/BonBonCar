@@ -1,0 +1,163 @@
+/* =========================================================
+   FILE: css_chung/quen_mat_khau.css
+   MÔ TẢ: Giao diện Quên mật khẩu (Đồng bộ Design System)
+   ========================================================= */
+
+/* 1. LAYOUT CHÍNH */
+body {
+  background-color: #f5f7f9; /* Nền xám nhạt toàn trang */
+  font-family: "Inter", sans-serif;
+}
+
+.forgot-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Căn giữa theo chiều ngang */
+  padding-top: 80px;
+  min-height: 100vh;
+}
+
+/* 2. LOGO (Bên ngoài khung) */
+.forgot-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 10px;
+  margin-left: 0; /* Reset margin cũ */
+}
+
+/* Style cho icon logo (nếu dùng icon) */
+.forgot-logo i {
+  font-size: 32px;
+  color: #43c6a8;
+}
+
+/* Style cho hình tròn logo (nếu dùng ảnh cũ) */
+.logo-circle {
+  width: 28px;
+  height: 28px;
+  border: 4px solid var(--primary-color);
+  border-radius: 50%;
+  border-right-color: transparent;
+  transform: rotate(45deg);
+}
+
+.brand-name {
+  font-size: 24px;
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+/* 3. TIÊU ĐỀ & MÔ TẢ */
+.forgot-title {
+  font-size: 30px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: #1f2937;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.forgot-subtitle {
+  font-size: 16px;
+  color: #6b7280; /* Màu chữ phụ xám */
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* 4. KHUNG FORM (CARD) */
+.forgot-box {
+  width: 450px;
+  max-width: 95%; /* Responsive */
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 16px; /* Bo góc mềm mại */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08); /* Đổ bóng mềm */
+  border: 1px solid #e5e7eb;
+}
+
+/* 5. INPUT STYLING */
+.forgot-box form {
+  display: flex;
+  flex-direction: column;
+}
+
+.forgot-box label {
+  display: block;
+  text-align: left;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #374151;
+}
+
+.forgot-box input {
+  width: 100%;
+  height: 50px; /* Cao hơn chút cho dễ nhập */
+  background: #fff; /* Nền trắng hiện đại */
+  border: 1px solid #d1d5db; /* Viền xám */
+  border-radius: 8px;
+  padding: 0 15px;
+  margin-bottom: 25px; /* Khoảng cách với nút */
+  font-size: 15px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+/* Hiệu ứng khi bấm vào ô nhập */
+.forgot-box input:focus {
+  border-color: #43c6a8; /* Viền xanh ngọc */
+  box-shadow: 0 0 0 4px rgba(67, 198, 168, 0.15); /* Glow xanh nhẹ */
+}
+
+/* 6. BUTTON (NÚT BẤM) */
+.btn-forgot {
+  width: 100%;
+  padding: 14px;
+  background-color: #43c6a8 !important; /* Xanh ngọc */
+  color: #fff !important;
+  border: none;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(67, 198, 168, 0.3);
+  text-transform: uppercase;
+}
+
+.btn-forgot:hover {
+  background-color: #2aa68b !important; /* Đậm hơn khi hover */
+  transform: translateY(-2px);
+}
+
+/* 7. THÔNG BÁO LỖI */
+.error-msg {
+  margin-top: 15px;
+  color: #ef4444;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 576px) {
+  .forgot-page {
+    padding-top: 40px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .forgot-box {
+    padding: 25px;
+    box-shadow: none;
+    border: none;
+  }
+
+  .forgot-title {
+    font-size: 24px;
+  }
+}

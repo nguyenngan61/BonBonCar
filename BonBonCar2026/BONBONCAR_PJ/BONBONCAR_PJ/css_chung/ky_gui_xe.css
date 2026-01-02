@@ -1,0 +1,484 @@
+/* =========================================================
+   FILE: css_chung/ky_gui_xe.css
+   MÔ TẢ: Giao diện trang Ký gửi xe (Landing Page)
+   ========================================================= */
+
+/* 1. THIẾT LẬP MÀU SẮC CHUNG */
+:root {
+  --green-main: #43c6a8; /* Xanh ngọc chủ đạo */
+  --green-light: #e8f7f3; /* Xanh nền nhạt */
+  --green-dark: #2aa68b; /* Xanh đậm */
+  --text-dark: #1f2937; /* Màu chữ chính */
+  --text-gray: #6b7280; /* Màu chữ phụ */
+  --border-light: #e5e7eb; /* Màu viền */
+  --bg-page: #f5f7f9; /* Màu nền trang web */
+}
+
+/* 2. CẤU TRÚC TRANG */
+body {
+  background-color: var(--bg-page);
+  font-family: "Inter", sans-serif;
+  color: var(--text-dark);
+}
+
+main {
+  padding-bottom: 0; /* Trang này có section full width ở cuối */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 3. HERO SECTION (Banner đầu trang) */
+.hero {
+  padding: 60px 0;
+}
+
+.hero-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 40px;
+  align-items: stretch;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08); /* Bóng đổ mềm hơn */
+}
+
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero h1 {
+  font-size: 36px; /* Tăng cỡ chữ tiêu đề */
+  font-weight: 800;
+  margin-bottom: 15px;
+  color: #000;
+  line-height: 1.3;
+}
+
+.hero h1 span {
+  color: var(--green-main); /* Dùng biến màu */
+  display: block; /* Xuống dòng cho đẹp */
+}
+
+.sub-text {
+  color: var(--text-gray);
+  margin-bottom: 25px;
+  font-size: 16px;
+}
+
+/* Form ước tính */
+.estimate-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-gray);
+  margin-bottom: 5px;
+}
+
+.form-group select {
+  width: 100%;
+  height: 46px;
+  border-radius: 8px;
+  border: 1px solid var(--border-light);
+  padding: 0 15px;
+  font-family: inherit;
+  color: var(--text-dark);
+  font-size: 14px;
+  outline: none;
+  transition: 0.2s;
+}
+
+.form-group select:focus {
+  border-color: var(--green-main);
+  box-shadow: 0 0 0 3px rgba(67, 198, 168, 0.1);
+}
+
+.note {
+  font-size: 13px;
+  color: var(--green-dark);
+  background-color: var(--green-light);
+  padding: 10px 15px;
+  border-radius: 6px;
+  margin: 10px 0;
+  line-height: 1.5;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 14px;
+  background: var(--green-main);
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  color: #fff; /* Chữ trắng */
+  font-size: 16px;
+  transition: 0.3s;
+  text-transform: uppercase;
+}
+
+.btn-primary:hover {
+  background: var(--green-dark);
+  box-shadow: 0 4px 15px rgba(67, 198, 168, 0.4);
+}
+
+.hero-right {
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.hero-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 4. QUY TRÌNH 3 BƯỚC (STEPS) */
+.steps {
+  padding: 70px 0;
+  text-align: center;
+}
+
+.steps h2 {
+  font-size: 28px;
+  margin-bottom: 50px;
+  color: #000;
+  font-weight: 800;
+}
+
+.steps-line {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* Đường kẻ nối */
+.step {
+  position: relative;
+}
+
+.step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 35px; /* Căn giữa icon */
+  left: 60%;
+  width: 80%;
+  height: 2px;
+  background: linear-gradient(to right, var(--green-main) 50%, #ddd 50%);
+  background-size: 10px 100%; /* Tạo nét đứt giả */
+  z-index: 0;
+}
+
+.step-circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--green-main);
+  color: var(--green-main);
+  font-size: 24px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  position: relative;
+  z-index: 1; /* Nổi lên trên đường kẻ */
+  box-shadow: 0 5px 15px rgba(67, 198, 168, 0.2);
+}
+
+.step h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+.step p {
+  font-size: 14px;
+  color: var(--text-gray);
+  line-height: 1.5;
+  padding: 0 10px;
+}
+
+/* 5. LỢI ÍCH (BENEFITS) */
+.benefits {
+  background: #fff;
+  padding: 80px 0;
+}
+
+.benefits h2 {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 50px;
+}
+
+.benefit-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.benefit-item {
+  background: var(--bg-page);
+  padding: 30px 20px;
+  border-radius: 16px;
+  text-align: center;
+  transition: 0.3s;
+  border: 1px solid transparent;
+}
+
+.benefit-item:hover {
+  transform: translateY(-5px);
+  border-color: var(--green-main);
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.benefit-icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid var(--green-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin: 0 auto 20px;
+  background: #fff;
+}
+
+.benefit-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.benefit-item p {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-dark);
+  line-height: 1.5;
+}
+
+/* 6. SO SÁNH (COMPARE TABLE) */
+.compare {
+  padding: 80px 0;
+  text-align: center;
+}
+
+.compare h2 {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 40px;
+}
+
+.compare table {
+  width: 100%;
+  background: #fff;
+  border-collapse: collapse;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.compare th,
+.compare td {
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+  font-size: 15px;
+}
+
+.compare th {
+  background: #f9fafb;
+  font-weight: 700;
+  color: var(--text-dark);
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+/* Cột BonbonCar nổi bật */
+.compare th:nth-child(2),
+.compare td:nth-child(2) {
+  background-color: var(--green-light);
+  color: var(--green-dark);
+  font-weight: 700;
+  border-bottom-color: #d1efe8;
+}
+
+.compare td:first-child {
+  text-align: left;
+  padding-left: 30px;
+  font-weight: 600;
+}
+
+/* 7. CTA SECTION (Form đăng ký cuối) */
+.cta-section {
+  position: relative;
+  background: url("../kho_anh/anh_ky_gui/anh6.webp") center / cover no-repeat;
+  padding: 100px 0;
+  color: #fff;
+  margin-top: 40px;
+}
+
+.cta-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6); /* Nền đen mờ */
+}
+
+.cta-wrapper {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 450px;
+  gap: 50px;
+  align-items: center;
+}
+
+.cta-text h2 {
+  font-size: 40px;
+  line-height: 1.3;
+  font-weight: 800;
+}
+
+.cta-text span {
+  color: var(--green-main);
+}
+
+/* Form trắng nổi bật */
+.cta-form {
+  background: #fff;
+  color: var(--text-dark);
+  padding: 35px;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.cta-form h3 {
+  color: var(--green-main);
+  margin: 0 0 10px;
+  font-size: 22px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.cta-desc {
+  font-size: 14px;
+  color: var(--text-gray);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.cta-form form {
+  display: grid;
+  gap: 15px;
+}
+
+.cta-form input,
+.cta-form select {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+}
+
+.cta-form input:focus,
+.cta-form select:focus {
+  border-color: var(--green-main);
+}
+
+.cta-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+/* Nút phụ (Xóa) */
+.btn-outline {
+  padding: 12px;
+  border: 1px solid #ddd;
+  background: #f9fafb;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--text-gray);
+  flex: 1;
+}
+
+.btn-outline:hover {
+  background: #fff;
+  border-color: var(--text-dark);
+  color: var(--text-dark);
+}
+
+/* Nút chính trong form */
+.cta-form .btn-primary {
+  flex: 2;
+}
+
+/* 8. RESPONSIVE (MOBILE & TABLET) */
+@media (max-width: 992px) {
+  .hero-card {
+    grid-template-columns: 1fr; /* Xếp chồng cột Hero */
+  }
+  .hero-right {
+    height: 300px;
+    order: -1; /* Đẩy ảnh lên trên form */
+  }
+  .steps-line {
+    grid-template-columns: 1fr; /* Steps xếp dọc */
+    gap: 50px;
+  }
+  /* Ẩn đường kẻ ngang trên mobile */
+  .step:not(:last-child)::after {
+    display: none;
+  }
+
+  .benefit-list {
+    grid-template-columns: 1fr 1fr; /* Lợi ích 2 cột */
+  }
+
+  .cta-wrapper {
+    grid-template-columns: 1fr; /* CTA xếp chồng */
+  }
+  .cta-text {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .cta-text h2 {
+    margin-top: 0;
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 576px) {
+  .benefit-list {
+    grid-template-columns: 1fr; /* Lợi ích 1 cột */
+  }
+  .hero h1 {
+    font-size: 24px;
+  }
+}

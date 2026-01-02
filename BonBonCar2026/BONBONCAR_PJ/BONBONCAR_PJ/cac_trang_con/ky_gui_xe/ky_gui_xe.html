@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bonboncar</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="D:\BONBONCAR_PJ\kho_anh\anh_dung_chung\LOGO.png"
+    />
+    <link rel="stylesheet" href="../../css_chung/kieu_dang.css" />
+    <link rel="stylesheet" href="../../css_chung/ky_gui_xe.css" />
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
+
+    <div class="main-content"></div>
+
+    <script src="../../js_chung/chuc_nang.js"></script>
+    
+
+    <main>
+<!-- HERO -->
+<section class="hero container">
+  <div class="hero-card">
+    <!-- LEFT -->
+    <div class="hero-left">
+      <h1>
+        Cho thuê thảnh thơi – Thu nhập tự tới <br />
+        <span> cùng BonbonCar.</span>
+      </h1>
+
+      <p class="sub-text">Ước tính thu nhập từ xe của bạn</p>
+
+      <form class="estimate-form">
+
+  <!-- ROW 1 -->
+  <div class="form-row">
+    <div class="form-group">
+      <label>Hãng xe *</label>
+      <select name="brand" required>
+        <option value="" disabled selected>Hãng xe</option>
+        <option value="TOYOTA">TOYOTA</option>
+        <option value="VINFAST">VINFAST</option>
+        <option value="HYUNDAI">HYUNDAI</option>
+        <option value="MITSUBISHI">MITSUBISHI</option>
+        <option value="MAZDA">MAZDA</option>
+        <option value="Khác">Khác</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Mẫu xe *</label>
+      <select name="model" required>
+        <option value="" disabled selected>Mẫu xe</option>
+        <option value="8S LUX">8S LUX</option>
+        <option value="E34">E34</option>
+        <option value="FADIL">FADIL</option>
+        <option value="FADIL 1.4">FADIL 1.4</option>
+        <option value="Khác">Khác</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- ROW 2 -->
+  <div class="form-group">
+  <label>Thành phố *</label>
+  <select required>
+    <option value="" disabled selected>Chọn tỉnh / thành phố</option>
+
+    <option>Hà Nội</option>
+    <option>TP Hồ Chí Minh</option>
+    <option>Hải Phòng</option>
+    <option>Đà Nẵng</option>
+    <option>Cần Thơ</option>
+
+    <option>Tuyên Quang</option>
+    <option>Lào Cai</option>
+    <option>Thái Nguyên</option>
+    <option>Phú Thọ</option>
+    <option>Bắc Ninh</option>
+    <option>Hưng Yên</option>
+    <option>Ninh Bình</option>
+    <option>Thanh Hóa</option>
+    <option>Nghệ An</option>
+    <option>Hà Tĩnh</option>
+
+    <option>Quảng Trị</option>
+    <option>Thừa Thiên Huế</option>
+    <option>Quảng Nam</option>
+    <option>Quảng Ngãi</option>
+    <option>Bình Định</option>
+    <option>Phú Yên</option>
+    <option>Khánh Hòa</option>
+    <option>Ninh Thuận</option>
+
+    <option>Gia Lai</option>
+    <option>Đắk Lắk</option>
+    <option>Lâm Đồng</option>
+
+    <option>Đồng Nai</option>
+    <option>Bình Dương</option>
+    <option>Bà Rịa – Vũng Tàu</option>
+    <option>Long An</option>
+    <option>Tiền Giang</option>
+    <option>Vĩnh Long</option>
+    <option>Đồng Tháp</option>
+    <option>An Giang</option>
+    <option>Kiên Giang</option>
+    <option>Cà Mau</option>
+  </select>
+</div>
+
+  <!-- ROW 3 -->
+  <div class="form-group">
+  <label>Số ngày có thể cho thuê trong tháng *</label>
+  <select name="days" required>
+    <option value="" disabled selected>Chọn mức sử dụng</option>
+    <option value="low" >Sử dụng ít (2 – 3 ngày/tháng)</option>
+    <option value="high">Sử dụng nhiều (hơn 5 ngày/tháng)</option>
+    <option value="full">Chủ yếu cho thuê</option>
+  </select>
+</div>
+
+  <p id="estimate-result" class="note">
+    Chưa có mẫu xe tương tự trên BonbonCar. Đăng ký cho thuê ngay để trở thành những chủ xe đầu tiên
+  </p>
+
+  <button type="button" class="btn-primary" id="btn-scroll-register">
+  Đăng ký ngay
+</button>
+</form>
+
+    </div>
+
+    <!-- RIGHT IMAGE -->
+    <div class="hero-right">
+      <img src="../../kho_anh/anh_ky_gui/anh1.jpg" alt="car key" />
+    </div>
+  </div>
+</section>
+
+
+  <!-- 3 STEPS -->
+  <section class="steps container">
+  <h2>Cho thuê xe chỉ trong 3 bước – hoàn thành trong 5 phút</h2>
+
+  <div class="steps-line">
+    <!-- STEP 1 -->
+    <div class="step">
+      <div class="step-circle">1</div>
+      <h4>Khởi tạo hồ sơ</h4>
+      <p>
+        Nhập thông tin và tải ảnh xe – nhân viên BonbonCar kiểm duyệt trong
+        5 phút.
+      </p>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step">
+      <div class="step-circle">2</div>
+      <h4>Bắt đầu cho thuê</h4>
+      <p>
+        Khách thuê – trả xe tại bãi của bạn hoặc tại điểm BonbonCar.
+      </p>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="step">
+      <div class="step-circle">3</div>
+      <h4>Nhận tiền hàng tuần</h4>
+      <p>
+        Thanh toán tự động vào tài khoản – minh bạch – bảo mật.
+      </p>
+    </div>
+  </div>
+</section>
+
+  <!-- BENEFITS -->
+  <section class="benefits">
+    <div class="container">
+      <h2>An tâm tuyệt đối – BonbonCar lo trọn gói</h2>
+
+      <div class="benefit-list">
+  <div class="benefit-item">
+    <div class="benefit-icon">
+      <img src="../../kho_anh/anh_ky_gui/anh2.png" alt="Bảo hiểm" />
+    </div>
+    <p>Bảo hiểm vật chất toàn diện 100%</p>
+  </div>
+
+  <div class="benefit-item">
+    <div class="benefit-icon">
+      <img src="../../kho_anh/anh_ky_gui/anh3.jpg" alt="Tư vấn" />
+    </div>
+    <p>Tư vấn & xác thực hồ sơ khách thuê</p>
+  </div>
+
+  <div class="benefit-item">
+    <div class="benefit-icon">
+      <img src="../../kho_anh/anh_ky_gui/anh4.png" alt="Giám sát" />
+    </div>
+    <p>BonbonCar giám sát quá trình thuê & đảm bảo an toàn 24/7</p>
+  </div>
+
+  <div class="benefit-item">
+    <div class="benefit-icon">
+      <img src="../../kho_anh/anh_ky_gui/anh5.png" alt="Phạt nguội" />
+    </div>
+    <p>Yêu cầu khách bồi thường & truy thu phạt nguội (nếu có)</p>
+  </div>
+</div>
+    </div>
+  </section>
+
+  <!-- COMPARISON -->
+  <section class="compare container">
+    <h2>Vì sao nên ký gửi xe với BonbonCar?</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>BonbonCar</th>
+          <th>Tự cho thuê</th>
+          <th>Nền tảng khác</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Kiểm soát rủi ro 10 lớp</td>
+          <td>✔</td>
+          <td>✖</td>
+          <td>✖</td>
+        </tr>
+        <tr>
+          <td>Hỗ trợ pháp lý & phạt nguội</td>
+          <td>✔</td>
+          <td>✖</td>
+          <td>✖</td>
+        </tr>
+        <tr>
+          <td>Miễn phí lắp đặt thiết bị</td>
+          <td>✔</td>
+          <td>✖</td>
+          <td>✖</td>
+        </tr>
+        <tr>
+          <td>Thu nhập tự động hàng tuần</td>
+          <td>✔</td>
+          <td>✖</td>
+          <td>✖</td>
+        </tr>
+        <tr>
+          <td>Hỗ trợ 24/7</td>
+          <td>✔</td>
+          <td>✖</td>
+          <td>✖</td>
+        </tr>
+      </tbody>
+    </table>
+  </section> 
+        <section class="cta-section" id="dang-ky-thue-xe">
+  <div class="cta-overlay"></div>
+
+  <div class="container cta-wrapper">
+    <!-- LEFT TEXT -->
+    <div class="cta-text">
+      <h2>
+        Kiếm thu nhập thụ động dễ dàng <br />
+        cùng <span>BonbonCar!</span>
+      </h2>
+    </div>
+
+    <!-- RIGHT FORM -->
+    <div class="cta-form">
+      <h3>Đăng ký cho thuê xe</h3>
+      <p class="cta-desc">
+        Chúng tôi sẽ liên hệ bạn trong vòng 48 giờ để hoàn tất thủ tục!
+      </p>
+      <form id="rent-car-form">
+        <input type="text" placeholder="Họ và tên *" required/>
+        <input type="text" placeholder="Số điện thoại *" required/>
+        <input type="text" placeholder="CCCD *" required/>
+
+        <select required>
+        <option value="" disabled selected>Hãng xe *</option>
+        <option>Toyota</option>
+        <option>VinFast</option>
+        <option>Hyundai</option>
+        <option>Mitsubishi</option>
+        <option>Mazda</option>
+        <option>Kia</option>
+        <option>Honda</option>
+        <option>Ford</option>
+        <option>Nissan</option>
+        <option>Suzuki</option>
+        <option>Khác</option>
+        </select>
+
+        <select required>
+        <option value="" disabled selected>Đời xe *</option>
+        <option>2025</option>
+        <option>2024</option>
+        <option>2023</option>
+        <option>2022</option>
+        <option>2021</option>
+        <option>2020</option>
+        <option>2019</option>
+        <option>2018</option>
+        <option>Trước 2018</option>
+        </select>
+
+
+        <select required>
+      <option value="" disabled selected>Khu vực *</option>
+
+        <option>Hà Nội</option>
+        <option>TP Hồ Chí Minh</option>
+        <option>Hải Phòng</option>
+        <option>Đà Nẵng</option>
+        <option>Cần Thơ</option>
+
+        <option>Tuyên Quang</option>
+        <option>Lào Cai</option>
+        <option>Thái Nguyên</option>
+        <option>Phú Thọ</option>
+        <option>Bắc Ninh</option>
+        <option>Hưng Yên</option>
+        <option>Ninh Bình</option>
+        <option>Thanh Hóa</option>
+        <option>Nghệ An</option>
+        <option>Hà Tĩnh</option>
+
+        <option>Quảng Trị</option>
+        <option>Thừa Thiên Huế</option>
+        <option>Quảng Nam</option>
+        <option>Quảng Ngãi</option>
+        <option>Bình Định</option>
+        <option>Phú Yên</option>
+        <option>Khánh Hòa</option>
+        <option>Ninh Thuận</option>
+
+        <option>Gia Lai</option>
+        <option>Đắk Lắk</option>
+        <option>Lâm Đồng</option>
+
+        <option>Đồng Nai</option>
+        <option>Bình Dương</option>
+        <option>Bà Rịa – Vũng Tàu</option>
+        <option>Long An</option>
+        <option>Tiền Giang</option>
+        <option>Vĩnh Long</option>
+        <option>Đồng Tháp</option>
+        <option>An Giang</option>
+        <option>Kiên Giang</option>
+        <option>Cà Mau</option>
+      </select>
+
+
+        <input type="text" placeholder="Quận / Huyện *" />
+        <select required>
+        <option value="" disabled selected>Mẫu xe *</option>
+        <option value="8S LUX">8S LUX</option>
+        <option value="E34">E34</option>
+        <option value="FADIL">FADIL</option>
+        <option value="FADIL 1.4">FADIL 1.4</option>
+        <option value="Khác">Khác</option>
+        </select>
+
+        <input type="text" placeholder="ODO (km) *" />
+
+        <select required>
+        <option value="" disabled selected>Số ngày có thể cho thuê trong tháng *</option>
+        <option>Sử dụng ít (2 – 3 ngày / tháng)</option>
+        <option>Sử dụng trung bình (4 – 5 ngày / tháng)</option>
+        <option>Sử dụng nhiều (hơn 5 ngày / tháng)</option>
+        <option>Chủ yếu cho thuê</option>
+        </select>
+
+
+        <div class="cta-actions">
+          <button type="submit" class="btn-primary">Đăng ký</button>
+          <button type="reset" class="btn-outline">Xóa</button>
+        </div>
+      </form>
+  </div>
+</section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="../../js_chung/chuc_nang.js"></script>
+       <script src="../../js_chung/ky_gui_xe"></script>
+  </body>
+</html>

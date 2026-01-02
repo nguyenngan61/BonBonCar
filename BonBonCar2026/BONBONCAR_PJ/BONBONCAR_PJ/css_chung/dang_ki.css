@@ -1,0 +1,330 @@
+/* =========================================================
+   FILE: css_chung/dang_ki.css
+   MÔ TẢ: Giao diện Đăng ký (Đồng bộ & Responsive)
+   ========================================================= */
+
+/* 1. CẤU TRÚC TRANG (LAYOUT) */
+.register-page {
+  display: flex;
+  flex-direction: column; /* Xếp dọc các phần tử */
+  align-items: center; /* Căn giữa theo chiều ngang */
+  padding: 60px 20px; /* Khoảng cách trên dưới/trái phải */
+  min-height: 100vh;
+  background-color: #f5f7f9; /* Nền xám nhạt hiện đại */
+  font-family: "Inter", sans-serif;
+}
+
+/* 2. LOGO, TIÊU ĐỀ & MÔ TẢ (Phần bên ngoài khung) */
+.register-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+/* Giả lập logo tròn nếu bạn dùng div, hoặc dùng icon */
+.logo-circle {
+  width: 28px;
+  height: 28px;
+  border: 4px solid var(--primary-color);
+  border-radius: 50%;
+  border-right-color: transparent;
+  transform: rotate(45deg);
+}
+.brand-name {
+  font-size: 24px;
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.register-title {
+  font-size: 36px;
+  font-weight: 800;
+  color: #1f2937;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.register-desc {
+  max-width: 600px;
+  text-align: center;
+  font-size: 16px;
+  color: #6b7280; /* Màu chữ phụ */
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+/* 3. KHUNG FORM ĐĂNG KÝ (CARD) */
+.register-box {
+  width: 800px;
+  max-width: 100%;
+  background: #fff;
+  padding: 40px;
+  border-radius: 20px; /* Bo góc mềm mại */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08); /* Đổ bóng */
+  border: 1px solid #e5e7eb;
+}
+
+/* 4. GRID LAYOUT (Chia 2 cột) */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 50% - 50% */
+  gap: 20px; /* Khoảng cách giữa 2 cột */
+  margin-bottom: 20px;
+}
+
+/* 5. INPUT STYLING */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #374151;
+}
+
+.form-group input {
+  height: 48px;
+  padding: 0 15px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+  background: #fff;
+  transition: all 0.2s ease;
+}
+
+.form-group input:focus {
+  border-color: #43c6a8; /* Màu xanh ngọc khi nhập */
+  box-shadow: 0 0 0 4px rgba(67, 198, 168, 0.15);
+}
+
+/* 6. BUTTON ĐĂNG KÝ */
+.btn-register {
+  width: 100%;
+  padding: 14px;
+  background-color: #43c6a8 !important; /* Xanh ngọc */
+  color: #fff !important;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  margin-top: 10px;
+  box-shadow: 0 4px 15px rgba(67, 198, 168, 0.3);
+}
+
+.btn-register:hover {
+  background-color: #2aa68b !important;
+  transform: translateY(-2px);
+}
+
+/* 7. CHECKBOX & CHÍNH SÁCH */
+.policy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 25px;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.policy input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #43c6a8;
+  cursor: pointer;
+}
+
+.policy a {
+  color: #43c6a8;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.policy a:hover {
+  text-decoration: underline;
+}
+
+/* =========================================
+   8. THÔNG BÁO POPUP (TOAST OVERLAY)
+   ========================================= */
+.toast-overlay {
+  display: none; /* Mặc định ẩn */
+  position: fixed;
+  inset: 0; /* Full màn hình */
+  background-color: rgba(0, 0, 0, 0.5); /* Nền đen mờ */
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Class này được JS thêm vào để hiện popup */
+.toast-overlay.show {
+  display: flex;
+  opacity: 1;
+}
+
+.toast-box {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  transform: scale(0.8);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  max-width: 90%;
+  width: 400px;
+}
+
+.toast-overlay.show .toast-box {
+  transform: scale(1);
+}
+
+.toast-box h3 {
+  color: #43c6a8;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.toast-box p {
+  color: #4b5563;
+  margin-bottom: 25px;
+}
+
+.btn-back-login {
+  background-color: #1f2937; /* Màu đen xám */
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-back-login:hover {
+  background-color: #000;
+}
+
+/* =========================================
+   9. RESPONSIVE (MOBILE)
+   ========================================= */
+@media (max-width: 768px) {
+  .register-page {
+    padding: 40px 15px;
+  }
+
+  .register-box {
+    padding: 25px;
+  }
+
+  /* Chuyển grid thành 1 cột */
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .register-title {
+    font-size: 28px;
+  }
+
+  .btn-register {
+    height: 50px;
+  }
+}
+/* =========================
+   SOCIAL LOGIN (Mạng xã hội)
+========================= */
+
+/* 1. Dòng kẻ phân cách (Divider) */
+.separator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 20px 0;
+  color: #9ca3af; /* Màu xám nhạt */
+  font-size: 14px;
+}
+
+.separator::before,
+.separator::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #e5e7eb; /* Kẻ ngang */
+}
+
+.separator span {
+  padding: 0 10px;
+}
+
+/* 2. Container chứa nút */
+.social-login {
+  display: flex;
+  gap: 15px; /* Khoảng cách giữa 2 nút */
+  margin-bottom: 25px;
+}
+
+/* 3. Style chung cho nút Social */
+.social-btn {
+  flex: 1; /* Chia đều chiều rộng */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 45px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+/* --- Nút Google --- */
+.social-btn.google {
+  background-color: #fff;
+  color: #374151;
+  border-color: #d1d5db; /* Viền xám */
+}
+
+.social-btn.google:hover {
+  background-color: #f9fafb;
+  border-color: #9ca3af;
+}
+
+.social-btn.google i {
+  color: #db4437; /* Màu đỏ Google */
+  font-size: 18px;
+}
+
+/* --- Nút Facebook --- */
+.social-btn.facebook {
+  background-color: #1877f2; /* Xanh Facebook */
+  color: #fff;
+}
+
+.social-btn.facebook:hover {
+  background-color: #166fe5; /* Đậm hơn khi hover */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(24, 119, 242, 0.3);
+}
+
+.social-btn.facebook i {
+  font-size: 18px;
+}
+
+/* RESPONSIVE: Trên điện thoại thì xếp dọc nếu cần */
+@media (max-width: 400px) {
+  .social-login {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bonboncar</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="D:\BONBONCAR_PJ\kho_anh\anh_dung_chung\LOGO.png"
+    />
+    <link rel="stylesheet" href="../../css_chung/kieu_dang.css" />
+    <link rel="stylesheet" href="../../css_chung/dang_nhap.css" />
+  </head>
+  <script src="../../js_chung/dang_nhap.js"></script>
+  <body>
+    <div id="header-placeholder"></div>
+
+    <div class="main-content"></div>
+
+    <script src="../../js_chung/chuc_nang.js"></script>
+
+    <main class="login-page">
+      <div class="login-box">
+        <div class="login-logo">
+          <div class="logo-circle"></div>
+          <span class="brand-name">bonboncar</span>
+        </div>
+
+        <h1 class="login-title">ĐĂNG NHẬP</h1>
+
+        <form class="login-form" id="loginForm">
+          <div class="form-group">
+            <label>Số điện thoại</label>
+            <input type="text" id="loginPhone" />
+          </div>
+
+          <div class="form-group">
+            <label>Mật khẩu</label>
+            <input type="password" id="loginPassword" />
+          </div>
+
+          <a href="quen_mat_khau.html" class="forgot-password"
+            >Quên mật khẩu?</a
+          >
+
+          <button type="button" class="btn-submit" onclick="handleLogin()">
+            ĐĂNG NHẬP
+          </button>
+        </form>
+        <div class="separator">
+          <span>Hoặc đăng nhập bằng</span>
+        </div>
+
+        <div class="social-login">
+          <a href="#" class="social-btn google">
+            <i class="fa-brands fa-google"></i>
+            <span>Google</span>
+          </a>
+
+          <a href="#" class="social-btn facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+            <span>Facebook</span>
+          </a>
+        </div>
+        <p class="register-text">
+          Bạn chưa là thành viên?
+          <a href="dang_ki.html">Đăng ký ngay</a>
+        </p>
+      </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="../../js_chung/chuc_nang.js"></script>
+    <div id="login-toast" class="toast-success">✅ Đăng nhập thành công!</div>
+    <script>
+      function handleLogin() {
+        // 1. Tìm thông báo
+        const toast = document.getElementById("login-toast");
+
+        // 2. Thêm class 'show' để hiện lên (thay vì chỉnh style inline)
+        toast.classList.add("show");
+
+        // 3. Ẩn đi sau 3 giây
+        setTimeout(() => {
+          toast.classList.remove("show");
+        }, 3000);
+      }
+    </script>
+  </body>
+</html>

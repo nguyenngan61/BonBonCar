@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bonboncar</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../kho_anh/anh_dung_chung/LOGO.png"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="D:\BONBONCAR_PJ\kho_anh\anh_dung_chung\LOGO.png"
+    />
+    <link rel="stylesheet" href="../../css_chung/kieu_dang.css" />
+    <!-- CSS trang thanh toán -->
+    <link rel="stylesheet" href="../../css_chung/thanh_toan_giu_cho.css" />
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
+
+    <div class="main-content"></div>
+
+    <script src="../../js_chung/chuc_nang.js"></script>
+
+    <!-- SUB NAV -->
+    <div class="sub-nav">
+      <a href="dat_xe.html" class="back-link">
+        <span class="arrow">←</span>
+        <span class="text">ĐẶT XE</span>
+      </a>
+    </div>
+
+    <!-- MAIN -->
+    <!-- STEPS -->
+    <div class="booking-steps">
+      <div class="container steps-inner">
+        <div class="step">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <span>Tìm và đặt xe</span>
+        </div>
+        <div class="step active">
+          <div class="confirm-icon">
+            <i class="fa-solid fa-car"></i>
+          </div>
+          <span>Xác nhận đặt xe</span>
+        </div>
+
+        <div class="step active pulse-step">
+          <div class="confirm-icon">
+            <i class="fa-solid fa-credit-card"></i>
+          </div>
+          <span>Thanh toán giữ chỗ</span>
+        </div>
+        <div class="step">
+          <i class="fa-solid fa-car"></i>
+          <span>Chờ nhận xe</span>
+        </div>
+      </div>
+    </div>
+
+    <main class="booking-page">
+      <!-- LEFT -->
+      <div class="box">
+        <h3>THANH TOÁN PHÍ GIỮ CHỖ</h3>
+        <div class="price">100.000 đ</div>
+
+        <div class="countdown-box" id="countdown">15:00</div>
+
+        <div class="info-line">
+          <div class="detail-row">
+            <span>Mã đặt xe</span>
+            <b id="hold-code">...</b>
+          </div>
+          <div class="detail-row">
+            <span>Loại xe</span>
+            <b id="hold-car-name">Vinfast Lux SA 2.0</b>
+          </div>
+          <div class="detail-row">
+            <span>Ngày nhận</span>
+            <b id="hold-start">...</b>
+          </div>
+          <div class="detail-row">
+            <span>Ngày trả</span>
+            <b id="hold-end">...</b>
+          </div>
+        </div>
+
+        <div class="qr">
+          <b>Thanh toán bằng mã QR</b><br />
+
+            <a href="kiem_tra_tinh_trang_xe.html">
+              <img src="../../kho_anh/anh_dat_xe/qr.jpg" alt="QR BonbonCar" class="qr-img">
+            </a>
+
+        </div>
+
+        <div class="bank-box">
+          <div class="copy-row">
+            <span>Số tiền:</span>
+            <b>500000</b>
+            <button class="copy-btn">Sao chép</button>
+          </div>
+
+          <div class="copy-row">
+            <span>Nội dung CK:</span>
+            <b>BC1764863162</b>
+            <button class="copy-btn">Sao chép</button>
+          </div>
+
+          <div class="copy-row">
+            <span>Số tài khoản:</span>
+            <b>4398368999</b>
+            <button class="copy-btn">Sao chép</button>
+          </div>
+
+          <div class="copy-row">
+            <span>Ngân hàng:</span>
+            <b>MBBank</b>
+            <button class="copy-btn">Sao chép</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="box">
+        <h3>THÔNG TIN ĐƠN THUÊ</h3>
+
+        <img
+          id="confirm-img"
+          src="../../kho_anh/anh_dat_xe/thanh_toan_giu_cho.png"
+          class="car-img"
+          alt="Xe"
+          onerror="this.style.display='none'"
+        />
+
+        <div class="detail-row">
+          <span>Mã đặt xe</span>
+          <b id="confirm-code">...</b>
+        </div>
+
+        <div class="detail-row">
+          <span>Tên khách thuê</span>
+          <b>Nguyễn Văn Anh</b>
+        </div>
+
+        <div class="detail-row">
+          <span>Số điện thoại</span>
+          <b>8423456789</b>
+        </div>
+
+        <div class="detail-row">
+          <span>Ngày nhận</span>
+          <b id="confirm-start">...</b>
+        </div>
+
+        <div class="detail-row">
+          <span>Ngày trả</span>
+          <b id="confirm-end">...</b>
+        </div>
+
+        <div class="detail-row">
+          <span>Loại xe</span>
+          <b id="confirm-car-name">Vinfast Lux SA 2.0</b>
+        </div>
+
+        <hr />
+
+        <div class="detail-row total">
+          <span>Tổng cộng tiền thuê</span>
+          <span id="confirm-total">0 đ</span>
+        </div>
+
+        <div class="steps">
+          <b>Các bước thanh toán</b><br />
+
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              margin-top: 5px;
+            "
+          >
+            <span>Thanh toán giữ chỗ:</span>
+            <b id="confirm-hold">100.000 đ</b>
+          </div>
+
+          <div style="display: flex; justify-content: space-between">
+            <span>Thanh toán khi nhận xe:</span>
+            <b id="confirm-remain">0 đ</b>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- JS giữ nguyên -->
+    <script>
+      let time = 15 * 60;
+      const el = document.getElementById("countdown");
+
+      setInterval(() => {
+        if (time <= 0) return;
+        time--;
+        let m = Math.floor(time / 60);
+        let s = time % 60;
+        el.textContent =
+          String(m).padStart(2, "0") + ":" + String(s).padStart(2, "0");
+      }, 1000);
+
+      document.querySelectorAll(".copy-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const text = btn.previousElementSibling.innerText;
+          navigator.clipboard.writeText(text);
+          btn.innerText = "Đã chép";
+          setTimeout(() => (btn.innerText = "Sao chép"), 1200);
+        });
+      });
+    </script>
+
+    <div id="footer-placeholder"></div>
+    <script src="../../js_chung/chuc_nang.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // 1. Mở kho lấy dữ liệu (Dữ liệu này đã bao gồm phí ship, bảo hiểm, mã giảm giá...)
+        const data = JSON.parse(localStorage.getItem("bookingData"));
+
+        // Nếu không có dữ liệu (khách vào thẳng link này), đẩy về trang chủ
+        if (!data) {
+          alert("Vui lòng thực hiện đặt xe từ đầu!");
+          window.location.href = "./dat_xe.html";
+          return;
+        }
+
+        // 2. Điền Ngày & Giờ (Khớp với các trang trước)
+        // ID: confirm-start, confirm-end
+        if (document.getElementById("confirm-start")) {
+          document.getElementById("confirm-start").innerText = data.start;
+        }
+        if (document.getElementById("confirm-end")) {
+          document.getElementById("confirm-end").innerText = data.end;
+        }
+
+        // 3. Điền Tổng tiền thuê (Khớp với trang trước)
+        // ID: confirm-total
+        if (document.getElementById("confirm-total")) {
+          document.getElementById("confirm-total").innerText = formatMoney(
+            data.total
+          );
+        }
+
+        // 4. Tính toán số tiền thanh toán
+        // Tiền giữ chỗ (Cố định 100k hoặc lấy từ data nếu có lưu)
+        const holdFee = 100000;
+        if (document.getElementById("confirm-hold-fee")) {
+          document.getElementById("confirm-hold-fee").innerText =
+            formatMoney(holdFee);
+        }
+
+        // Tiền còn lại = Tổng tiền - Giữ chỗ
+        if (document.getElementById("confirm-remain")) {
+          const remain = data.total > holdFee ? data.total - holdFee : 0;
+          document.getElementById("confirm-remain").innerText =
+            formatMoney(remain);
+        }
+
+        // (Tùy chọn) Điền mã đặt xe ngẫu nhiên cho chuyên nghiệp
+        if (document.getElementById("confirm-code")) {
+          const randomCode = Math.floor(10000000 + Math.random() * 90000000);
+          document.getElementById("confirm-code").innerText = randomCode;
+        }
+      });
+
+      // Hàm format tiền tệ (3000000 -> 3.000.000đ)
+      function formatMoney(n) {
+        return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + "đ";
+      }
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // 1. Lấy dữ liệu
+        const data = JSON.parse(localStorage.getItem("bookingData"));
+        if (!data) {
+          // Xử lý khi không có data (tùy chọn)
+          return;
+        }
+
+        // 2. SINH MÃ ĐẶT XE (Tạo 1 lần, dùng cho cả 2 nơi)
+        const randomCode = Math.floor(10000000 + Math.random() * 90000000);
+
+        // --- CẬP NHẬT BOX TRÁI (PHÍ GIỮ CHỖ) ---
+        if (document.getElementById("hold-code"))
+          document.getElementById("hold-code").innerText = randomCode;
+        // Xe và Người cố định nên có thể không cần JS, hoặc nếu muốn đồng bộ:
+        // document.getElementById("hold-car-name").innerText = "Vinfast Lux SA 2.0";
+
+        if (document.getElementById("hold-start"))
+          document.getElementById("hold-start").innerText = data.start;
+        if (document.getElementById("hold-end"))
+          document.getElementById("hold-end").innerText = data.end;
+
+        // --- CẬP NHẬT BOX PHẢI (THÔNG TIN CHI TIẾT) ---
+        if (document.getElementById("confirm-code"))
+          document.getElementById("confirm-code").innerText = randomCode;
+
+        if (document.getElementById("confirm-start"))
+          document.getElementById("confirm-start").innerText = data.start;
+        if (document.getElementById("confirm-end"))
+          document.getElementById("confirm-end").innerText = data.end;
+
+        if (document.getElementById("confirm-total"))
+          document.getElementById("confirm-total").innerText = formatMoney(
+            data.total
+          );
+
+        // 3. ĐỒNG HỒ ĐẾM NGƯỢC (Cho Box trái thêm sinh động)
+        startTimer(15 * 60, document.querySelector("#countdown"));
+      });
+
+      // Hàm format tiền
+      function formatMoney(n) {
+        return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + "đ";
+      }
+
+      // Hàm đếm ngược 15 phút
+      function startTimer(duration, display) {
+        var timer = duration,
+          minutes,
+          seconds;
+        setInterval(function () {
+          minutes = parseInt(timer / 60, 10);
+          seconds = parseInt(timer % 60, 10);
+
+          minutes = minutes < 10 ? "0" + minutes : minutes;
+          seconds = seconds < 10 ? "0" + seconds : seconds;
+
+          if (display) display.textContent = minutes + ":" + seconds;
+
+          if (--timer < 0) {
+            timer = duration;
+          }
+        }, 1000);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BonbonCar | Xác nhận tình trạng xe</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../kho_anh/anh_dung_chung/LOGO.png"
+    />
+  <!-- CSS dùng chung -->
+  <link rel="stylesheet" href="../../css_chung/kieu_dang.css">
+
+  <!-- CSS riêng trang -->
+  <link rel="stylesheet" href="../../css_chung/kiem_tra_tinh_trang_xe.css">
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <div id="header-placeholder"></div>
+
+  <!-- NỘI DUNG CHÍNH -->
+  <main class="main-content">
+    <div class="ktxe-container">
+
+      <header class="ktxe-header">
+        <h1>Xác nhận tình trạng xe</h1>
+        <p>Vui lòng chụp và tải ảnh tình trạng xe để làm minh chứng trước khi mở khóa.</p>
+      </header>
+
+      <section class="ktxe-upload">
+        <h2>Ảnh tình trạng xe</h2>
+
+        <div class="ktxe-grid">
+          <label class="ktxe-box">
+          <input type="file" accept="image/*" multiple>
+          <div class="img-wrapper">
+
+  <button type="button" class="prev-btn" style="display:none;">&#8249;</button>
+  <img class="preview-img" src="" alt="preview" style="display:none;">
+  <button type="button" class="next-btn" style="display:none;">&#8250;</button>
+
+  <!-- ✎ NÚT GHI CHÚ -->
+  <button type="button" class="add-note-btn" title="Ghi chú ảnh">
+    ✎
+  </button>
+
+      <!-- PANEL GHI CHÚ -->
+      <div class="img-note-panel" hidden>
+
+        <div class="note-tags">
+          <label>
+            <input type="radio" name="note-tag-front" value="Trầy xước">
+            Trầy xước
+          </label>
+          <label>
+            <input type="radio" name="note-tag-front" value="Móp méo">
+            Móp méo
+          </label>
+          <label>
+            <input type="radio" name="note-tag-front" value="Bẩn">
+            Bẩn
+          </label>
+          <label>
+            <input type="radio" name="note-tag-front" value="Vỡ đèn">
+            Vỡ đèn
+          </label>
+        </div>
+
+        <textarea
+          class="note-text"
+          rows="2"
+          placeholder="Mô tả chi tiết thêm nếu cần..."
+        ></textarea>
+
+      </div>
+
+    </div>
+
+          <span>Mặt trước xe</span>
+        </label>
+
+
+
+          <label class="ktxe-box">
+          <input type="file" accept="image/*" multiple>
+          <div class="img-wrapper">
+
+  <button type="button" class="prev-btn" style="display:none;">&#8249;</button>
+  <img class="preview-img" src="" alt="preview" style="display:none;">
+  <button type="button" class="next-btn" style="display:none;">&#8250;</button>
+
+  <!-- ✎ NÚT GHI CHÚ -->
+  <button type="button" class="add-note-btn" title="Ghi chú ảnh">
+    ✎
+  </button>
+
+      <!-- PANEL GHI CHÚ -->
+      <div class="img-note-panel" hidden>
+
+        <div class="note-tags">
+          <label>
+            <input type="radio" name="note-tag-back" value="Trầy xước">
+            Trầy xước
+          </label>
+          <label>
+            <input type="radio" name="note-tag-back" value="Móp méo">
+            Móp méo
+          </label>
+          <label>
+            <input type="radio" name="note-tag-back" value="Bẩn">
+            Bẩn
+          </label>
+          <label>
+            <input type="radio" name="note-tag-back" value="Vỡ đèn">
+            Vỡ đèn
+          </label>
+        </div>
+
+        <textarea
+          class="note-text"
+          rows="2"
+          placeholder="Mô tả chi tiết thêm nếu cần..."
+        ></textarea>
+
+      </div>
+
+    </div>
+
+          <span>Mặt sau xe</span>
+        </label>
+
+
+
+          <label class="ktxe-box">
+          <input type="file" accept="image/*" multiple>
+          <div class="img-wrapper">
+
+  <button type="button" class="prev-btn" style="display:none;">&#8249;</button>
+  <img class="preview-img" src="" alt="preview" style="display:none;">
+  <button type="button" class="next-btn" style="display:none;">&#8250;</button>
+
+  <!-- ✎ NÚT GHI CHÚ -->
+  <button type="button" class="add-note-btn" title="Ghi chú ảnh">
+    ✎
+  </button>
+
+      <!-- PANEL GHI CHÚ -->
+      <div class="img-note-panel" hidden>
+
+        <div class="note-tags">
+          <label>
+            <input type="radio" name="note-tag-left_side" value="Trầy xước">
+            Trầy xước
+          </label>
+          <label>
+            <input type="radio" name="note-tag-left_side" value="Móp méo">
+            Móp méo
+          </label>
+          <label>
+            <input type="radio" name="note-tag-left_side" value="Bẩn">
+            Bẩn
+          </label>
+          <label>
+            <input type="radio" name="note-tag-left_side" value="Cửa hỏng">
+            Vỡ đèn
+          </label>
+        </div>
+
+        <textarea
+          class="note-text"
+          rows="2"
+          placeholder="Mô tả chi tiết thêm nếu cần..."
+        ></textarea>
+
+      </div>
+
+    </div>
+
+          <span>Thân xe bên trái</span>
+        </label>
+
+
+
+          <label class="ktxe-box">
+          <input type="file" accept="image/*" multiple>
+          <div class="img-wrapper">
+
+  <button type="button" class="prev-btn" style="display:none;">&#8249;</button>
+  <img class="preview-img" src="" alt="preview" style="display:none;">
+  <button type="button" class="next-btn" style="display:none;">&#8250;</button>
+
+  <!-- ✎ NÚT GHI CHÚ -->
+  <button type="button" class="add-note-btn" title="Ghi chú ảnh">
+    ✎
+  </button>
+
+      <!-- PANEL GHI CHÚ -->
+      <div class="img-note-panel" hidden>
+
+        <div class="note-tags">
+          <label>
+            <input type="radio" name="note-tag-right_side" value="Trầy xước">
+            Trầy xước
+          </label>
+          <label>
+            <input type="radio" name="note-tag-right_side" value="Móp méo">
+            Móp méo
+          </label>
+          <label>
+            <input type="radio" name="note-tag-right_side" value="Bẩn">
+            Bẩn
+          </label>
+          <label>
+            <input type="radio" name="note-tag-right_side" value="Cửa hỏng">
+            Vỡ đèn
+          </label>
+        </div>
+
+        <textarea
+          class="note-text"
+          rows="2"
+          placeholder="Mô tả chi tiết thêm nếu cần..."
+        ></textarea>
+
+      </div>
+
+    </div>
+
+          <span>Thân phải xe xe</span>
+        </label>
+
+
+
+          <label class="ktxe-box">
+          <input type="file" accept="image/*" multiple>
+          <div class="img-wrapper">
+
+  <button type="button" class="prev-btn" style="display:none;">&#8249;</button>
+  <img class="preview-img" src="" alt="preview" style="display:none;">
+  <button type="button" class="next-btn" style="display:none;">&#8250;</button>
+
+  <!-- ✎ NÚT GHI CHÚ -->
+  <button type="button" class="add-note-btn" title="Ghi chú ảnh">
+    ✎
+  </button>
+
+      <!-- PANEL GHI CHÚ -->
+      <div class="img-note-panel" hidden>
+
+        <div class="note-tags">
+          <label>
+            <input type="radio" name="note-tag-interior" value="Có mùi">
+            Trầy xước
+          </label>
+          <label>
+            <input type="radio" name="note-tag-interior" value="Ghế hỏng">
+            Móp méo
+          </label>
+          <label>
+            <input type="radio" name="note-tag-interior" value="Bẩn">
+            Bẩn
+          </label>
+          <label>
+            <input type="radio" name="note-tag-interior" value="Tốt">
+            Vỡ đèn
+          </label>
+        </div>
+
+        <textarea
+          class="note-text"
+          rows="2"
+          placeholder="Mô tả chi tiết thêm nếu cần..."
+        ></textarea>
+
+      </div>
+
+    </div>
+
+          <span>Nội thất</span>
+        </label>
+
+
+        </div>
+      </section>
+
+           <!-- ===== TEXTBOX CUỐI QUY TRÌNH (BỔ SUNG) ===== -->
+    <section class="ktxe-note-box">
+      <h3>Lưu ý khác (ngoài hình ảnh)</h3>
+      <textarea placeholder="Nhập các tình trạng không thể hiện trên ảnh..."></textarea>
+    </section>
+
+      <section class="ktxe-unlock">
+        <p>Sau khi hoàn tất tải ảnh, nhấn nút bên dưới để mở khóa xe.</p>
+
+        <a href="mo_khoa_thanh_cong.html" class="ktxe-btn">MỞ KHÓA XE
+</a>
+
+
+        <small class="ktxe-note">
+          * Việc mở khóa đồng nghĩa bạn xác nhận tình trạng xe đã được ghi nhận.  <br>
+          *Vui lòng bật blutooth trước khi mở khóa xe
+        </small>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <div id="footer-placeholder"></div>
+
+  <!-- JS chung load header/footer -->
+  <script src="../../js_chung/chuc_nang.js"></script>
+  <script src="../../js_chung/kiem_tra_tinh_trang_xe.js"></script>
+
+</body>
+</html>

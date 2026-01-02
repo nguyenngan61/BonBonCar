@@ -1,0 +1,408 @@
+/* =========================================================
+   FILE: css_chung/lien_he.css
+   MÔ TẢ: Giao diện trang Liên hệ, Bản đồ, Form, Popup
+   ========================================================= */
+
+/* 1. THIẾT LẬP CHUNG CHO TRANG LIÊN HỆ */
+.lien-he-page {
+  background: #fff;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+/* 2. BANNER & TIÊU ĐỀ */
+.lh-banner {
+  background: #7fd1b2; /* Màu xanh chủ đạo */
+  padding: 12px 0;
+  margin-top: 0 !important;
+}
+
+.lh-back {
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.section-title {
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+  margin: 40px 0 20px;
+  color: #333;
+  text-transform: uppercase;
+}
+
+.section-desc {
+  max-width: 720px;
+  margin: 0 auto 40px;
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* 3. KHUNG VỊ TRÍ CỬA HÀNG */
+.location-wrap {
+  max-width: 900px;
+  margin: 0 auto 60px;
+}
+
+/* --- Filter (Thanh tiêu đề bên trái) --- */
+.location-filter {
+  /* Canh lề trái cho khớp với cột bên trái */
+  width: 50%;
+  padding-right: 10px;
+  margin-bottom: 20px;
+}
+
+.filter-item {
+  border: 1px solid #00d2ba;
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #00d2ba;
+  background: #e8f7f3;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* --- Nội dung chính (Grid 2 cột) --- */
+.location-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Chia đôi màn hình */
+  gap: 20px;
+  align-items: start; /* Chống kéo giãn chiều cao */
+}
+
+/* --- Cột Trái: Danh sách địa chỉ --- */
+.location-box {
+  border: 1px solid #bfeee4;
+  border-radius: 8px;
+  padding: 20px;
+  font-size: 14px;
+  background: #fff;
+  line-height: 1.6;
+}
+
+.location-box h4 {
+  font-weight: 700;
+  margin: 16px 0 6px;
+  color: #333;
+}
+/* Bỏ margin top cho thẻ h4 đầu tiên */
+.location-box h4:first-child {
+  margin-top: 0;
+}
+
+.location-box ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.location-box li {
+  margin-bottom: 6px;
+}
+
+/* --- Cột Phải: Bản đồ & Dropdown --- */
+.location-map {
+  position: relative;
+  /* Đẩy cột phải lên để khớp với thanh filter bên trái */
+  margin-top: -75px;
+  align-self: start;
+  z-index: 10;
+}
+
+/* Thanh chọn địa điểm (Dropdown Trigger) */
+.location-select {
+  border: 1px solid #00d2ba;
+  background: #e8f7f3;
+  padding: 12px 16px;
+  border-radius: 6px;
+  color: #00bfa6;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px; /* Khoảng cách với bản đồ */
+  transition: 0.3s;
+}
+
+.location-select:hover {
+  background: #d4f2ea;
+}
+
+/* Danh sách xổ xuống */
+#location-dropdown {
+  position: absolute;
+  top: 50px; /* Nằm ngay dưới thanh chọn */
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #00d2ba;
+  border-radius: 6px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  display: none; /* Mặc định ẩn */
+  z-index: 20;
+  max-height: 300px;
+  overflow-y: auto; /* Cuộn nếu danh sách dài */
+}
+
+#location-dropdown div {
+  padding: 12px 16px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  font-size: 13px;
+  color: #333;
+  transition: 0.2s;
+}
+
+#location-dropdown div:last-child {
+  border-bottom: none;
+}
+
+#location-dropdown div:hover {
+  background: #e8f7f3;
+  color: #00d2ba;
+}
+
+/* Iframe Bản đồ */
+#map-frame {
+  width: 100%;
+  height: 100%;
+  min-height: 480px; /* Chiều cao cố định cho bản đồ */
+  border: 1px solid #bfeee4;
+  border-radius: 8px;
+  display: block;
+}
+
+/* 4. KHUNG HỖ TRỢ & FORM */
+.support-content {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr; /* Cột trái nhỏ hơn cột phải */
+  gap: 30px;
+  max-width: 900px;
+  margin: 0 auto 60px;
+}
+
+/* --- Cột Trái: Các box menu --- */
+.support-box {
+  border: 1px solid #bfeee4;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.support-box h4 {
+  background: #cfeee4;
+  padding: 12px 15px;
+  font-weight: 700;
+  margin: 0;
+  color: #333;
+}
+
+.support-box ul {
+  padding: 15px;
+  list-style: none; /* Bỏ dấu chấm tròn */
+  margin: 0;
+}
+
+.support-box li {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #555;
+  cursor: pointer; /* Con trỏ tay */
+  transition: 0.2s;
+  padding-left: 5px;
+}
+
+.support-box li:hover {
+  color: #00d2ba;
+  transform: translateX(5px); /* Hiệu ứng đẩy sang phải */
+}
+
+.support-box li:last-child {
+  margin-bottom: 0;
+}
+
+/* --- Cột Phải: Form liên hệ --- */
+.support-form {
+  border: 1px solid #bfeee4;
+  border-radius: 8px;
+  padding: 20px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.support-form form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+}
+
+/* Input & Textarea */
+.support-form input,
+.support-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #bfeee4;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.support-form input:focus,
+.support-form textarea:focus {
+  border-color: #00d2ba;
+  box-shadow: 0 0 5px rgba(0, 210, 186, 0.2);
+}
+
+.support-form textarea {
+  flex: 1; /* Tự động giãn chiều cao lấp đầy */
+  min-height: 150px;
+  resize: none;
+}
+
+/* Nút Gửi */
+.support-form button {
+  width: 100%;
+  background: #7fd1b2;
+  border: none;
+  padding: 12px;
+  font-weight: 700;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: 0.3s;
+  margin-top: auto;
+}
+
+.support-form button:hover {
+  background: #00d2ba;
+  box-shadow: 0 4px 10px rgba(0, 210, 186, 0.3);
+}
+
+/* 5. POPUP (CÂU HỎI THƯỜNG GẶP) */
+#popup-overlay {
+  position: fixed;
+  inset: 0; /* top:0, left:0, right:0, bottom:0 */
+  background: rgba(0, 0, 0, 0.6);
+  display: none; /* JS sẽ bật thành flex */
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.popup-box {
+  background: #fff;
+  width: 90%;
+  max-width: 600px;
+  padding: 30px;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  animation: popupFadeIn 0.3s ease;
+}
+
+.popup-box h3 {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #00d2ba;
+  font-size: 20px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.popup-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+  font-size: 24px;
+  color: #aaa;
+  transition: 0.2s;
+}
+
+.popup-close:hover {
+  color: #ff0000;
+}
+
+/* Nội dung trong popup */
+#popup-content {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #333;
+}
+.error-message {
+  color: #ff3b30;
+  font-size: 12px;
+  display: block;
+  margin-top: 4px;
+  margin-bottom: 8px;
+  min-height: 15px; /* Giữ chỗ để không bị giật layout */
+}
+
+/* Viền đỏ khi lỗi */
+input.input-error,
+textarea.input-error {
+  border-color: #ff3b30 !important;
+  background-color: #fff5f5;
+}
+@keyframes popupFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 6. RESPONSIVE (MOBILE) */
+@media (max-width: 768px) {
+  /* Chuyển grid thành 1 cột */
+  .location-content,
+  .support-content {
+    grid-template-columns: 1fr;
+  }
+
+  .location-filter {
+    width: 100%;
+  }
+
+  /* Reset margin âm của map trên mobile */
+  .location-map {
+    margin-top: 0;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .section-title {
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,254 @@
+/* ===== Layout Chính ===== */
+.policy-page {
+  max-width: 1000px; /* Thu hẹp lại một chút để dễ đọc văn bản dài */
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  background-color: #fff;
+}
+
+/* ===== Hero (Banner Tiêu đề) ===== */
+/* Container chính - Chuyển sang Gradient Xanh thương hiệu */
+.policy-hero-fixed {
+  /* Dùng gradient xanh Bonboncar thay vì màu xám chết */
+  background: linear-gradient(135deg, #00d1b2 0%, #00a862 100%) !important;
+  min-height: 280px !important;
+  border-radius: 16px; /* Bo góc nhiều hơn cho mềm mại */
+  padding: 50px !important;
+  margin-bottom: 40px;
+  box-shadow: 0 10px 30px rgba(0, 168, 98, 0.2); /* Bóng đổ xanh nhẹ */
+  position: relative;
+  overflow: hidden;
+
+  /* Flexbox giữ nguyên */
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-end !important;
+  color: white !important;
+}
+
+/* Trang trí nhẹ nền (Tùy chọn - không ảnh hưởng HTML) */
+.policy-hero-fixed::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 300px;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Dòng thông tin (Tên, Ngày, Thời gian) */
+.policy-meta-line {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9) !important;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Tạo dấu chấm */
+.custom-dot {
+  width: 4px;
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 12px;
+}
+
+/* Tiêu đề lớn */
+.policy-main-title {
+  font-size: 36px !important;
+  font-weight: 800 !important;
+  margin: 0 !important;
+  text-transform: none !important; /* Bỏ viết hoa toàn bộ để dễ đọc hơn */
+  line-height: 1.2;
+  color: white !important;
+  text-align: left;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== Nội dung bài viết ===== */
+.policy-content {
+  color: #4a4a4a; /* Màu chữ xám đen dịu mắt hơn đen tuyền */
+  font-size: 16px;
+  line-height: 1.8; /* Tăng khoảng cách dòng để dễ đọc văn bản pháp lý */
+  text-align: left; /* Canh trái dễ đọc hơn canh đều (justify) trên web */
+}
+
+.policy-content p {
+  margin-bottom: 24px;
+}
+
+/* Các thẻ Heading trong bài viết (nếu có) */
+.policy-content h3,
+.policy-content h2 {
+  color: #2c3e50;
+  font-weight: 700;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.policy-content strong {
+  color: #00a862; /* Nhấn mạnh bằng màu xanh thương hiệu */
+  font-weight: 700;
+}
+
+/* Nhấn mạnh giá tiền/phụ phí */
+.price {
+  color: #00a862; /* Chuyển sang màu xanh lá */
+  font-weight: 800;
+  background: #eafbf3; /* Nền xanh nhạt */
+  padding: 4px 8px;
+  border-radius: 6px;
+  display: inline-block; /* Để padding hoạt động tốt hơn */
+}
+
+/* ===== Hình ảnh minh họa ===== */
+.illustration-box {
+  margin: 40px 0;
+  text-align: center;
+  background: #ffffff;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid #f0f0f0;
+  /* Loại bỏ nền xám, thay bằng bóng đổ */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.illustration-box img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+}
+
+.caption {
+  display: block;
+  margin-top: 15px;
+  font-size: 13px;
+  color: #888;
+  font-style: italic;
+  background: #fafafa;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+/* ===== Read More (Bài viết liên quan) ===== */
+.read-more {
+  border-top: 2px dashed #eee; /* Nét đứt nhẹ nhàng hơn */
+  padding-top: 40px;
+  margin-top: 60px;
+}
+
+.read-more h3 {
+  font-size: 22px;
+  margin-bottom: 24px;
+  color: #333;
+  font-weight: 700;
+  border-left: 4px solid #00a862; /* Line xanh bên cạnh tiêu đề */
+  padding-left: 12px;
+}
+
+.read-more-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.read-more-item {
+  display: flex;
+  gap: 16px;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  background: #fff;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+}
+
+.read-more-item:hover {
+  transform: translateY(-5px);
+  background: #fdfdfd;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  border-color: #eee;
+}
+
+.thumbnail {
+  width: 120px; /* Nhỏ gọn hơn */
+  height: 80px;
+  background: #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.read-more-item:hover .thumbnail img {
+  transform: scale(1.1); /* Zoom ảnh khi hover */
+}
+
+.read-more-item .meta {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.read-more-item .meta span {
+  font-size: 11px;
+  color: #999;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.read-more-item h4 {
+  font-size: 15px;
+  margin: 0;
+  line-height: 1.4;
+  color: #333;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.read-more-item:hover h4 {
+  color: #00a862; /* Tiêu đề hóa xanh khi hover */
+}
+
+/* ===== Responsive (Mobile) ===== */
+@media (max-width: 768px) {
+  .policy-page {
+    padding: 20px 16px;
+  }
+
+  .policy-hero-fixed {
+    padding: 30px 20px !important;
+    min-height: 220px !important;
+    margin-bottom: 30px;
+  }
+
+  .policy-main-title {
+    font-size: 24px !important;
+  }
+
+  .read-more-list {
+    grid-template-columns: 1fr; /* 1 cột trên mobile */
+    gap: 20px;
+  }
+}

@@ -1,0 +1,382 @@
+/* --- 1. RESET & BIẾN MÀU --- */
+:root {
+  --primary-color: #00d2ba; /* Xanh ngọc Bonboncar */
+  --color-bg-black: #000000;
+  --text-white: #ffffff;
+  --text-grey: #b0b0b0;
+  --font-main: "Inter", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: #f5f5f5;
+  min-height: 100vh; /* Chiều cao tối thiểu bằng màn hình */
+  display: flex; /* Dùng Flexbox để dàn trang */
+  flex-direction: column; /* Xếp dọc từ trên xuống */
+  padding-top: 72px;
+}
+
+/* Phần nội dung chính sẽ tự giãn ra để đẩy footer xuống */
+main {
+  flex: 1;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: 0.3s;
+}
+ul {
+  list-style: none;
+}
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* --- 2. HEADER --- */
+/* --- 2. HEADER --- */
+header {
+  background-color: var(--color-bg-black);
+  height: 72px;
+
+  /* --- PHẦN QUAN TRỌNG ĐỂ DÍNH HEADER --- */
+  position: fixed; /* Hoặc dùng position: fixed; nếu muốn nó nổi hẳn lên */
+  top: 0; /* Dính sát mép trên cùng */
+  left: 0;
+  width: 100%; /* Đảm bảo rộng 100% màn hình */
+  z-index: 1000; /* Đảm bảo nó nổi lên trên các nội dung khác */
+
+  /* Thêm bóng đổ nhẹ để tách biệt với nội dung khi cuộn (Tùy chọn) */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid #333;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+}
+
+/* Logo */
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: auto;
+}
+.logo-circle {
+  width: 28px;
+  height: 28px;
+  border: 4px solid var(--primary-color);
+  border-radius: 50%;
+  border-right-color: transparent;
+  transform: rotate(45deg);
+}
+.brand-name {
+  font-size: 24px;
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+/* Menu Giữa - Hover đổi màu */
+.nav-center {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Khoảng cách giữa các chữ: Về Bonboncar, Blog...*/
+  margin-right: 30px; /* Khoảng cách giữa Menu và Location (Cụm bên phải) */
+}
+.nav-center a {
+  text-decoration: none;
+  color: #ffffffff;
+  font-weight: 600;
+  font-size: 14px;
+  transition: 0.3s;
+}
+.nav-center a:hover {
+  color: var(--primary-color);
+} /* Đổi màu khi di chuột */
+
+/* Khu vực phải */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Dropdown Địa điểm */
+.location-picker {
+  position: relative;
+  cursor: pointer;
+  color: var(--text-white);
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 0;
+}
+.location-picker:hover {
+  color: var(--primary-color);
+} /* Icon đổi màu khi di chuột */
+
+/* Danh sách thành phố (Ẩn/Hiện) */
+.city-dropdown {
+  display: none; /* Mặc định ẩn */
+  position: absolute;
+  top: 100%;
+  left: -10px;
+  background: white;
+  width: 150px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  padding: 5px 0;
+  z-index: 999;
+}
+.location-picker:hover .city-dropdown {
+  display: block;
+} /* Hiện khi hover */
+
+.city-dropdown li a {
+  display: block;
+  padding: 8px 15px;
+  color: #333;
+  font-weight: 500;
+}
+.city-dropdown li a:hover {
+  background: #f0f0f0;
+  color: var(--primary-color);
+}
+
+/* Nút bấm Auth */
+.divider {
+  width: 1px;
+  height: 20px;
+  background: #444;
+}
+.link-register {
+  color: var(--text-white);
+  font-weight: 700;
+  font-size: 14px;
+}
+.link-register:hover {
+  color: var(--primary-color);
+}
+
+.btn-login {
+  border: 1px solid var(--text-white);
+  color: var(--text-white);
+  padding: 7px 16px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 14px;
+}
+.btn-login:hover {
+  border-color: var(--primary-color);
+  background-color: var(--primary-color);
+  color: #000; /* Chữ đen trên nền xanh ngọc */
+}
+
+/* --- 3. FOOTER --- */
+.footer-exact {
+  background-color: var(--color-bg-black);
+  color: var(--color-text-white);
+  padding: 20px 0 10px;
+  font-size: 14px;
+}
+
+/* Tầng 1: Văn phòng */
+.footer-offices {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* 3 cột đều nhau */
+  gap: 40px;
+  margin-bottom: 10px;
+}
+.office-col h4 {
+  font-size: 15px;
+  margin-bottom: 8px;
+  color: #fff;
+  font-weight: 700;
+}
+.office-col p {
+  font-size: 13px;
+  color: #ccc;
+  line-height: 1.5;
+}
+
+/* Kẻ ngang */
+.footer-divider {
+  height: 1px;
+  background-color: #333;
+  margin-bottom: 10px;
+}
+
+/* Tầng 2: Main Content */
+.footer-main-content {
+  display: grid;
+  /* Cấu trúc cột: [Info rộng] [Menu] [Menu] [Menu] [Social hẹp] */
+  grid-template-columns: 3fr 1.8fr 1.5fr 1.5fr 0.5fr;
+  gap: 20px;
+}
+
+/* Cột Info trái cùng */
+.footer-info {
+  padding-right: 20px;
+}
+.footer-logo-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.logo-circle-small {
+  width: 20px;
+  height: 20px;
+  border: 3px solid var(--primary-color);
+  border-radius: 50%;
+  border-right-color: transparent;
+  transform: rotate(45deg);
+}
+.company-name {
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #ccc;
+}
+.tax-info {
+  font-size: 13px;
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+.contact-block {
+  margin-bottom: 15px;
+}
+.contact-block p {
+  font-size: 13px;
+  color: #ccc;
+}
+.contact-block .highlight-text {
+  font-weight: 700;
+  color: #fff;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+
+.bct-badge {
+  width: 140px;
+  margin-top: 10px;
+}
+
+/* Các cột Links */
+.footer-links h4 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #fff;
+}
+.footer-links ul li {
+  margin-bottom: 12px;
+}
+.footer-links ul li a {
+  color: #ccc;
+  font-size: 13px;
+}
+.footer-links ul li a:hover {
+  color: #00d2ba !important;
+}
+
+/* Cột Social phải cùng (Xếp dọc) */
+.footer-social {
+  display: flex;
+  flex-direction: column; /* Xếp dọc xuống giống ảnh */
+  gap: 15px;
+  align-items: center;
+}
+.footer-social i {
+  font-size: 24px; /* Icon to rõ */
+  background: #fff; /* Nền trắng để icon màu nổi bật lên nếu cần, hoặc để transparent */
+  background: transparent;
+  border-radius: 4px;
+}
+/* --- CSS CHO MENU CHÍNH SÁCH (NAVBAR) --- */
+
+/* Wrapper bao quanh chữ Chính sách */
+.nav-item-dropdown {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  color: #ffffffff;
+  font-weight: 600;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.nav-item-dropdown:hover .nav-text {
+  color: #00d2ba; /* Hover màu xanh ngọc */
+}
+
+/* Danh sách thả xuống (Mặc định ẩn) */
+.dropdown-list {
+  display: none;
+  position: absolute;
+  top: 150%; /* Cách chữ Chính sách một chút */
+  left: 0;
+  background: #fff;
+  min-width: 220px; /* Chiều rộng đủ chứa chữ dài nhất */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Bóng đổ */
+  border-radius: 8px;
+  padding: 10px 0;
+  list-style: none;
+  z-index: 1000;
+  border: 1px solid #eee;
+}
+
+/* Class để hiện menu (JS sẽ thêm class này) */
+.dropdown-list.show {
+  display: block;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+/* Các mục bên trong menu */
+.dropdown-list li {
+  padding: 0;
+}
+
+.dropdown-list li a {
+  display: block;
+  padding: 10px 20px;
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+  white-space: nowrap; /* Không xuống dòng */
+}
+
+.dropdown-list li a:hover {
+  background-color: #f5f5f5;
+  color: #00d2ba;
+  padding-left: 25px; /* Hiệu ứng đẩy nhẹ sang phải */
+}
+
+/* Hiệu ứng hiện ra nhẹ nhàng */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

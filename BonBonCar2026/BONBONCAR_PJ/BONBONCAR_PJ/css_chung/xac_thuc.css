@@ -1,0 +1,153 @@
+/* =========================================================
+   FILE: css_chung/xac_thuc.css
+   MÔ TẢ: Giao diện Xác thực OTP (Đồng bộ Design System)
+   ========================================================= */
+
+/* 1. THIẾT LẬP CHUNG */
+body {
+  background-color: #f5f7f9; /* Nền xám nhạt toàn trang */
+  font-family: "Inter", sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* 2. KHUNG CHÍNH (CARD) */
+/* Ở đây .forgot-page đóng vai trò là cái thẻ Card */
+.forgot-page {
+  width: 500px;
+  max-width: 95%;
+  margin: 80px auto; /* Căn giữa và cách top */
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 16px; /* Bo góc chuẩn */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08); /* Đổ bóng mềm */
+  border: 1px solid #e5e7eb;
+  text-align: center;
+}
+
+/* 3. LOGO */
+.forgot-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: auto;
+  width: 28px;
+  height: 28px;
+  border: 4px solid var(--primary-color);
+  border-radius: 50%;
+  border-right-color: transparent;
+  transform: rotate(45deg);
+}
+
+.logo-placeholder {
+  font-size: 24px;
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.logo-placeholder i {
+  font-size: 32px;
+  color: #43c6a8; /* Màu xanh ngọc thương hiệu */
+}
+
+/* 4. TIÊU ĐỀ & MÔ TẢ */
+.forgot-title {
+  font-size: 26px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: #1f2937;
+  text-transform: uppercase;
+}
+
+.forgot-subtitle {
+  font-size: 15px;
+  color: #6b7280;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 5. FORM & INPUT */
+.forgot-box {
+  width: 100%;
+}
+
+.forgot-box form {
+  display: flex;
+  flex-direction: column;
+}
+
+.forgot-box label {
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* Ô nhập mã OTP */
+#otp-code {
+  width: 100%;
+  height: 50px; /* Cao hơn chút cho dễ nhập */
+  border: 1px solid #d1d5db; /* Viền xám */
+  border-radius: 8px;
+  background: #fff; /* Nền trắng (thay vì xanh nhạt cũ) */
+  padding: 0 15px;
+  font-size: 18px; /* Chữ to hơn cho mã OTP */
+  letter-spacing: 2px; /* Khoảng cách chữ rộng ra */
+  text-align: center; /* Nhập mã ở giữa */
+  outline: none;
+  margin-bottom: 25px;
+  transition: all 0.2s ease;
+  font-weight: 700;
+}
+
+#otp-code:focus {
+  border-color: #43c6a8;
+  box-shadow: 0 0 0 4px rgba(67, 198, 168, 0.15);
+}
+
+/* 6. BUTTON (NÚT BẤM) */
+.form-actions {
+  width: 100%;
+}
+
+.btn-forgot {
+  width: 100%;
+  padding: 14px;
+  background-color: #43c6a8 !important; /* Xanh ngọc */
+  color: #fff !important;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(67, 198, 168, 0.3);
+  text-transform: uppercase;
+}
+
+.btn-forgot:hover {
+  background-color: #2aa68b !important;
+  transform: translateY(-2px);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 576px) {
+  .forgot-page {
+    margin: 40px auto;
+    padding: 30px 20px;
+    border: none;
+    box-shadow: none;
+  }
+
+  .forgot-title {
+    font-size: 22px;
+  }
+}

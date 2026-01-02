@@ -1,0 +1,86 @@
+/* ===============================
+   MỞ KHÓA XE THÀNH CÔNG
+   =============================== */
+
+.success-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  padding: 20px;
+}
+
+.success-card {
+  background: #f0faf7;
+  border: 2px solid #d1efe8;
+  border-radius: 16px;
+  padding: 32px 24px;
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+.success-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: #53c7a3;
+  color: #fff;
+  font-size: 40px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-card h1 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #2d7f64;
+  margin-bottom: 12px;
+}
+
+.success-desc {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.success-info {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 12px;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 24px;
+}
+
+.success-btn {
+  background: #53c7a3;
+  color: #fff;
+  border: none;
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 999px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.success-btn:hover {
+  background: #2d7f64;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .success-card {
+    padding: 24px 16px;
+  }
+
+  .success-card h1 {
+    font-size: 20px;
+  }
+}

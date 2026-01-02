@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <link rel="stylesheet" href="../../css_chung/thong_bao.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bonboncar</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="D:\BONBONCAR_PJ\kho_anh\anh_dung_chung\LOGO.png"
+    />
+    <link rel="stylesheet" href="../../css_chung/kieu_dang.css" />
+    <link rel="stylesheet" href="../../css_chung/dang_ki.css" />
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
+
+    <div class="main-content"></div>
+
+    <script src="../../js_chung/chuc_nang.js"></script>
+
+    <main class="register-page">
+      <!-- Logo -->
+      <div class="register-logo">
+        <div class="logo-circle"></div>
+        <span class="brand-name">bonboncar</span>
+      </div>
+
+      <h1 class="register-title">ĐĂNG KÝ</h1>
+
+      <p class="register-desc">
+        Gia nhập BONBONCAR để quản lý các chuyến đi của bạn và mở khóa các ưu
+        đãi dành cho khách hàng thân thiết
+      </p>
+
+      <!-- FORM -->
+      <form class="register-box" id="registerForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Số điện thoại</label>
+            <input type="text" id="phone" />
+          </div>
+
+          <div class="form-group">
+            <label>Mật khẩu</label>
+            <input type="password" id="password" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Họ và tên</label>
+            <input type="text" id="fullname" />
+          </div>
+
+          <div class="form-group">
+            <label>Xác nhận mật khẩu</label>
+            <input type="password" id="confirmPassword" />
+          </div>
+        </div>
+
+        <button type="submit" class="btn-register">ĐĂNG KÝ</button>
+        <div class="separator">
+          <span>Hoặc đăng ký bằng</span>
+        </div>
+
+        <div class="social-login">
+          <a href="#" class="social-btn google">
+            <i class="fa-brands fa-google"></i>
+            <span>Google</span>
+          </a>
+
+          <a href="#" class="social-btn facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+            <span>Facebook</span>
+          </a>
+        </div>
+        <div class="policy">
+          <input type="checkbox" id="agreePolicy" />
+          <span>
+            Tôi đã đọc và đồng ý với
+            <a href="#">Chính sách & quy định</a> của BonbonCar
+          </span>
+        </div>
+      </form>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="../../js_chung/chuc_nang.js"></script>
+    <!-- Thông báo đăng ký thành công -->
+    <div id="register-toast" class="toast-overlay">
+      <div class="toast-box">
+        <h3>🎉 Đăng ký thành công!</h3>
+        <p>Bạn có thể quay lại để đăng nhập.</p>
+        <button id="backToLogin" class="btn-back-login">
+          Quay về đăng nhập
+        </button>
+      </div>
+    </div>
+    <script src="../../js_chung/dang_ki.js"></script>
+  </body>
+</html>

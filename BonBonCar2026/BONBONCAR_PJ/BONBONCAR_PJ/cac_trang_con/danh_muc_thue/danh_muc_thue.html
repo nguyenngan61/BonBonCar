@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Danh sách xe - Bonboncar</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="../../css_chung/kieu_dang.css" />
+    <link rel="stylesheet" href="../../css_chung/danhmucthue.css" />
+
+  </head>
+
+  <body>
+    <div id="header-placeholder"></div>
+
+    <main class="main-content">
+      <div class="container">
+        <div class="search-box">
+          <div class="input-group" id="openLocation">
+            <span class="icon" style="color: #00d1b2">📍</span>
+            <div class="input-text">
+              <label>ĐỊA ĐIỂM</label>
+              <div class="display-value" id="locValue">Chọn địa điểm</div>
+            </div>
+            <div id="locationDropdown" class="custom-dropdown">
+              <ul class="location-list">
+                <li onclick="selectLocation('Hồ Chí Minh')">Hồ Chí Minh</li>
+                <li onclick="selectLocation('Hà Nội')">Hà Nội</li>
+                <li onclick="selectLocation('Đà Nẵng')">Đà Nẵng</li>
+                <li onclick="selectLocation('Bình Dương')">Bình Dương</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="input-group" id="openTime">
+            <span class="icon" style="color: #00d1b2">📅</span>
+            <div class="input-text">
+              <label>THỜI GIAN</label>
+              <div class="display-value" id="timeDisplay">
+                07:00 06/01 - 19:00 07/01
+              </div>
+            </div>
+          </div>
+
+          <button class="btn-search">TÌM XE</button>
+        </div>
+
+       <!-- xe 1 -->
+
+        <div class="filter-bar">
+          <button
+            class="filter-item active"
+            onclick="window.location.href='danh_muc_thue.html'"
+          >
+            TẤT CẢ
+          </button>
+          <button
+            class="filter-item"
+            onclick="window.location.href='danh_muc_thue(trang sale).html'"
+          >
+            SALE
+          </button>
+
+          <button id="openModalBtn" class="filter-item">
+            <span id="seatDisplay">SỐ CHỖ</span>
+            <i class="fa-solid fa-caret-down" style="margin-left: 5px"></i>
+          </button>
+        </div>
+
+
+<div class="similar-cars-grid">
+    <div class="sim-car-card"onclick="window.location.href='../chi_tiet_xe/chi_tiet_xe.html'" style="cursor: pointer;">
+    <div class="car-thumb">
+      <img src="../../kho_anh/anh_chi_tiet_xe/xe_nho_1.png" alt="Xe 1" />
+      <span class="discount-tag">-20%</span>
+      
+      <div class="owner-avatar-overlay">
+        <img src="../../kho_anh/anh_chi_tiet_xe/avatar_chu_xe.png" alt="Chủ xe" onerror="this.style.display='none'"/>
+      </div>
+      
+      <div class="car-badges">
+        <span class="badge-pill"><i class="fa-solid fa-shield-halved"></i> Miễn thế chấp</span>
+        </div>
+    </div>
+    
+    <div class="car-info-body">
+      <h4 class="car-name">VINFAST LUX SA 2.0</h4>
+      <div class="car-specs">
+        <span><i class="fa-solid fa-gears"></i> Tự động</span>
+        <span><i class="fa-solid fa-chair"></i> 4 chỗ</span>
+        <span><i class="fa-solid fa-gas-pump"></i> Xăng</span>
+      </div>
+      <div class="car-location">
+        <i class="fa-solid fa-location-dot"></i> Linh Chiểu, Thủ Đức
+      </div>
+      
+      <div class="car-footer">
+        <div class="footer-left">
+          <div class="rating"><i class="fa-solid fa-star"></i> 5.0</div>
+          <div class="trips">57 chuyến</div>
+        </div>
+        <div class="footer-right">
+          <span class="old-price">884k</span>
+          <span class="new-price">784k<span>/ngày</span></span>
+          <div class="hourly-price">
+            <i class="fa-solid fa-clock"></i> 530k gói 4 giờ
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+              <div class="sim-car-card">
+                <div class="car-thumb">
+                  <img
+                    src="../../kho_anh/anh_chi_tiet_xe/car_1.png"
+                    alt="Xe 1"
+                  />
+                  <span class="discount-tag">-13%</span>
+                  <div class="owner-avatar-overlay">
+                    <img
+                      src="../../kho_anh/anh_chi_tiet_xe/avt_1.png"
+                      alt="Chủ xe"
+                    />
+                  </div>
+                  <div class="car-badges">
+                    <span class="badge-pill"
+                      ><i class="fa-solid fa-shield-halved"></i> Miễn thế
+                      chấp</span
+                    >
+                  </div>
+                </div>
+                <div class="car-info-body">
+                  <h4 class="car-name">VINFAST VF5 2024</h4>
+                  <div class="car-specs">
+                    <span><i class="fa-solid fa-gears"></i> Tự động</span>
+                    <span><i class="fa-solid fa-chair"></i> 4 chỗ</span>
+                    <span><i class="fa-solid fa-bolt"></i> Điện</span>
+                  </div>
+                  <div class="car-location">
+                    <i class="fa-solid fa-location-dot"></i> Tam Phú, Thủ Đức
+                  </div>
+                  <div class="car-footer">
+                    <div class="footer-left">
+                      <div class="rating">
+                        <i class="fa-solid fa-star"></i> 5.0
+                      </div>
+                      <div class="trips">2 chuyến</div>
+                    </div>
+                    <div class="footer-right">
+                      <span class="old-price">884k</span>
+                      <span class="new-price">784k<span>/ngày</span></span>
+                      <div class="hourly-price">
+                        <i class="fa-solid fa-clock"></i> 530k gói 4 giờ
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sim-car-card">
+                <div class="car-thumb">
+                  <img
+                    src="../../kho_anh/anh_chi_tiet_xe/car_2.png"
+                    alt="Xe 2"
+                  />
+                  <span class="discount-tag">-14%</span>
+                  <div class="owner-avatar-overlay">
+                    <img
+                      src="../../kho_anh/anh_chi_tiet_xe/avt_2.png"
+                      alt="Chủ xe"
+                    />
+                  </div>
+                  <div class="car-badges">
+                    <span class="badge-pill"
+                      ><i class="fa-solid fa-shield-halved"></i> Miễn thế
+                      chấp</span
+                    >
+                    <span class="badge-pill"
+                      ><i class="fa-solid fa-truck-fast"></i> Giao xe</span
+                    >
+                  </div>
+                </div>
+                <div class="car-info-body">
+                  <h4 class="car-name">VINFAST VF5 2025</h4>
+                  <div class="car-specs">
+                    <span><i class="fa-solid fa-gears"></i> Tự động</span>
+                    <span><i class="fa-solid fa-chair"></i> 4 chỗ</span>
+                    <span><i class="fa-solid fa-bolt"></i> Điện</span>
+                  </div>
+                  <div class="car-location">
+                    <i class="fa-solid fa-location-dot"></i> Trường Thọ, Thủ Đức
+                  </div>
+                  <div class="car-footer">
+                    <div class="footer-left">
+                      <div class="rating">
+                        <i class="fa-solid fa-star"></i> 5.0
+                      </div>
+                      <div class="trips">1 chuyến</div>
+                    </div>
+                    <div class="footer-right">
+                      <span class="old-price">850k</span>
+                      <span class="new-price">750k<span>/ngày</span></span>
+                      <div class="hourly-price">
+                        <i class="fa-solid fa-clock"></i> 510k gói 4 giờ
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sim-car-card">
+                <div class="car-thumb">
+                  <img
+                    src="../../kho_anh/anh_chi_tiet_xe/car_3.png"
+                    alt="Xe 3"
+                  />
+                  <span class="discount-tag">-16%</span>
+                  <div class="owner-avatar-overlay">
+                    <img
+                      src="../../kho_anh/anh_chi_tiet_xe/avt_3.png"
+                      alt="Chủ xe"
+                    />
+                  </div>
+                  <div class="car-badges">
+                    <span class="badge-pill"
+                      ><i class="fa-solid fa-shield-halved"></i> Miễn thế
+                      chấp</span
+                    >
+                    <span class="badge-pill"
+                      ><i class="fa-solid fa-truck-fast"></i> Giao xe</span
+                    >
+                  </div>
+                </div>
+                <div class="car-info-body">
+                  <h4 class="car-name">VINFAST VF5 2025</h4>
+                  <div class="car-specs">
+                    <span><i class="fa-solid fa-gears"></i> Tự động</span>
+                    <span><i class="fa-solid fa-chair"></i> 4 chỗ</span>
+                    <span><i class="fa-solid fa-bolt"></i> Điện</span>
+                  </div>
+                  <div class="car-location">
+                    <i class="fa-solid fa-location-dot"></i> Hiệp Bình Chánh
+                  </div>
+                  <div class="car-footer">
+                    <div class="footer-left">
+                      <div class="rating">
+                        <i class="fa-solid fa-star"></i> 4.6
+                      </div>
+                      <div class="trips">23 chuyến</div>
+                    </div>
+                    <div class="footer-right">
+                      <span class="old-price">712k</span>
+                      <span class="new-price">612k<span>/ngày</span></span>
+                      <div class="hourly-price">
+                        <i class="fa-solid fa-clock"></i> 427k gói 4 giờ
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sim-car-card">
+                <div class="car-thumb">
+                  <img
+                    src="../../kho_anh/anh_chi_tiet_xe/car_4.png"
+                    alt="Xe 4"
+                  />
+                  <span class="discount-tag">-18%</span>
+                  <div class="owner-avatar-overlay">
+                    <img
+                      src="../../kho_anh/anh_chi_tiet_xe/avt_4.png"
+                      alt="Chủ xe"
+                    />
+                  </div>
+                  <div class="car-badges">
+                    <span class="badge-pill"
+                      ><i class="fa-solid fa-shield-halved"></i> Miễn thế
+                      chấp</span
+                    >
+                  </div>
+                </div>
+                <div class="car-info-body">
+                  <h4 class="car-name">VINFAST VF3 2025</h4>
+                  <div class="car-specs">
+                    <span><i class="fa-solid fa-gears"></i> Tự động</span>
+                    <span><i class="fa-solid fa-chair"></i> 4 chỗ</span>
+                    <span><i class="fa-solid fa-bolt"></i> Điện</span>
+                  </div>
+                  <div class="car-location">
+                    <i class="fa-solid fa-location-dot"></i> Linh Trung, Thủ Đức
+                  </div>
+                  <div class="car-footer">
+                    <div class="footer-left">
+                      <div class="rating">
+                        <i class="fa-solid fa-star"></i> 4.8
+                      </div>
+                      <div class="trips">12 chuyến</div>
+                    </div>
+                    <div class="footer-right">
+                      <span class="old-price">631k</span>
+                      <span class="new-price">731k<span>/ngày</span></span>
+                      <div class="hourly-price">
+                        <i class="fa-solid fa-clock"></i> 379k gói 4 giờ
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sim-car-card">
+                <div class="car-thumb">
+                  <img
+                    src="../../kho_anh/anh_chi_tiet_xe/car_5.png"
+                    alt="VF3 Vàng"
+                  />
+                  <span class="discount-tag">-20%</span>
+                  <div class="owner-avatar-overlay">
+                    <img
+                      src="../../kho_anh/anh_chi_tiet_xe/avt_5.png"
+                      alt="Chủ xe"
+                    />
+                  </div>
+                  <div class="car-badges">
+                    <span class="badge-pill"
+                      ><i class="fa-solid fa-shield-halved"></i> Miễn thế
+                      chấp</span
+                    >
+                    <span class="badge-pill"
+                      ><i class="fa-solid fa-location-dot"></i> Giao xe</span
+                    >
+                  </div>
+                </div>
+                <div class="car-info-body">
+                  <h4 class="car-name">VINFAST VF3 2025</h4>
+                  <div class="car-specs">
+                    <span><i class="fa-solid fa-gears"></i> Tự động</span>
+                    <span><i class="fa-solid fa-chair"></i> 4 chỗ</span>
+                    <span><i class="fa-solid fa-bolt"></i> Điện</span>
+                  </div>
+                  <div class="car-location">
+                    <i class="fa-solid fa-location-dot"></i> Phường Trường Thọ,
+                    Thủ Đức
+                  </div>
+                  <div class="car-footer">
+                    <div class="footer-left">
+                      <div class="rating">
+                        <i class="fa-solid fa-star"></i> 5.0
+                      </div>
+                      <div class="trips">72 chuyến</div>
+                    </div>
+                    <div class="footer-right">
+                      <span class="old-price">563k</span>
+                      <span class="new-price">463k<span>/ngày</span></span>
+                      <div class="hourly-price">
+                        <i class="fa-solid fa-clock"></i> 338k gói 4 giờ
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+    </div>
+</div>
+</div>
+<div class="pagination-container">
+        <div class="pagination">
+            <button class="page-nav disabled">&lt;</button>
+            <button class="page-number active">1</button>
+            <button class="page-number" onclick="window.location.href='danh_muc_thue2.html'">2</button>
+            <span class="page-dots">...</span>
+            <button class="page-nav"onclick="window.location.href='danh_muc_thue2.html'">&gt;</button>
+        </div>
+    </div>
+
+</div>
+      </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <div id="timeModal" class="time-modal">
+      <div class="time-modal-content">
+        <div class="time-header">
+          Chọn thời gian <span class="close-small" id="closeTime">&times;</span>
+        </div>
+        <div class="time-body">
+          <div class="time-row-label">Nhận xe:</div>
+          <div class="time-grid">
+            <input type="date" class="input-style" value="2026-01-06" />
+            <input type="time" class="input-style" value="07:00" />
+          </div>
+          <div class="time-row-label">Trả xe:</div>
+          <div class="time-grid">
+            <input type="date" class="input-style" value="2026-01-07" />
+            <input type="time" class="input-style" value="19:00" />
+          </div>
+          <button
+            class="btn-search"
+            style="width: 100%; margin-top: 15px"
+            id="confirmTimeBtn"
+          >
+            Xác nhận
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="seatModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Chọn số chỗ</h2>
+          <span class="close-btn">&times;</span>
+        </div>
+        <div class="car-type-grid">
+          <div class="car-type-item" data-value="4">
+            <img src="../../kho_anh/anh_danh_muc/icon xe 4 chỗ.png" alt="4 chỗ">
+            <p>Xe 4 chỗ</p>
+          </div>
+          <div class="car-type-item" data-value="7">
+            <img src="../../kho_anh/anh_danh_muc/icon xe 7 chỗ.png" alt="7 chỗ">
+            <p>Xe 7 chỗ</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn-apply">Áp dụng</button>
+        </div>
+      </div>
+    </div>
+    <script src="../../js_chung/chuc_nang.js"></script>
+    <script src="../../js_chung/danh_muc_xe.js"></script>
+  </body>
+</html>

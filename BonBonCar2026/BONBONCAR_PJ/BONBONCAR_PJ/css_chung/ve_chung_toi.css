@@ -1,0 +1,515 @@
+/* =========================================================
+   FILE: css_chung/gioi_thieu.css
+   MÔ TẢ: Giao diện trang Giới thiệu (Về chúng tôi)
+   ========================================================= */
+
+/* 1. THIẾT LẬP BIẾN MÀU & FONT (Đồng bộ dự án) */
+:root {
+  --green-main: #43c6a8; /* Xanh ngọc chủ đạo */
+  --green-light: #e8f7f3; /* Nền xanh nhạt */
+  --text-dark: #1f2937; /* Màu chữ chính */
+  --text-gray: #6b7280; /* Màu chữ phụ */
+  --bg-dark-blue: #0b1e2d; /* Màu xanh đen đặc trưng trang GT */
+  --bg-page: #f5f7f9;
+  --font-main: "Inter", sans-serif;
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--text-dark);
+  background-color: #fff;
+  line-height: 1.6;
+}
+
+/* Căn lề chuẩn cho container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Helper: Căn đều văn bản */
+.text-justify {
+  text-align: justify;
+}
+
+/* Tiêu đề Section chung */
+.section-title {
+  font-size: 32px;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 60px;
+  color: var(--text-dark);
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+}
+
+/* =========================
+   1. BANNER HERO
+========================= */
+.about-banner {
+  position: relative;
+  height: 600px; /* Tăng chiều cao chút cho thoáng */
+  margin-top: -80px; /* Để chui xuống dưới Header trong suốt */
+  background: url("../kho_anh/anh_gioi_thieu/anh_banner1.jpg") center / cover
+    no-repeat;
+}
+
+.about-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 0.7)
+  ); /* Gradient đen mờ */
+}
+
+.about-banner-title {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.about-banner-title h1 {
+  font-size: 90px;
+
+  font-weight: 700;
+
+  font-family: "Montserrat", sans-serif;
+
+  letter-spacing: 0.5px;
+
+  /* trắng nhạt giống ảnh */
+
+  color: rgba(255, 255, 255, 0.85);
+
+  position: relative;
+
+  /* hiệu ứng*/
+
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+
+    rgba(0, 0, 0, 1) 20%,
+
+    rgba(0, 0, 0, 0) 100%
+  );
+
+  mask-image: linear-gradient(
+    to bottom,
+
+    rgba(0, 0, 0, 1) 20%,
+
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+/* =========================
+   2. KHỐI GIỚI THIỆU (VISUAL & TEXT)
+========================= */
+.about-visual {
+  padding: 100px 0;
+}
+
+.about-visual-inner {
+  position: relative;
+  height: 500px;
+}
+
+.about-image-wrap {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.about-bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.about-visual-inner:hover .about-bg-image {
+  transform: scale(1.05); /* Zoom nhẹ khi hover */
+}
+
+/* Text Box nổi lên trên ảnh */
+.about-text-box {
+  position: absolute;
+  top: 50%;
+  left: 60px;
+  transform: translateY(-50%);
+  background: var(--bg-dark-blue);
+  color: #fff;
+  padding: 40px;
+  max-width: 550px;
+  border-radius: 12px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  border-left: 5px solid var(--green-main); /* Điểm nhấn thương hiệu */
+}
+
+.about-text-box h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--green-main);
+}
+
+.about-text-box p {
+  font-size: 15px;
+  color: #e0e0e0;
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+/* =========================
+   3. TẠI SAO LÀ BONBONCAR (WHY US)
+========================= */
+.about-why {
+  padding: 100px 0;
+  background: #f9f9f9;
+}
+
+.about-why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+}
+
+/* Ảnh cột trái */
+.why-image {
+  height: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.why-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Các Box nội dung */
+.why-box {
+  background: var(--bg-dark-blue);
+  color: #fff;
+  padding: 40px 30px;
+  border-radius: 16px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: transform 0.3s;
+}
+
+.why-box:hover {
+  transform: translateY(-5px);
+}
+
+.about-why-grid > .why-box {
+  padding-top: 100px; /* Style đặc biệt cho box giữa */
+  background: linear-gradient(135deg, var(--bg-dark-blue) 0%, #1a3c5a 100%);
+}
+
+.why-box h4 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: var(--green-main);
+}
+
+.why-box p {
+  font-size: 15px;
+  color: #d1d5db;
+  text-align: justify;
+}
+
+/* Cột phải (2 box chồng nhau) */
+.why-box-column {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.why-mission,
+.why-core {
+  flex: 1;
+}
+
+/* =========================
+   4. HỆ SINH THÁI (ECOSYSTEM)
+========================= */
+.ecosystem {
+  padding: 100px 0;
+  background: #fff;
+}
+
+.ecosystem-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.eco-item {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: 20px;
+  padding: 25px;
+  display: flex;
+  align-items: flex-end;
+  transition: transform 0.3s ease;
+  overflow: hidden;
+}
+
+.eco-item:hover {
+  transform: translateY(-10px);
+}
+
+/* Typography trong Eco item */
+.eco-item p {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.2;
+  z-index: 2;
+}
+
+/* Màu nền */
+.eco-item.dark {
+  background: #2d2d2d;
+  color: #fff;
+}
+
+.eco-item.primary {
+  background: var(--green-main);
+  color: #00382e; /* Chữ xanh đậm trên nền xanh ngọc */
+}
+
+/* Icon góc phải */
+.eco-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+}
+.eco-item.dark .eco-icon {
+  background-image: url("../kho_anh/anh_gioi_thieu/icon_2.png");
+}
+.eco-item.primary .eco-icon {
+  background-image: url("../kho_anh/anh_gioi_thieu/icon_1.png");
+}
+
+/* Ảnh tròn */
+.eco-image {
+  border-radius: 50%;
+  overflow: hidden;
+  padding: 0;
+}
+.eco-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.5s;
+}
+.eco-image:hover img {
+  transform: scale(1.1);
+}
+
+/* =========================
+   5. ƯU ĐIỂM CẠNH TRANH
+========================= */
+.advantages {
+  padding: 100px 0;
+  background: #f8fafc;
+}
+
+.advantages-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.advantages-image {
+  height: 500px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+.advantages-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.advantages-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.adv-row-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.adv-box {
+  background: #fff;
+  border-radius: 16px;
+  padding: 30px;
+  border: 1px solid #e5e7eb;
+  transition: 0.3s;
+}
+
+.adv-box:hover {
+  border-color: var(--green-main);
+  box-shadow: 0 10px 25px rgba(67, 198, 168, 0.15);
+}
+
+.adv-box h4 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--text-dark);
+}
+
+.adv-box p {
+  font-size: 14px;
+  color: var(--text-gray);
+  text-align: justify;
+}
+
+.adv-note {
+  font-size: 13px;
+  color: #9ca3af;
+  font-style: italic;
+  margin-top: 10px;
+}
+
+/* =========================
+   6. CTA BANNER (Footer Pre)
+========================= */
+.cta-banner {
+  padding: 80px 0 120px;
+}
+
+.cta-bg {
+  height: 400px;
+  background: url("../kho_anh/anh_gioi_thieu/anh_7.jpg") center / cover
+    no-repeat;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Lớp phủ đen mờ để nổi chữ */
+.cta-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.cta-content {
+  position: relative; /* Nổi lên trên lớp phủ */
+  z-index: 2;
+  max-width: 600px;
+  padding-left: 80px;
+  color: #fff;
+}
+
+.cta-content h3 {
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 30px;
+  line-height: 1.3;
+}
+
+.cta-content span {
+  color: var(--green-main);
+}
+
+.cta-btn {
+  display: inline-block;
+  background: var(--green-main);
+  color: #fff;
+  padding: 16px 40px;
+  border-radius: 50px; /* Bo tròn kiểu viên thuốc */
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(67, 198, 168, 0.4);
+}
+
+.cta-btn:hover {
+  background: #36b095;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(67, 198, 168, 0.6);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 1024px) {
+  .about-banner h1 {
+    font-size: 60px;
+  }
+  .about-visual-inner {
+    height: auto;
+  }
+  .about-text-box {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin-top: -50px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .about-why-grid {
+    grid-template-columns: 1fr;
+  }
+  .ecosystem-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .advantages-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-banner {
+    height: 400px;
+  }
+  .about-banner h1 {
+    font-size: 40px;
+  }
+  .ecosystem-grid {
+    grid-template-columns: 1fr;
+  }
+  .cta-content {
+    padding: 0 20px;
+    text-align: center;
+  }
+  .cta-btn {
+    margin: 0 auto;
+    display: inline-block;
+  }
+  .section-title {
+    font-size: 26px;
+  }
+}

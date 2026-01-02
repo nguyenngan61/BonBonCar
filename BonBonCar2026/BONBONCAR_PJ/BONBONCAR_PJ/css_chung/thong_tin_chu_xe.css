@@ -1,0 +1,755 @@
+/* ============================================= */
+/* CSS MỚI: THÔNG TIN CHỦ XE (FINAL UPDATE) */
+/* ============================================= */
+
+.owner-info-section {
+  padding: 10px 0 50px 0;
+  background-color: #f9f9f9;
+}
+
+/* Khung Card Trắng */
+.owner-info-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  padding: 40px 50px; /* Tăng padding trong card */
+}
+
+/* --- HÀNG TIÊU ĐỀ --- */
+.card-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px; /* Cách xa nội dung bên dưới hơn */
+  border-bottom: 1px solid #f0f0f0; /* Kẻ mờ ngăn cách cho gọn */
+  padding-bottom: 20px;
+}
+
+/* Nhóm bên trái: Tiêu đề + Icon */
+.header-left-group {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Khoảng cách giữa chữ và bộ icon */
+}
+
+.header-left-group h2 {
+  font-size: 28px; /* Chữ to hơn */
+  font-weight: 800;
+  margin: 0;
+  color: #000;
+  text-transform: uppercase;
+}
+
+/* Các icon liên hệ tròn */
+.header-contact-icons {
+  display: flex;
+  gap: 12px;
+}
+
+.h-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #eee;
+  color: #555;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+.h-icon:hover {
+  background: #00d2ba; /* Xanh ngọc */
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0, 210, 186, 0.4);
+}
+
+/* Huy hiệu chuyến (BIG VERSION) */
+.trip-badge-big {
+  border: 2px solid #00d2ba;
+  background: #f0fdfb; /* Nền xanh siêu nhạt */
+  border-radius: 8px;
+  padding: 10px 25px; /* Padding to hơn */
+  color: #00d2ba;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.trip-badge-big i {
+  font-size: 24px;
+} /* Icon xe to */
+.trip-badge-big strong {
+  font-weight: 800;
+  font-size: 28px;
+  line-height: 1;
+} /* Số to */
+.trip-badge-big span {
+  color: #555;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/* --- NỘI DUNG CHÍNH --- */
+.card-body-row {
+  display: flex;
+  gap: 80px; /* Nới rộng khoảng cách 2 cột để tránh trống trải */
+  align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+/* 1. CỘT TRÁI (Avatar to hơn) */
+.owner-identity-col {
+  text-align: center;
+  min-width: 250px; /* Chiếm không gian rộng hơn */
+}
+.big-avatar {
+  width: 160px;
+  height: 160px; /* Avatar to hơn (cũ 130) */
+  margin: 0 auto 20px;
+}
+.big-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.owner-name {
+  font-size: 26px; /* Tên to hơn */
+  font-weight: 800;
+  color: #000;
+  margin: 0 0 8px 0;
+}
+.join-date {
+  font-size: 16px;
+  color: #777;
+}
+
+/* 2. CỘT PHẢI */
+.owner-stats-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Thống kê (Chữ to hơn) */
+.stats-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 35px;
+  padding: 0 40px; /* Đẩy nội dung vào giữa chút */
+}
+.stat-item {
+  text-align: center;
+}
+.s-label {
+  display: block;
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 10px;
+}
+.s-val {
+  display: block;
+  font-size: 32px; /* Số liệu rất to */
+  font-weight: 800;
+  color: #000;
+}
+
+/* Banner 5 Sao */
+.five-star-banner {
+  background: linear-gradient(90deg, #b9f9ef 0%, #e0fffb 100%);
+  border-radius: 12px;
+  padding: 25px 30px; /* Banner dày dặn hơn */
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+.crown-icon {
+  background: #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #f1c40f;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+.banner-text {
+  font-size: 16px; /* Chữ banner to dễ đọc */
+  line-height: 1.6;
+  color: #333;
+  margin-top: 2px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .header-left-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .card-body-row {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .stats-row {
+    padding: 0;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+}
+/* ============================================= */
+/* PHẦN DANH SÁCH XE & TAB */
+/* ============================================= */
+
+.car-list-section {
+  padding-bottom: 50px;
+  background-color: #f9f9f9; /* Đồng bộ nền xám */
+}
+
+/* Header hàng ngang: Tiêu đề - Tab */
+.list-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0;
+  background: #fff;
+  padding: 20px 40px;
+  border-radius: 12px 12px 0 0; /* Bo góc trên */
+}
+
+.list-header-row h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+  color: #000;
+}
+
+/* Các nút Tab */
+.car-tabs {
+  display: flex;
+  gap: 30px;
+}
+.c-tab-btn {
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: #999;
+  cursor: pointer;
+  padding-bottom: 5px;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s;
+  text-transform: uppercase;
+}
+.c-tab-btn:hover {
+  color: #00d2ba;
+}
+
+/* Tab đang chọn: Chữ xanh, Gạch chân xanh */
+.c-tab-btn.active {
+  color: #00d2ba;
+  border-bottom-color: #00d2ba;
+}
+
+/* Khung nội dung */
+.car-tab-content {
+  background: #fff;
+  padding: 30px;
+  border-radius: 0 0 12px 12px; /* Bo góc dưới */
+  min-height: 300px;
+}
+
+/* --- TAB 1: KHÔNG CÓ XE (Empty State) --- */
+.empty-state-box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+  border: 1px solid #00d2ba; /* Viền xanh bao quanh như ảnh mẫu */
+}
+.empty-state-box img {
+  max-width: 300px; /* Điều chỉnh kích thước ảnh no_info */
+  height: auto;
+}
+
+/* --- TAB 2: LƯỚI XE (Grid 4 cột nếu màn hình rộng, hoặc 3) --- */
+.owner-car-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 xe 1 hàng */
+  gap: 25px;
+}
+
+/* Responsive cho Grid xe */
+@media (max-width: 992px) {
+  .owner-car-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .owner-car-grid {
+    grid-template-columns: 1fr;
+  }
+  .list-header-row {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+}
+
+/* --- STYLE CỦA MỖI CARD XE --- */
+.sim-car-card {
+  min-width: 320px; /* Chiều rộng cố định 320px */
+  max-width: 320px;
+  background: #fff;
+  border-radius: 16px; /* Bo góc tròn hơn */
+  border: 1px solid #e0e0e0;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); /* Bóng đổ nhẹ */
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  position: relative; /* Để định vị các thành phần con */
+}
+
+.sim-car-card:hover {
+  transform: translateY(-8px); /* Nhấc lên khi di chuột */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); /* Bóng đổ đậm hơn */
+  border-color: #00d2ba; /* Viền sáng lên */
+}
+
+/* Phần ảnh thumbnail */
+.car-thumb {
+  position: relative;
+  height: 190px;
+  width: 100%;
+  background: #f0f0f0;
+}
+.car-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+.sim-car-card:hover .car-thumb img {
+  transform: scale(1.05); /* Phóng to ảnh nhẹ khi hover */
+}
+
+/* Tag giảm giá (Góc trái trên) */
+.discount-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: linear-gradient(135deg, #ff5500ff 0%, #ff0000 100%);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(255, 0, 0, 0.4); /* Bóng đỏ cho rực rỡ */
+}
+
+/* Avatar chủ xe (Đè lên góc trái dưới) */
+.owner-avatar-overlay {
+  position: absolute;
+  bottom: -18px;
+  left: 15px; /* Thò xuống dưới ảnh một chút */
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  background: #fff;
+  overflow: hidden;
+  z-index: 3;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.owner-avatar-overlay img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Các badge tiện ích (Góc phải dưới) */
+.car-badges {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  gap: 6px;
+  z-index: 2;
+}
+.badge-pill {
+  background: rgba(255, 255, 255, 0.95);
+  color: #00897b; /* Chữ xanh đậm */
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.badge-pill i {
+  color: #00d2ba;
+}
+
+/* Phần thông tin bên dưới */
+.car-info-body {
+  padding: 30px 15px 15px 15px; /* Top cao để né Avatar */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.car-name {
+  font-size: 17px;
+  font-weight: 800;
+  color: #333;
+  margin: 0 0 12px 0;
+  text-transform: uppercase;
+  line-height: 1.3;
+}
+
+/* Thông số kỹ thuật (Icon xám) */
+.car-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f0f0f0;
+}
+.car-specs span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.car-specs span i {
+  color: #999;
+}
+
+/* Địa điểm */
+.car-location {
+  font-size: 13px;
+  color: #555;
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+.car-location i {
+  color: #666;
+  margin-top: 3px;
+}
+
+/* Footer của card (Giá tiền & Rating) */
+.car-footer {
+  margin-top: auto; /* Đẩy xuống đáy */
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.footer-left .rating {
+  font-size: 15px;
+  font-weight: 700;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.footer-left .rating i {
+  color: #f1c40f;
+  font-size: 14px;
+}
+.footer-left .trips {
+  font-size: 12px;
+  color: #999;
+  margin-top: 3px;
+  font-weight: 500;
+}
+
+.footer-right {
+  text-align: right;
+}
+.old-price {
+  display: block;
+  font-size: 13px;
+  color: #bbb;
+  text-decoration: line-through;
+  font-weight: 500;
+}
+.new-price {
+  font-size: 18px;
+  font-weight: 800;
+  color: #00d2ba;
+  line-height: 1;
+}
+.new-price span {
+  font-size: 12px;
+  color: #999;
+  font-weight: 500;
+}
+
+/* --- NÚT ĐIỀU HƯỚNG TRÒN (MŨI TÊN) --- */
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #eee;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  color: #333;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.nav-btn:hover {
+  background: #00d2ba;
+  color: #fff;
+  border-color: #00d2ba;
+  transform: translateY(-50%) scale(1.1); /* Phóng to nhẹ */
+  box-shadow: 0 8px 20px rgba(0, 210, 186, 0.4);
+}
+.nav-btn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+/* Đẩy nút ra ngoài một chút */
+.prev-btn {
+  left: -22px;
+}
+.next-btn {
+  right: -22px;
+}
+
+/* Ẩn nút trên Mobile để vuốt tay */
+@media (max-width: 768px) {
+  .nav-btn {
+    display: none;
+  }
+  .sim-car-card {
+    min-width: 280px;
+    max-width: 280px;
+  } /* Card nhỏ hơn trên mobile */
+}
+/* --- CSS CHO DÒNG GIÁ GÓI 4 GIỜ --- */
+.hourly-price {
+  font-size: 12px;
+  color: #00d2ba;
+  margin-top: 3px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Căn phải */
+  gap: 4px;
+}
+.hourly-price i {
+  font-size: 11px;
+}
+/* ============================================= */
+/* PHẦN NHẬN XÉT (REVIEWS) */
+/* ============================================= */
+
+.feedback-section {
+  padding-bottom: 60px;
+  background-color: #f9f9f9;
+}
+
+/* Header hàng ngang */
+.fb-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.fb-title-group h2 {
+  font-size: 24px;
+  font-weight: 800;
+  margin: 0 0 5px 0;
+  color: #000;
+}
+.fb-rating-summary {
+  font-size: 15px;
+  color: #333;
+}
+.fb-rating-summary i {
+  color: #f1c40f;
+  margin-right: 5px;
+}
+.fb-rating-summary span {
+  color: #ccc;
+  margin: 0 10px;
+}
+
+/* Các nút Tab (Căn phải) */
+.fb-tabs {
+  display: flex;
+  gap: 30px;
+  border-bottom: 1px solid #ddd; /* Đường kẻ dưới tab */
+}
+.fb-tab-btn {
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: #999;
+  cursor: pointer;
+  padding: 10px 0;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s;
+  text-transform: uppercase;
+}
+.fb-tab-btn:hover {
+  color: #00d2ba;
+}
+
+.fb-tab-btn.active {
+  color: #00d2ba;
+  border-bottom-color: #00d2ba;
+}
+
+/* LƯỚI REVIEW (2 CỘT) */
+.fb-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 Cột */
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+/* Card Review (Viền xanh) */
+.fb-card {
+  background: #fff;
+  border: 1px solid #00d2ba; /* Viền xanh ngọc */
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+.fb-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.fb-info {
+  flex: 1;
+}
+
+.fb-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.fb-name {
+  font-weight: 700;
+  color: #000;
+  font-size: 16px;
+}
+.fb-date {
+  font-size: 13px;
+  color: #888;
+}
+
+.fb-comment {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.fb-stars {
+  color: #f1c40f;
+  font-size: 13px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .fb-grid {
+    grid-template-columns: 1fr;
+  } /* 1 cột trên mobile */
+  .fb-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  .fb-tabs {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+/* Nút Xem thêm (Dùng lại style cũ hoặc định nghĩa lại) */
+.review-toggle-container {
+  text-align: center;
+  margin-top: 20px;
+}
+.btn-toggle-reviews {
+  background: #fff;
+  border: 1px solid #00d2ba;
+  color: #00d2ba;
+  padding: 10px 25px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn-toggle-reviews:hover {
+  background: #00d2ba;
+  color: #fff;
+}
+/* --- NÚT QUAY LẠI (BACK BUTTON) --- */
+.navigation-top {
+  margin-bottom: 10px; /* Cách khung thông tin một đoạn */
+}
+
+.btn-go-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px; /* Khoảng cách giữa mũi tên và chữ */
+  font-size: 16px;
+  font-weight: 600;
+  color: #555; /* Màu xám đậm */
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding: 5px 0;
+}
+
+/* Hiệu ứng Hover */
+.btn-go-back:hover {
+  color: #00d2ba; /* Đổi màu xanh ngọc chủ đạo */
+  transform: translateX(-5px); /* Mũi tên trượt sang trái một chút */
+}
+
+.btn-go-back i {
+  font-size: 18px;
+}

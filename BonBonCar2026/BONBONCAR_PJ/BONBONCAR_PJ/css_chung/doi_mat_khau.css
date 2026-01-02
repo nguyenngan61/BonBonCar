@@ -1,0 +1,130 @@
+/* =========================================================
+   FILE: css_chung/doi_mat_khau.css
+   MÔ TẢ: Giao diện Đổi mật khẩu (Đồng bộ Design System)
+   ========================================================= */
+
+/* 1. LAYOUT CHÍNH */
+body {
+  background-color: #f5f7f9; /* Nền xám nhạt toàn trang */
+  font-family: "Inter", sans-serif;
+  color: #1f2937;
+}
+
+.change-page {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Căn trên cùng */
+  padding-top: 80px;
+  min-height: 100vh;
+}
+
+/* 2. KHUNG FORM (CARD) */
+.change-box {
+  width: 500px;
+  max-width: 95%; /* Responsive cho mobile */
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 16px; /* Bo góc mềm mại */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08); /* Đổ bóng mềm */
+  border: 1px solid #e5e7eb;
+  text-align: center;
+}
+
+/* 3. TIÊU ĐỀ & MÔ TẢ */
+.change-title {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 800;
+  margin-bottom: 30px;
+  color: #1f2937;
+}
+
+.change-desc {
+  font-size: 15px;
+  color: #6b7280; /* Màu chữ phụ xám */
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+/* 4. FORM INPUT */
+.change-box form {
+  text-align: left;
+}
+
+.change-box label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #374151;
+}
+
+.change-box input {
+  width: 100%;
+  height: 48px; /* Chiều cao chuẩn */
+  background: #fff; /* Nền trắng hiện đại */
+  border: 1px solid #d1d5db; /* Viền xám */
+  border-radius: 8px;
+  padding: 0 15px;
+  font-size: 15px;
+  margin-bottom: 20px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+/* Hiệu ứng khi bấm vào ô nhập */
+.change-box input:focus {
+  border-color: #43c6a8; /* Viền xanh ngọc */
+  box-shadow: 0 0 0 4px rgba(67, 198, 168, 0.15); /* Glow xanh nhẹ */
+}
+
+/* 5. BUTTON (NÚT BẤM) */
+.btn-change {
+  width: 100%; /* Full width */
+  margin-top: 10px;
+  padding: 14px;
+  border: none;
+  background-color: #43c6a8 !important; /* Xanh ngọc */
+  color: #fff !important;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(67, 198, 168, 0.3);
+}
+
+.btn-change:hover {
+  background-color: #2aa68b !important; /* Đậm hơn khi hover */
+  transform: translateY(-2px);
+}
+
+/* 6. THÔNG BÁO LỖI */
+.error-msg {
+  margin-top: 15px;
+  color: #ef4444; /* Màu đỏ chuẩn */
+  font-size: 14px;
+  font-weight: 500;
+  min-height: 20px; /* Giữ chỗ để không bị nhảy layout */
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 576px) {
+  .change-page {
+    padding-top: 40px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .change-box {
+    padding: 25px;
+    box-shadow: none;
+    border: none;
+  }
+
+  .change-title {
+    font-size: 22px;
+  }
+}

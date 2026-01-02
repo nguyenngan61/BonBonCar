@@ -1,0 +1,291 @@
+/* =========================================================
+   FILE: css_chung/dang_nhap.css
+   MÔ TẢ: Giao diện Đăng nhập / Đăng ký (Đồng bộ Design System)
+   ========================================================= */
+
+/* 1. LAYOUT CHÍNH */
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Căn trên cùng */
+  padding-top: 80px;
+  padding-bottom: 80px;
+  min-height: 100vh;
+  background-color: #f5f7f9; /* Nền xám nhẹ dịu mắt */
+}
+
+/* 2. KHUNG ĐĂNG NHẬP (CARD) */
+.login-box {
+  width: 450px;
+  max-width: 95%; /* Responsive cho mobile */
+  background: #fff;
+  padding: 40px;
+  border-radius: 16px; /* Bo góc lớn chuẩn Bonboncar */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08); /* Đổ bóng mềm */
+  border: 1px solid #e5e7eb;
+}
+
+/* 3. LOGO & TIÊU ĐỀ */
+.login-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Căn giữa logo */
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+/* Icon trong logo */
+.login-logo i {
+  font-size: 28px;
+  color: var(--green-main); /* Xanh ngọc */
+}
+
+.login-title {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 800;
+  margin-bottom: 30px;
+  color: #1f2937;
+}
+
+/* 4. FORM INPUT */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #4b5563;
+}
+
+.form-group input {
+  width: 100%;
+  height: 48px;
+  background: #fff;
+  border: 1px solid #d1d5db; /* Viền xám nhạt */
+  border-radius: 8px;
+  padding: 0 15px;
+  font-size: 15px;
+  outline: none;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+/* Hiệu ứng khi bấm vào ô nhập */
+.form-group input:focus {
+  border-color: var(--green-main); /* Viền chuyển xanh */
+  box-shadow: 0 0 0 4px rgba(67, 198, 168, 0.15); /* Glow xanh nhẹ */
+}
+
+/* 5. LIÊN KẾT PHỤ (Quên mật khẩu) */
+.forgot-password {
+  display: block;
+  text-align: right; /* Căn phải hiện đại hơn */
+  margin: 10px 0 25px;
+  color: var(--green-main);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.forgot-password:hover {
+  color: var(--green-dark);
+  text-decoration: underline;
+}
+
+/* 6. NÚT SUBMIT (CTA) */
+.btn-submit {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  border: none;
+
+  /* Dùng mã màu trực tiếp để không bị lỗi trắng */
+  background-color: #43c6a8 !important;
+  color: #fff !important;
+
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 25px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(67, 198, 168, 0.3);
+}
+
+.btn-submit:hover {
+  background-color: #2aa68b !important; /* Màu đậm hơn khi hover */
+  transform: translateY(-2px);
+}
+/* 7. CHUYỂN ĐỔI (Đăng ký ngay) */
+.register-text {
+  text-align: center;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.register-text a {
+  color: var(--green-main);
+  font-weight: 700;
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+.register-text a:hover {
+  text-decoration: underline;
+}
+
+/* 8. TOAST NOTIFICATION (Thông báo thành công) */
+.toast-success {
+  /* Quan trọng: Thêm !important để đảm bảo nó ẩn đi lúc đầu */
+  display: none !important;
+
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  background: #fff;
+  color: #2e7d32;
+  padding: 16px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border-left: 5px solid #43c6a8;
+  z-index: 9999;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Class này sẽ được JS thêm vào để hiện thông báo */
+.toast-success.show {
+  display: flex !important; /* Hiện lên khi có class .show */
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+/* =========================================
+   RESPONSIVE (Thêm vào cuối dang_nhap.css)
+   ========================================= */
+@media (max-width: 576px) {
+  .login-page {
+    padding-top: 40px;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: #fff; /* Trên mobile nền trắng luôn cho liền mạch */
+  }
+
+  .login-box {
+    box-shadow: none; /* Bỏ bóng đổ trên mobile cho nhẹ */
+    border: none; /* Bỏ viền */
+    padding: 10px 0; /* Mở rộng không gian */
+  }
+
+  .login-title {
+    font-size: 24px;
+  }
+
+  /* Nút bấm to hơn chút để dễ chạm */
+  .btn-submit {
+    height: 50px;
+    font-size: 17px;
+  }
+}
+/* =========================
+   SOCIAL LOGIN (Mạng xã hội)
+========================= */
+
+/* 1. Dòng kẻ phân cách (Divider) */
+.separator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 20px 0;
+  color: #9ca3af; /* Màu xám nhạt */
+  font-size: 14px;
+}
+
+.separator::before,
+.separator::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #e5e7eb; /* Kẻ ngang */
+}
+
+.separator span {
+  padding: 0 10px;
+}
+
+/* 2. Container chứa nút */
+.social-login {
+  display: flex;
+  gap: 15px; /* Khoảng cách giữa 2 nút */
+  margin-bottom: 25px;
+}
+
+/* 3. Style chung cho nút Social */
+.social-btn {
+  flex: 1; /* Chia đều chiều rộng */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 45px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+/* --- Nút Google --- */
+.social-btn.google {
+  background-color: #fff;
+  color: #374151;
+  border-color: #d1d5db; /* Viền xám */
+}
+
+.social-btn.google:hover {
+  background-color: #f9fafb;
+  border-color: #9ca3af;
+}
+
+.social-btn.google i {
+  color: #db4437; /* Màu đỏ Google */
+  font-size: 18px;
+}
+
+/* --- Nút Facebook --- */
+.social-btn.facebook {
+  background-color: #1877f2; /* Xanh Facebook */
+  color: #fff;
+}
+
+.social-btn.facebook:hover {
+  background-color: #166fe5; /* Đậm hơn khi hover */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(24, 119, 242, 0.3);
+}
+
+.social-btn.facebook i {
+  font-size: 18px;
+}
+
+/* RESPONSIVE: Trên điện thoại thì xếp dọc nếu cần */
+@media (max-width: 400px) {
+  .social-login {
+    flex-direction: column;
+  }
+}

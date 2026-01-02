@@ -1,0 +1,200 @@
+/* =========================================================
+   FILE: css_chung/dieu_khoan.css (Hoặc style tag)
+   MÔ TẢ: Giao diện trang Điều khoản & Chính sách (Đồng bộ)
+   ========================================================= */
+
+/* 1. THIẾT LẬP BIẾN MÀU (Design System) */
+:root {
+  --green-main: #43c6a8; /* Xanh ngọc chủ đạo */
+  --green-light: #e8f7f3; /* Xanh nền nhạt */
+  --green-dark: #2aa68b; /* Xanh đậm (hover/text) */
+  --text-dark: #1f2937; /* Màu chữ chính */
+  --text-gray: #6b7280; /* Màu chữ phụ */
+  --border-light: #e5e7eb; /* Màu viền */
+  --bg-page: #f5f7f9; /* Màu nền trang web */
+}
+
+/* 2. LAYOUT CHÍNH */
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text-dark);
+}
+
+main {
+  max-width: 1000px; /* Tăng độ rộng chuẩn */
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+main section {
+  margin-bottom: 30px;
+  padding: 40px; /* Tăng khoảng cách lề trong */
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-radius: 12px; /* Bo góc mềm mại hơn */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Bóng đổ nhẹ hiện đại */
+}
+
+/* 3. TIÊU ĐỀ (TYPOGRAPHY) */
+main h1 {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--green-light); /* Viền xanh nhạt */
+  color: var(--text-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+main h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed var(--border-light); /* Viền nét đứt tinh tế */
+  color: var(--green-dark); /* Tiêu đề con màu xanh đậm */
+  display: flex;
+  align-items: center;
+}
+
+/* Dấu chấm tròn trước H2 */
+main h2::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: var(--green-main);
+  border-radius: 50%;
+  margin-right: 12px;
+}
+
+main h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 30px 0 15px;
+  color: var(--text-dark);
+}
+
+/* 4. NỘI DUNG VĂN BẢN */
+main p,
+main li {
+  font-size: 15px;
+  line-height: 1.8; /* Tăng khoảng cách dòng cho dễ đọc */
+  color: #4b5563;
+  text-align: justify;
+}
+
+main p {
+  margin-bottom: 20px;
+}
+main li {
+  margin-bottom: 10px;
+}
+
+main ol,
+main ul {
+  margin: 0 0 25px 25px;
+}
+
+/* 5. KHỐI NHẤN MẠNH (HIGHLIGHT BOX) */
+main .highlight {
+  margin: 25px 0;
+  padding: 20px 25px;
+  background: var(--green-light); /* Nền xanh nhạt */
+  border: 1px solid #bcece6;
+  border-left: 4px solid var(--green-main); /* Viền trái xanh đậm */
+  border-radius: 8px;
+  color: #00796b;
+}
+
+/* 6. LINK LIÊN KẾT */
+main a[href^="mailto"],
+main a {
+  color: var(--green-main);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+main a[href^="mailto"]:hover,
+main a:hover {
+  color: var(--green-dark);
+  text-decoration: underline;
+}
+
+/* 7. DETAILS / SUMMARY (ACCORDION) */
+main details {
+  margin-bottom: 15px;
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+main details summary {
+  padding: 15px 20px;
+  background-color: #f9fafb;
+  cursor: pointer;
+  font-weight: 300;
+  font-size: 16px;
+  color: var(--text-dark);
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.3s;
+}
+
+main details summary:hover {
+  background-color: var(--green-light);
+  color: var(--green-dark);
+}
+
+/* Thêm icon mũi tên cho summary */
+main details summary::after {
+  content: "+";
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--green-main);
+}
+
+main details[open] summary::after {
+  content: "-";
+}
+
+main details[open] summary {
+  border-bottom: 1px solid var(--border-light);
+}
+
+main details p {
+  padding: 20px;
+  margin: 0;
+  background-color: #fff;
+}
+
+/* 8. RESPONSIVE */
+@media (max-width: 768px) {
+  main {
+    margin: 20px auto;
+    padding: 0 15px;
+  }
+
+  main section {
+    padding: 25px 20px;
+  }
+
+  main h1 {
+    font-size: 24px;
+  }
+
+  main h2 {
+    font-size: 18px;
+  }
+
+  main p,
+  main li {
+    font-size: 14px;
+  }
+}

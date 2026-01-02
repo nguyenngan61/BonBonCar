@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bonboncar</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../kho_anh/anh_dung_chung/LOGO.png"
+    />
+    <link rel="stylesheet" href="../../css_chung/kieu_dang.css" />
+    <link rel="stylesheet" href="../../css_chung/thong_tin_chu_xe.css" />
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
+
+    <div class="main-content"></div>
+
+    <script src="../../js_chung/chuc_nang.js"></script>
+
+    <main>
+    <section class="owner-info-section">
+      <div class="container">
+        
+        <div class="navigation-top">
+            <a href="chi_tiet_xe.html#phan-chu-xe" class="btn-go-back">
+                <i class="fa-solid fa-arrow-left-long"></i> Quay lại xe
+            </a>
+        </div>
+    <section class="owner-info-section">
+      <div class="container">
+        <div class="owner-info-card">
+          <div class="card-header-row">
+            <div class="header-left-group">
+              <h2>THÔNG TIN TÀI KHOẢN</h2>
+
+              <div class="header-contact-icons">
+                <a href="#" class="h-icon phone" title="Gọi điện">
+                  <i class="fa-solid fa-phone-volume"></i>
+                </a>
+                <a href="#" class="h-icon zalo" title="Zalo">
+                  <i class="fa-solid fa-comment-dots"></i>
+                </a>
+                <a href="#" class="h-icon fb" title="Facebook">
+                  <i class="fa-brands fa-facebook-f"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="trip-badge-big">
+              <i class="fa-solid fa-car-side"></i>
+              <strong>100+</strong> <span>Chuyến</span>
+            </div>
+          </div>
+
+          <div class="card-body-row">
+            <div class="owner-identity-col">
+              <div class="big-avatar">
+                <img
+                  src="../../kho_anh/anh_chi_tiet_xe/avatar_chu_xe.png"
+                  alt="Nhóm 4"
+                />
+              </div>
+              <h3 class="owner-name">Nhóm 4</h3>
+              <p class="join-date">Tham gia từ năm 2023</p>
+            </div>
+
+            <div class="owner-stats-col">
+              <div class="stats-row">
+                <div class="stat-item">
+                  <span class="s-label">Tỷ lệ phản hồi</span>
+                  <span class="s-val">100%</span>
+                </div>
+                <div class="stat-item">
+                  <span class="s-label">Phản hồi trong</span>
+                  <span class="s-val">5 phút</span>
+                </div>
+                <div class="stat-item">
+                  <span class="s-label">Tỷ lệ đồng ý</span>
+                  <span class="s-val">95%</span>
+                </div>
+              </div>
+
+              <div class="five-star-banner">
+                <div class="crown-icon">
+                  <i class="fa-solid fa-crown"></i>
+                </div>
+                <div class="banner-text">
+                  Chủ xe 5★ có thời gian phản hồi nhanh chóng, tỉ lệ đồng ý cao,
+                  mức giá cạnh tranh & dịch vụ nhận được nhiều đánh giá tốt từ
+                  khách hàng.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="car-list-section">
+      <div class="container">
+        <div class="list-header-row">
+          <h2>Danh Sách Xe</h2>
+          <div class="car-tabs">
+            <button
+              class="c-tab-btn"
+              id="tab-driver"
+              onclick="openCarTab('driver')"
+            >
+              CÓ TÀI XẾ
+            </button>
+            <button
+              class="c-tab-btn active"
+              id="tab-self"
+              onclick="openCarTab('self')"
+            >
+              TỰ LÁI
+            </button>
+          </div>
+        </div>
+
+        <div id="content-driver" class="car-tab-content" style="display: none">
+          <div class="empty-state-box">
+            <img
+              src="../../kho_anh/anh_thong_tin_chu_xe/no_info.png"
+              alt="Chưa có xe"
+            />
+          </div>
+        </div>
+
+        <div id="content-self" class="car-tab-content active">
+          <div class="owner-car-grid">
+            <div class="sim-car-card">
+              <div class="car-thumb">
+                <img src="../../kho_anh/anh_chi_tiet_xe/car_1.png" alt="VF5" />
+                <span class="discount-tag">-13%</span>
+                <div class="car-badges">
+                  <span class="badge-pill"
+                    ><i class="fa-solid fa-shield-halved"></i> Miễn thế
+                    chấp</span
+                  >
+                </div>
+              </div>
+              <div class="car-info-body">
+                <h4 class="car-name">VINFAST VF5 2024</h4>
+                <div class="car-specs">
+                  <span><i class="fa-solid fa-gears"></i> Tự động</span
+                  ><span><i class="fa-solid fa-chair"></i> 4 chỗ</span
+                  ><span><i class="fa-solid fa-bolt"></i> Điện</span>
+                </div>
+                <div class="car-location">
+                  <i class="fa-solid fa-location-dot"></i> Quận Thủ Đức, TP.HCM
+                </div>
+                <div class="car-footer">
+                  <div class="footer-left">
+                    <div class="rating">
+                      <i class="fa-solid fa-star"></i> 5.0
+                    </div>
+                    <div class="trips">2 chuyến</div>
+                  </div>
+                  <div class="footer-right">
+                    <span class="old-price">884k</span>
+                    <span class="new-price">784k<span>/ngày</span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sim-car-card">
+              <div class="car-thumb">
+                <img src="../../kho_anh/anh_chi_tiet_xe/car_2.png" alt="VF5" />
+                <span class="discount-tag">-14%</span>
+                <div class="car-badges">
+                  <span class="badge-pill"
+                    ><i class="fa-solid fa-shield-halved"></i> Miễn thế
+                    chấp</span
+                  >
+                </div>
+              </div>
+              <div class="car-info-body">
+                <h4 class="car-name">VINFAST VF5 2025</h4>
+                <div class="car-specs">
+                  <span><i class="fa-solid fa-gears"></i> Tự động</span
+                  ><span><i class="fa-solid fa-chair"></i> 4 chỗ</span
+                  ><span><i class="fa-solid fa-bolt"></i> Điện</span>
+                </div>
+                <div class="car-location">
+                  <i class="fa-solid fa-location-dot"></i> Quận Thủ Đức, TP.HCM
+                </div>
+                <div class="car-footer">
+                  <div class="footer-left">
+                    <div class="rating">
+                      <i class="fa-solid fa-star"></i> 5.0
+                    </div>
+                    <div class="trips">1 chuyến</div>
+                  </div>
+                  <div class="footer-right">
+                    <span class="old-price">850k</span>
+                    <span class="new-price">750k<span>/ngày</span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sim-car-card">
+              <div class="car-thumb">
+                <img src="../../kho_anh/anh_chi_tiet_xe/car_3.png" alt="VF5" />
+                <span class="discount-tag">-16%</span>
+                <div class="car-badges">
+                  <span class="badge-pill"
+                    ><i class="fa-solid fa-shield-halved"></i> Miễn thế
+                    chấp</span
+                  >
+                </div>
+              </div>
+              <div class="car-info-body">
+                <h4 class="car-name">VINFAST VF5 2025</h4>
+                <div class="car-specs">
+                  <span><i class="fa-solid fa-gears"></i> Tự động</span
+                  ><span><i class="fa-solid fa-chair"></i> 4 chỗ</span
+                  ><span><i class="fa-solid fa-bolt"></i> Điện</span>
+                </div>
+                <div class="car-location">
+                  <i class="fa-solid fa-location-dot"></i> Quận Thủ Đức, TP.HCM
+                </div>
+                <div class="car-footer">
+                  <div class="footer-left">
+                    <div class="rating">
+                      <i class="fa-solid fa-star"></i> 4.6
+                    </div>
+                    <div class="trips">23 chuyến</div>
+                  </div>
+                  <div class="footer-right">
+                    <span class="old-price">712k</span>
+                    <span class="new-price">612k<span>/ngày</span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sim-car-card">
+              <div class="car-thumb">
+                <img src="../../kho_anh/anh_chi_tiet_xe/car_4.png" alt="VF3" />
+                <span class="discount-tag">-18%</span>
+                <div class="car-badges">
+                  <span class="badge-pill"
+                    ><i class="fa-solid fa-shield-halved"></i> Miễn thế
+                    chấp</span
+                  >
+                </div>
+              </div>
+              <div class="car-info-body">
+                <h4 class="car-name">VINFAST VF3 2025</h4>
+                <div class="car-specs">
+                  <span><i class="fa-solid fa-gears"></i> Tự động</span
+                  ><span><i class="fa-solid fa-chair"></i> 4 chỗ</span
+                  ><span><i class="fa-solid fa-bolt"></i> Điện</span>
+                </div>
+                <div class="car-location">
+                  <i class="fa-solid fa-location-dot"></i> Quận Thủ Đức, TP.HCM
+                </div>
+                <div class="car-footer">
+                  <div class="footer-left">
+                    <div class="rating">
+                      <i class="fa-solid fa-star"></i> 4.8
+                    </div>
+                    <div class="trips">12 chuyến</div>
+                  </div>
+                  <div class="footer-right">
+                    <span class="old-price">631k</span>
+                    <span class="new-price">731k<span>/ngày</span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sim-car-card">
+              <div class="car-thumb">
+                <img src="../../kho_anh/anh_chi_tiet_xe/car_5.png" alt="VF3" />
+                <span class="discount-tag">-20%</span>
+                <div class="car-badges">
+                  <span class="badge-pill"
+                    ><i class="fa-solid fa-shield-halved"></i> Miễn thế
+                    chấp</span
+                  >
+                </div>
+              </div>
+              <div class="car-info-body">
+                <h4 class="car-name">VINFAST VF3 2025</h4>
+                <div class="car-specs">
+                  <span><i class="fa-solid fa-gears"></i> Tự động</span
+                  ><span><i class="fa-solid fa-chair"></i> 4 chỗ</span
+                  ><span><i class="fa-solid fa-bolt"></i> Điện</span>
+                </div>
+                <div class="car-location">
+                  <i class="fa-solid fa-location-dot"></i> Quận Thủ Đức, TP.HCM
+                </div>
+                <div class="car-footer">
+                  <div class="footer-left">
+                    <div class="rating">
+                      <i class="fa-solid fa-star"></i> 5.0
+                    </div>
+                    <div class="trips">72 chuyến</div>
+                  </div>
+                  <div class="footer-right">
+                    <span class="old-price">563k</span>
+                    <span class="new-price">463k<span>/ngày</span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sim-car-card">
+              <div class="car-thumb">
+                <img src="../../kho_anh/anh_chi_tiet_xe/car_6.png" alt="VF3" />
+                <span class="discount-tag">-20%</span>
+                <div class="car-badges">
+                  <span class="badge-pill"
+                    ><i class="fa-solid fa-shield-halved"></i> Miễn thế
+                    chấp</span
+                  >
+                </div>
+              </div>
+              <div class="car-info-body">
+                <h4 class="car-name">VINFAST VF3 2025</h4>
+                <div class="car-specs">
+                  <span><i class="fa-solid fa-gears"></i> Tự động</span
+                  ><span><i class="fa-solid fa-chair"></i> 4 chỗ</span
+                  ><span><i class="fa-solid fa-bolt"></i> Điện</span>
+                </div>
+                <div class="car-location">
+                  <i class="fa-solid fa-location-dot"></i> Quận Thủ Đức, TP.HCM
+                </div>
+                <div class="car-footer">
+                  <div class="footer-left">
+                    <div class="rating">
+                      <i class="fa-solid fa-star"></i> 4.8
+                    </div>
+                    <div class="trips">13 chuyến</div>
+                  </div>
+                  <div class="footer-right">
+                    <span class="old-price">573k</span>
+                    <span class="new-price">473k<span>/ngày</span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="feedback-section">
+      <div class="container">
+        <div class="fb-header-row">
+          <div class="fb-title-group">
+            <h2>Nhận xét</h2>
+            <div class="fb-rating-summary">
+              <i class="fa-solid fa-star"></i> 5.0 <span>|</span> Số đánh giá:
+              100+
+            </div>
+          </div>
+
+          <div class="fb-tabs">
+            <button
+              class="fb-tab-btn"
+              id="tab-fb-owner"
+              onclick="openFbTab('owner')"
+            >
+              CHỦ XE
+            </button>
+            <button
+              class="fb-tab-btn active"
+              id="tab-fb-renter"
+              onclick="openFbTab('renter')"
+            >
+              KHÁCH THUÊ
+            </button>
+          </div>
+        </div>
+
+        <div id="fb-content-owner" class="fb-tab-pane" style="display: none">
+          <div class="fb-grid">
+            <div class="fb-card">
+              <img
+                src="../../kho_anh/anh_thong_tin_chu_xe/cmt_11.png"
+                class="fb-avatar"
+                alt="User"
+              />
+              <div class="fb-info">
+                <div class="fb-top">
+                  <span class="fb-name">Tuyên Linh</span>
+                  <span class="fb-date">24/11/2025</span>
+                </div>
+                <div class="fb-comment">
+                  Thích dịch vụ ở đây, xe giao đúng giờ, sạch sẽ.
+                </div>
+                <div class="fb-stars">
+                  <i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="fb-card">
+              <img
+                src="../../kho_anh/anh_thong_tin_chu_xe/cmt_12.png"
+                class="fb-avatar"
+                alt="User"
+              />
+              <div class="fb-info">
+                <div class="fb-top">
+                  <span class="fb-name">Hinh Dương</span>
+                  <span class="fb-date">25/11/2025</span>
+                </div>
+                <div class="fb-comment">
+                  Xe sạch và thơm. Chủ xe rất nhiệt tình hướng dẫn.
+                </div>
+                <div class="fb-stars">
+                  <i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="fb-card">
+              <img
+                src="../../kho_anh/anh_thong_tin_chu_xe/cmt_13.png"
+                class="fb-avatar"
+                alt="User"
+              />
+              <div class="fb-info">
+                <div class="fb-top">
+                  <span class="fb-name">Tân Thành</span>
+                  <span class="fb-date">15/11/2025</span>
+                </div>
+                <div class="fb-comment">GOOD. Dịch vụ tốt, giá cả hợp lý.</div>
+                <div class="fb-stars">
+                  <i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="fb-card">
+              <img
+                src="../../kho_anh/anh_thong_tin_chu_xe/cmt_14.png"
+                class="fb-avatar"
+                alt="User"
+              />
+              <div class="fb-info">
+                <div class="fb-top">
+                  <span class="fb-name">Minh Nghĩa</span>
+                  <span class="fb-date">12/11/2025</span>
+                </div>
+                <div class="fb-comment">
+                  Xe chạy êm, tiết kiệm xăng. Sẽ ủng hộ lần sau.
+                </div>
+                <div class="fb-stars">
+                  <i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="fb-card">
+              <img
+                src="../../kho_anh/anh_thong_tin_chu_xe/cmt_15.png"
+                class="fb-avatar"
+                alt="User"
+              />
+              <div class="fb-info">
+                <div class="fb-top">
+                  <span class="fb-name">Hồng Gấm</span>
+                  <span class="fb-date">17/11/2025</span>
+                </div>
+                <div class="fb-comment">
+                  Chủ xe thân thiện, hỗ trợ thủ tục nhanh gọn.
+                </div>
+                <div class="fb-stars">
+                  <i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="fb-card">
+              <img
+                src="../../kho_anh/anh_thong_tin_chu_xe/cmt_16.png"
+                class="fb-avatar"
+                alt="User"
+              />
+              <div class="fb-info">
+                <div class="fb-top">
+                  <span class="fb-name">Bảo Thy</span>
+                  <span class="fb-date">18/11/2025</span>
+                </div>
+                <div class="fb-comment">
+                  Rất hài lòng. Xe mới, nội thất đẹp.
+                </div>
+                <div class="fb-stars">
+                  <i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="fb-card extra-fb-owner" style="display: none">
+              <img
+                src="../../kho_anh/anh_thong_tin_chu_xe/cmt_17.png"
+                class="fb-avatar"
+                alt="User"
+              />
+              <div class="fb-info">
+                <div class="fb-top">
+                  <span class="fb-name">Quốc Bảo</span>
+                  <span class="fb-date">14/11/2025</span>
+                </div>
+                <div class="fb-comment">
+                  Thuê xe đi công tác rất tiện, xe có sẵn định vị.
+                </div>
+                <div class="fb-stars">
+                  <i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="fb-card extra-fb-owner" style="display: none">
+              <img
+                src="../../kho_anh/anh_thong_tin_chu_xe/cmt_18.png"
+                class="fb-avatar"
+                alt="User"
+              />
+              <div class="fb-info">
+                <div class="fb-top">
+                  <span class="fb-name">Hải Yến</span>
+                  <span class="fb-date">01/11/2025</span>
+                </div>
+                <div class="fb-comment">
+                  Xe rộng rãi, phù hợp cho gia đình đông người.
+                </div>
+                <div class="fb-stars">
+                  <i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="fb-card extra-fb-owner" style="display: none">
+              <img
+                src="../../kho_anh/anh_thong_tin_chu_xe/cmt_19.png"
+                class="fb-avatar"
+                alt="User"
+              />
+              <div class="fb-info">
+                <div class="fb-top">
+                  <span class="fb-name">Thành Long</span>
+                  <span class="fb-date">30/10/2025</span>
+                </div>
+                <div class="fb-comment">Dịch vụ chuyên nghiệp. 10 điểm.</div>
+                <div class="fb-stars">
+                  <i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="fb-card extra-fb-owner" style="display: none">
+              <img
+                src="../../kho_anh/anh_thong_tin_chu_xe/cmt_20.png"
+                class="fb-avatar"
+                alt="User"
+              />
+              <div class="fb-info">
+                <div class="fb-top">
+                  <span class="fb-name">Phương Thảo</span>
+                  <span class="fb-date">25/10/2025</span>
+                </div>
+                <div class="fb-comment">
+                  Tuyệt vời. Chắc chắn sẽ giới thiệu cho bạn bè.
+                </div>
+                <div class="fb-stars">
+                  <i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="review-toggle-container">
+            <button id="btn-toggle-fb-owner" class="btn-toggle-reviews">
+              Xem tất cả (10) <i class="fa-solid fa-chevron-down"></i>
+            </button>
+          </div>
+        </div>
+
+        <script>
+          // ... (Code cũ của tab Khách thuê giữ nguyên) ...
+
+          // 3. Logic Xem thêm cho TAB CHỦ XE
+          const btnToggleFbOwner = document.getElementById(
+            "btn-toggle-fb-owner"
+          );
+          const extraFbOwnerItems =
+            document.querySelectorAll(".extra-fb-owner");
+          let isFbOwnerExpanded = false;
+
+          if (btnToggleFbOwner) {
+            btnToggleFbOwner.addEventListener("click", function () {
+              if (!isFbOwnerExpanded) {
+                // MỞ RA
+                extraFbOwnerItems.forEach((item) => {
+                  item.style.display = "flex";
+                });
+                btnToggleFbOwner.innerHTML =
+                  'Rút gọn <i class="fa-solid fa-chevron-up"></i>';
+                isFbOwnerExpanded = true;
+              } else {
+                // THU VÀO
+                extraFbOwnerItems.forEach((item) => {
+                  item.style.display = "none";
+                });
+                btnToggleFbOwner.innerHTML =
+                  'Xem tất cả (10) <i class="fa-solid fa-chevron-down"></i>';
+                isFbOwnerExpanded = false;
+              }
+            });
+          }
+        </script>
+
+        <div id="fb-content-renter" class="fb-tab-pane active">
+          <div class="fb-grid">
+            <div class="fb-card">
+              <img
+                src="../../kho_anh/anh_thong_tin_chu_xe/cmt_1.png"
+                class="fb-avatar"
+                alt="User"
+              />
+              <div class="fb-info">
+                <div class="fb-top">
+                  <span class="fb-name">Phạm Tân</span>
+                  <span class="fb-date">24/11/2025</span>
+                </div>
+                <div class="fb-comment">
+                  Hệ thống phanh tốt, xe chạy rất êm ái trên cao tốc.
+                </div>
+                <div class="fb-stars">
+                  <i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="fb-card">
+              <img
+                src="../../kho_anh/anh_thong_tin_chu_xe/cmt_2.png"
+                class="fb-avatar"
+                alt="User"
+              />
+              <div class="fb-info">
+                <div class="fb-top">
+                  <span class="fb-name">Phước Sang</span>
+                  <span class="fb-date">25/11/2025</span>
+                </div>
+                <div class="fb-comment">
+                  Xe đúng mẫu đặt, sạch sẽ và thơm tho. Chủ xe giao xe đúng giờ.
+                </div>
+                <div class="fb-stars">
+                  <i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="fb-card">
+              <img
+                src="../../kho_anh/anh_thong_tin_chu_xe/cmt_3.png"
+                class="fb-avatar"
+                alt="User"
+              />
+              <div class="fb-info">
+                <div class="fb-top">
+                  <span class="fb-name">Nhật Minh</span>
+                  <span class="fb-date">15/11/2025</span>
+                </div>
+                <div class="fb-comment">
+                  Xe có cảm biến lùi và camera hành trình đầy đủ, lái rất yên
+                  tâm.
+                </div>
+                <div class="fb-stars">
+                  <i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="fb-card">
+              <img
+                src="../../kho_anh/anh_thong_tin_chu_xe/cmt_4.png"
+                class="fb-avatar"
+                alt="User"
+              />
+              <div class="fb-info">
+                <div class="fb-top">
+                  <span class="fb-name">Hoa Nguyễn</span>
+                  <span class="fb-date">12/11/2025</span>
+                </div>
+                <div class="fb-comment">
+                  Chủ xe hỗ trợ nhiệt tình, thủ tục nhận xe nhanh gọn lẹ.
+                </div>
+                <div class="fb-stars">
+                  <i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="fb-card">
+              <img
+                src="../../kho_anh/anh_thong_tin_chu_xe/cmt_5.png"
+                class="fb-avatar"
+                alt="User"
+              />
+              <div class="fb-info">
+                <div class="fb-top">
+                  <span class="fb-name">Hồng Ký</span>
+                  <span class="fb-date">17/11/2025</span>
+                </div>
+                <div class="fb-comment">
+                  Trải nghiệm tuyệt vời. Xe mới, tiết kiệm xăng.
+                </div>
+                <div class="fb-stars">
+                  <i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="fb-card">
+              <img
+                src="../../kho_anh/anh_thong_tin_chu_xe/cmt_6.png"
+                class="fb-avatar"
+                alt="User"
+              />
+              <div class="fb-info">
+                <div class="fb-top">
+                  <span class="fb-name">Huỳnh Dao</span>
+                  <span class="fb-date">18/11/2025</span>
+                </div>
+                <div class="fb-comment">
+                  Xe sạch, điều hòa mát lạnh. Rất phù hợp đi gia đình.
+                </div>
+                <div class="fb-stars">
+                  <i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="fb-card extra-fb" style="display: none">
+              <img
+                src="../../kho_anh/anh_thong_tin_chu_xe/cmt_7.png"
+                class="fb-avatar"
+                alt="User"
+              />
+              <div class="fb-info">
+                <div class="fb-top">
+                  <span class="fb-name">Lý Linh</span>
+                  <span class="fb-date">14/11/2025</span>
+                </div>
+                <div class="fb-comment">
+                  Giao diện đặt xe dễ dùng, chủ xe phản hồi tin nhắn siêu nhanh.
+                </div>
+                <div class="fb-stars">
+                  <i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="fb-card extra-fb" style="display: none">
+              <img
+                src="../../kho_anh/anh_thong_tin_chu_xe/cmt_8.png"
+                class="fb-avatar"
+                alt="User"
+              />
+              <div class="fb-info">
+                <div class="fb-top">
+                  <span class="fb-name">Nhiên Nhiên</span>
+                  <span class="fb-date">01/11/2025</span>
+                </div>
+                <div class="fb-comment">
+                  Xe hơi cũ một xíu nhưng máy móc vẫn ngon lành. Giá thuê hợp
+                  lý.
+                </div>
+                <div class="fb-stars">
+                  <i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="fb-card extra-fb" style="display: none">
+              <img
+                src="../../kho_anh/anh_thong_tin_chu_xe/cmt_9.png"
+                class="fb-avatar"
+                alt="User"
+              />
+              <div class="fb-info">
+                <div class="fb-top">
+                  <span class="fb-name">Tuyền Phạm</span>
+                  <span class="fb-date">30/10/2025</span>
+                </div>
+                <div class="fb-comment">
+                  Rất hài lòng về thái độ phục vụ của chủ xe. Sẽ quay lại.
+                </div>
+                <div class="fb-stars">
+                  <i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="fb-card extra-fb" style="display: none">
+              <img
+                src="../../kho_anh/anh_thong_tin_chu_xe/cmt_10.png"
+                class="fb-avatar"
+                alt="User"
+              />
+              <div class="fb-info">
+                <div class="fb-top">
+                  <span class="fb-name">Phụng Lê</span>
+                  <span class="fb-date">25/10/2025</span>
+                </div>
+                <div class="fb-comment">
+                  Xe chạy đầm, không bị rung lắc. Đi đường dài rất khỏe.
+                </div>
+                <div class="fb-stars">
+                  <i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="review-toggle-container">
+            <button id="btn-toggle-fb" class="btn-toggle-reviews">
+              Xem tất cả (10) <i class="fa-solid fa-chevron-down"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+    <div id="footer-placeholder"></div>
+<script src="../../js_chung/thong_tin_chu_xe.js"></script>
+  </body>
+</html>

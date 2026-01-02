@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bonboncar</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../kho_anh/anh_dung_chung/LOGO.png"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="D:\BONBONCAR_PJ\kho_anh\anh_dung_chung\LOGO.png"
+    />
+    <link rel="stylesheet" href="../../css_chung/kieu_dang.css" />
+    <link rel="stylesheet" href="../../css_chung/dat_xe.css" />
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
+
+    <div class="main-content"></div>
+
+    <script src="../../js_chung/chuc_nang.js"></script>
+
+    <div class="sub-nav-dat-xe">
+      <a href="../chi_tiet_xe/chi_tiet_xe.html" class="back-chi-tiet-xe">
+        <span class="arrow">←</span>
+        <span class="text">ĐẶT XE</span>
+      </a>
+    </div>
+
+    <style>
+      .sub-nav-dat-xe {
+        background-color: #53c7a3; /* xanh giống hình */
+        height: 48px;
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+      }
+
+      .back-chi-tiet-xe {
+        display: flex;
+        align-items: center;
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 16px;
+      }
+
+      .back-chi-tiet-xe .arrow {
+        font-size: 22px;
+        margin-right: 8px;
+        line-height: 1;
+      }
+
+      .back-chi-tiet-xe:hover {
+        opacity: 0.85;
+      }
+    </style>
+
+    <main class="booking-page">
+      <!-- STEPS -->
+      <div class="booking-steps">
+        <div class="container steps-inner">
+          <div class="step active">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <span>Tìm và đặt xe</span>
+          </div>
+          <div class="step active">
+            <div class="confirm-icon">
+              <i class="fa-solid fa-car"></i>
+            </div>
+            <span>Xác nhận đặt xe</span>
+          </div>
+
+          <div class="step">
+            <i class="fa-solid fa-credit-card"></i>
+            <span>Thanh toán giữ chỗ</span>
+          </div>
+          <div class="step">
+            <i class="fa-solid fa-car"></i>
+            <span>Chờ nhận xe</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONTENT -->
+      <div class="container booking-wrapper">
+        <div class="booking-card">
+          <h3 class="section-title">THÔNG TIN ĐẶT XE</h3>
+
+           <form action="thanh_toan_giu_cho.html" method="GET">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Tên</label>
+              <div class="input-icon">
+                <i class="fa-solid fa-user"></i>
+                <input
+              type="text"
+              placeholder="Nhập tên"
+              name="customer_name"
+              required
+            />
+
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Số điện thoại</label>
+              <div class="input-icon">
+                <i class="fa-solid fa-phone"></i>
+                <input
+                  type="tel"
+                  placeholder="Nhập số điện thoại"
+                  name="customer_phone"
+                  required
+                  pattern="^[0-9]{10}$"
+                  title="Vui lòng nhập đúng 11 chữ số"
+                />
+
+
+              </div>
+            </div>
+          </div>
+
+          <h3 class="section-title">THÔNG TIN ĐƠN HÀNG</h3>
+
+          <div class="form-group">
+            <label>Địa chỉ nhận xe</label>
+            <div class="input-icon readonly">
+              <i class="fa-solid fa-location-dot"></i>
+              <div class="input-icon readonly">
+                <span id="display-address">Đang tải...</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Thời gian thuê xe</label>
+            <div class="input-icon readonly">
+              <i class="fa-solid fa-calendar-days"></i>
+              <div class="input-icon readonly">
+                <span id="display-time">Đang tải...</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="price-box">
+            <div class="price-row">
+              <span>Phí thuê xe</span>
+              <span id="bill-rent">0đ</span>
+            </div>
+
+            <div class="price-row">
+              <span>Phí giao nhận</span>
+              <span id="bill-delivery">0đ</span>
+            </div>
+
+            <div class="price-row">
+              <span>Phí bảo hiểm</span>
+              <span id="bill-insurance">0đ</span>
+            </div>
+
+            <div
+              class="price-row discount"
+              id="row-coupon"
+              style="display: none"
+            >
+              <span id="bill-coupon-label">Giảm giá</span>
+              <span id="bill-coupon">-0đ</span>
+            </div>
+
+            <div class="price-row">
+              <span>Thuế VAT</span>
+              <span id="bill-vat">0đ</span>
+            </div>
+
+            <div class="price-row total">
+              <span>Tổng cộng tiền thuê</span>
+              <span id="bill-total">0đ</span>
+            </div>
+          </div>
+
+          <h3 class="section-title">CÁC BƯỚC THANH TOÁN</h3>
+
+          <div class="payment-steps">
+            <div class="payment-step active">
+              <div class="step-number">Bước 1</div>
+              <div class="step-content">
+                <strong>Thanh toán giữ chỗ qua BonbonCar</strong>
+                <p>Số tiền: <span id="step-1-money">100.000đ</span></p>
+              </div>
+            </div>
+
+            <div class="payment-step">
+              <div class="step-number">Bước 2</div>
+              <div class="step-content">
+                <strong>Thanh toán khi nhận xe</strong>
+                <p>Số tiền còn lại: <span id="step-2-money">...</span></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="vat-check">
+            <input type="checkbox" />
+            <span>Xuất hóa đơn VAT</span>
+          </div>
+
+            <button type="submit" class="btn-confirm">
+              XÁC NHẬN
+            </button>
+
+           </form>
+
+
+          <script>
+            document.addEventListener("DOMContentLoaded", function () {
+              // 1. Lấy dữ liệu từ LocalStorage
+              const data = JSON.parse(localStorage.getItem("bookingData"));
+
+              if (!data) {
+                alert(
+                  "Không tìm thấy thông tin đặt xe. Vui lòng quay lại chọn xe."
+                );
+                window.location.href = "../trang_chu.html"; // Redirect nếu ko có data
+                return;
+              }
+
+              // 2. Điền thông tin cơ bản
+              document.getElementById("display-address").innerText =
+                data.address;
+              document.getElementById("display-time").innerText =
+                data.timeString;
+
+              // 3. Điền bảng giá
+              document.getElementById("bill-rent").innerText = formatMoney(
+                data.rentPrice
+              );
+              document.getElementById("bill-delivery").innerText = formatMoney(
+                data.deliveryFee
+              );
+              document.getElementById("bill-insurance").innerText = formatMoney(
+                data.insuranceFee
+              );
+              document.getElementById("bill-vat").innerText = formatMoney(
+                data.vat
+              );
+
+              // Xử lý mã giảm giá
+              const couponRow = document.getElementById("row-coupon");
+              if (data.couponVal > 0) {
+                couponRow.style.display = "flex";
+                document.getElementById(
+                  "bill-coupon-label"
+                ).innerText = `Giảm giá (${data.couponCode})`;
+                document.getElementById("bill-coupon").innerText =
+                  "-" + formatMoney(data.couponVal);
+              } else {
+                couponRow.style.display = "none";
+              }
+
+              // 4. Điền Tổng tiền
+              // Tổng hiển thị ở đây = Tổng cuối cùng (đã trừ coupon, cộng vat...)
+              // Tuy nhiên, logic ở trang trước là "Thành tiền" đã bao gồm cọc + giữ chỗ.
+              // Ở trang này thường chỉ hiện "Tổng tiền thuê" (chi phí thực tế khách trả cho chuyến đi).
+              // Nhưng để đơn giản, ta lấy con số Total Final hiển thị cho khớp.
+              document.getElementById("bill-total").innerText = formatMoney(
+                data.totalFinal
+              );
+
+              // 5. Tính toán các bước thanh toán
+              // Bước 1: Giữ chỗ (Cố định hoặc lấy từ data)
+              const step1 = data.holdFee || 100000;
+              document.getElementById("step-1-money").innerText =
+                formatMoney(step1);
+
+              // Bước 2: Còn lại = Tổng tiền - Giữ chỗ
+              // Lưu ý: Nếu Tổng tiền bao gồm cả Cọc (3tr), thì số tiền thanh toán khi nhận xe sẽ rất lớn.
+              // Logic đúng: Số tiền còn lại = (Tổng bill) - (Đã thanh toán giữ chỗ 100k)
+              const step2 = data.totalFinal - step1;
+              document.getElementById("step-2-money").innerText =
+                formatMoney(step2);
+            });
+
+            // Hàm format tiền tệ
+            function formatMoney(n) {
+              return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + "đ";
+            }
+
+          </script>
+
+          <p class="policy-text">
+            Bằng việc chọn xác nhận thuê xe, bạn đồng ý với
+            <a href="dieu_khoan_su_dung.html">Điều khoản sử dụng</a> và
+            <a href="chinh_sach_bao_mat.html">Chính sách bảo mật</a>
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="../../js_chung/chuc_nang.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const data = JSON.parse(localStorage.getItem("bookingData"));
+        if (!data) return;
+
+        // 1. Điền Địa chỉ & Thời gian
+        if (document.getElementById("display-address"))
+          document.getElementById("display-address").innerText = data.address;
+        if (document.getElementById("display-time"))
+          document.getElementById(
+            "display-time"
+          ).innerText = `${data.start} - ${data.end}`;
+
+        // 2. ĐIỀN BẢNG GIÁ CHI TIẾT
+        // Phí thuê xe
+        if (document.getElementById("bill-rent"))
+          document.getElementById("bill-rent").innerText = formatMoney(
+            data.rentPrice
+          );
+
+        // Phí giao nhận (Quan trọng: Giờ nó sẽ hiện đúng số tiền)
+        if (document.getElementById("bill-delivery")) {
+          if (data.deliveryFee > 0) {
+            document.getElementById("bill-delivery").innerText = formatMoney(
+              data.deliveryFee
+            );
+            document.getElementById("bill-delivery").style.color = "#00d2ba"; // Xanh ngọc
+          } else {
+            document.getElementById("bill-delivery").innerText = "Miễn phí"; // Hoặc 0đ
+          }
+        }
+
+        // Phí bảo hiểm
+        if (document.getElementById("bill-insurance"))
+          document.getElementById("bill-insurance").innerText = formatMoney(
+            data.insuranceFee
+          );
+
+        // Thuế VAT
+        if (document.getElementById("bill-vat"))
+          document.getElementById("bill-vat").innerText = formatMoney(data.vat);
+
+        // Mã giảm giá (Hiện nếu có)
+        if (document.getElementById("row-coupon")) {
+          if (data.couponVal > 0) {
+            document.getElementById("row-coupon").style.display = "flex";
+            document.getElementById("bill-coupon").innerText =
+              "-" + formatMoney(data.couponVal);
+          } else {
+            document.getElementById("row-coupon").style.display = "none";
+          }
+        }
+
+        // 3. TỔNG TIỀN & THANH TOÁN
+        if (document.getElementById("bill-total"))
+          document.getElementById("bill-total").innerText = formatMoney(
+            data.total
+          );
+
+        // Tính tiền còn lại (Tổng - 100k)
+        if (document.getElementById("step-2-money")) {
+          const remain = data.total > 100000 ? data.total - 100000 : 0;
+          document.getElementById("step-2-money").innerText =
+            formatMoney(remain);
+        }
+      });
+
+      function formatMoney(n) {
+        return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + "đ";
+      }
+    </script>
+  </body>
+</html>

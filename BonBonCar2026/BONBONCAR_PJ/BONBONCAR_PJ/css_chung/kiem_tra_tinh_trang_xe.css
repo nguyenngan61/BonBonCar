@@ -1,0 +1,303 @@
+/* ===============================
+   XÁC NHẬN TÌNH TRẠNG XE
+   =============================== */
+
+.ktxe-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: "Inter", sans-serif;
+}
+
+/* Header */
+.ktxe-header {
+  text-align: center;
+  margin-bottom: 60px;
+  background-color: #d1efe8;
+  padding: 20px;
+  border-radius: 8px;
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* chữ nằm giữa chiều cao khung */
+  align-items: center;
+  height: 150px; /* chiều cao cố định khung */
+}
+
+.ktxe-header h1 {
+  color: #53c7a3;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.ktxe-header p {
+  color: #53c7a3;
+  font-size: 15px;
+}
+
+/* Upload / Unlock Titles */
+.ktxe-upload h2,
+.ktxe-unlock h2 {
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+.ktxe-grid {
+  display: flex;
+  flex-direction: column; /* xếp dọc */
+  gap: 16px; /* khoảng cách giữa các box */
+  width: 100%;
+  align-items: center; /* căn các box ở giữa */
+}
+
+.ktxe-box {
+  border: 2px dashed #ccc;
+  border-radius: 12px;
+  padding: 20px;
+  width: 70%; /* mỗi box chiếm 70% chiều rộng */
+  box-sizing: border-box;
+
+  height: 300px;       /* chiều cao tùy chỉnh */
+  min-height: 300px;
+  max-height: 300px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;    /* nội dung từ trên xuống */
+  justify-content: center; /* căn giữa chiều dọc */
+  align-items: center;     /* căn giữa chiều ngang */
+  position: relative;
+  cursor: pointer;
+}
+  .ktxe-box .img-wrapper {
+  position: relative;
+  width: 400px;   /* cố định chiều rộng ảnh */
+  height: 300px;   /* cố định chiều cao ảnh */
+  margin-bottom: 8px;
+}
+.ktxe-box .preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+}
+.ktxe-box .prev-btn,
+.ktxe-box .next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.ktxe-box .prev-btn { left: 8px; }
+.ktxe-box .next-btn { right: 8px; }
+
+.ktxe-box .remove-single {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.ktxe-box span {
+  margin-top: 4px;
+  z-index: 1;
+}
+
+.ktxe-box:hover {
+  border-color: #53c7a3;
+  background: #d1efe8;
+}
+
+.ktxe-box input {
+  display: none;
+}
+
+.ktxe-box span {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* Unlock section */
+.ktxe-unlock {
+  margin-top: 40px;
+  text-align: center;
+}
+
+/* Button */
+.ktxe-btn {
+  background: #53c7a3;
+  color: #fff;
+  border: none;
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 999px;
+  cursor: pointer;
+  margin-top: 16px;
+}
+.ktxe-btn {
+  display: inline-flex;    
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+
+.ktxe-btn:hover {
+  background: #2d7f64;
+}
+
+/* Note / chú thích */
+.ktxe-note {
+  display: block;
+  margin-top: 12px;
+  font-size: 13px;
+  color: #777;
+}
+
+/* Header placeholder */
+#header-placeholder {
+  min-height: 80px;       /* chiều cao header thực tế, điều chỉnh nếu khác */
+  background-color: #fff; /* màu nền giống header */
+}
+
+/* Responsive nhỏ hơn 600px */
+@media (max-width: 600px) {
+  .ktxe-container {
+    padding: 20px 10px;
+  }
+
+  .ktxe-header h1 {
+    font-size: 24px;
+  }
+
+  .ktxe-header p {
+    font-size: 14px;
+  }
+
+  .ktxe-btn {
+    width: 100%;
+    padding: 12px 0;
+  }
+}
+/* ===============================
+   GHI CHÚ ẢNH (NOTE PANEL)
+   =============================== */
+
+.add-note-btn {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 5;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.add-note-btn:hover {
+  background: #53c7a3;
+}
+
+.img-note-panel {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  right: 8px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 8px;
+  padding: 8px;
+  z-index: 4;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.note-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.note-tags label {
+  font-size: 12px;
+  background: #f1f1f1;
+  padding: 4px 6px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.note-tags input {
+  margin-right: 4px;
+}
+
+.note-text {
+  width: 100%;
+  resize: none;
+  font-size: 12px;
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+/* ===============================
+   TEXTBOX GHI CHÚ CUỐI QUY TRÌNH
+   =============================== */
+
+.ktxe-note-box {
+  margin-top: 32px;
+  padding: 16px;
+  border: 1px solid #d1efe8;
+  border-radius: 12px;
+  background: #f9fdfc;
+}
+
+.ktxe-note-box h3 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #2d7f64;
+}
+
+/* Textarea cố định kích thước */
+.ktxe-note-box textarea {
+  width: 100%;
+  height: 120px;          /* ⬅ chiều cao cố định */
+  resize: none;           /* ⬅ không cho kéo thay đổi size */
+  padding: 12px;
+  font-size: 14px;
+  font-family: "Inter", sans-serif;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  outline: none;
+}
+
+/* Focus */
+.ktxe-note-box textarea:focus {
+  border-color: #53c7a3;
+  box-shadow: 0 0 0 2px rgba(83, 199, 163, 0.2);
+}
+
+
+

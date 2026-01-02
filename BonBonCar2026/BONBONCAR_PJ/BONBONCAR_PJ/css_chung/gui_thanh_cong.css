@@ -1,0 +1,118 @@
+/* =========================================================
+   FILE: css_chung/gui_thanh_cong.css
+   MÔ TẢ: Giao diện trang thông báo gửi thành công
+   ========================================================= */
+
+/* 1. THIẾT LẬP CHUNG */
+.success-page {
+  background: #fff;
+  margin-top: 0 !important;
+  min-height: 60vh; /* Đảm bảo chiều cao tối thiểu */
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+/* 2. BANNER (Đồng bộ với trang Liên hệ) */
+.lh-banner {
+  background: #7fd1b2; /* Màu xanh chủ đạo */
+  padding: 12px 0;
+  margin-top: 0 !important;
+}
+
+.lh-back {
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  transition: opacity 0.2s;
+}
+
+.lh-back:hover {
+  text-decoration: underline;
+  opacity: 0.9;
+}
+
+/* 3. NỘI DUNG CHÍNH */
+.success-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 60px;
+  padding-bottom: 100px;
+}
+
+/* Tiêu đề */
+.success-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #333;
+  text-transform: uppercase;
+}
+
+/* Mô tả */
+.success-desc {
+  max-width: 720px;
+  margin: 0 auto 60px; /* Tạo khoảng cách với thông báo bên dưới */
+  font-size: 14px;
+  line-height: 1.6;
+  color: #666;
+}
+
+/* 4. KHUNG THÔNG BÁO THÀNH CÔNG */
+.success-message {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 700;
+  color: #00d2ba; /* Màu xanh thương hiệu */
+  background: #e8f7f3; /* Nền xanh nhạt */
+  padding: 25px 50px;
+  border-radius: 8px;
+  border: 1px solid #bfeee4;
+  box-shadow: 0 5px 15px rgba(0, 210, 186, 0.15);
+
+  /* Hiệu ứng xuất hiện */
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Thêm icon check (giả lập bằng CSS nếu không muốn sửa HTML) */
+.success-message::before {
+  content: "✓";
+  display: block;
+  font-size: 40px;
+  margin-bottom: 10px;
+  line-height: 1;
+}
+
+/* 5. HIỆU ỨNG ANIMATION */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 6. RESPONSIVE */
+@media (max-width: 768px) {
+  .success-content {
+    padding-top: 40px;
+    padding-bottom: 60px;
+  }
+
+  .success-message {
+    width: 90%;
+    font-size: 18px;
+    padding: 20px;
+  }
+}

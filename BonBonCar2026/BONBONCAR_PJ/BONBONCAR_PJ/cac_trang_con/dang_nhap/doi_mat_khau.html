@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Đổi mật khẩu</title>
+
+    <link rel="stylesheet" href="../../css_chung/kieu_dang.css" />
+    <link rel="stylesheet" href="../../css_chung/doi_mat_khau.css" />
+  </head>
+
+  <body>
+    <div id="header-placeholder"></div>
+
+    <div class="main-content"></div>
+
+    <script src="../../js_chung/chuc_nang.js"></script>
+    <main class="change-page">
+      <div class="change-box">
+        <h1 class="change-title">ĐỔI MẬT KHẨU</h1>
+
+        <p class="change-desc">
+          Mật khẩu bao gồm số, chữ thường, chữ in hoa và ký tự đặc biệt.
+        </p>
+
+        <form id="changeForm">
+          <label>Mật khẩu mới</label>
+          <input type="password" id="newPassword" />
+
+          <label>Xác nhận mật khẩu mới</label>
+          <input type="password" id="confirmPassword" />
+
+          <button type="submit" class="btn-change">ĐỒNG Ý</button>
+        </form>
+
+        <p id="errorMsg" class="error-msg"></p>
+      </div>
+    </main>
+
+    <script src="../../js_chung/doi_mat_khau.js"></script>
+    <div id="footer-placeholder"></div>
+    <script src="../../js_chung/chuc_nang.js"></script>
+  </body>
+</html>

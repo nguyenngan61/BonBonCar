@@ -1,0 +1,429 @@
+/* =========================================================
+   FILE: css_chung/dat_xe.css
+   MÔ TẢ: Giao diện trang Đặt xe (Form, Stepper, Payment)
+   ========================================================= */
+
+/* 1. THIẾT LẬP MÀU SẮC CHUNG */
+:root {
+  --green-main: #43c6a8;
+  --green-light: #e8f7f3;
+  --green-dark: #2aa68b;
+  --text-dark: #1f2937;
+  --text-gray: #6b7280;
+  --border-light: #e5e7eb;
+  --bg-page: #f5f7f9;
+}
+
+/* 2. LAYOUT CHUNG */
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text-dark);
+}
+
+.booking-page {
+  padding-bottom: 80px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* 3. THANH TIẾN TRÌNH (STEPPER) */
+.booking-steps {
+  background: var(--green-light);
+  border-bottom: 1px solid var(--border-light);
+  position: relative;
+  overflow: hidden;
+  padding: 30px 0 40px;
+}
+
+/* Gạch nối ngang (Sửa lại vị trí chuẩn) */
+.booking-steps::after {
+  content: "";
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: 53px; /* Căn giữa icon */
+  height: 3px;
+  background: linear-gradient(
+    to right,
+    var(--green-main) 0%,
+    var(--green-main) 38%,
+    #d1d5db 38%,
+    #d1d5db 100%
+  );
+  z-index: 1;
+}
+
+.steps-inner {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2; /* Nổi lên trên gạch nối */
+}
+
+.step {
+  flex: 1;
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-gray);
+  position: relative;
+}
+
+/* Icon tròn */
+.step > i,
+.confirm-icon {
+  width: 46px;
+  height: 46px;
+  margin: 0 auto 12px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #d1d5db;
+  color: #d1d5db;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  position: relative;
+  z-index: 5;
+  background-clip: padding-box;
+}
+
+/* Trạng thái Active */
+.step.active span {
+  color: var(--green-dark);
+  font-weight: 700;
+}
+
+.step.active > i,
+.step.active .confirm-icon {
+  background: var(--green-main);
+  border-color: var(--green-main);
+  color: #fff;
+}
+
+/* Hiệu ứng Pulse cho bước hiện tại */
+.confirm-icon {
+  animation: confirm-pulse 1.6s infinite ease-out;
+}
+.confirm-icon::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  background: rgba(67, 198, 168, 0.35);
+  animation: pulse-ring 1.6s infinite ease-out;
+  z-index: -1;
+}
+
+@keyframes confirm-pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* 4. KHUNG FORM ĐẶT XE */
+.booking-wrapper {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.booking-card {
+  width: 750px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--green-dark);
+  margin: 30px 0 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.section-title:first-child {
+  margin-top: 0;
+}
+
+.section-title::after {
+  content: "";
+  width: 60px;
+  height: 3px;
+  background: var(--green-main);
+  display: block;
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+
+/* Form Input */
+.form-row {
+  display: flex;
+  gap: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-gray);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.input-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon i {
+  position: absolute;
+  left: 14px;
+  color: #9ca3af;
+  font-size: 15px;
+  z-index: 2;
+}
+
+.input-icon input {
+  width: 100%;
+  height: 46px;
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  padding-left: 42px; /* Chừa chỗ cho icon */
+  font-size: 14px;
+  font-family: inherit;
+  transition: 0.2s;
+}
+
+.input-icon input:focus {
+  outline: none;
+  border-color: var(--green-main);
+  box-shadow: 0 0 0 3px rgba(67, 198, 168, 0.1);
+}
+
+.input-icon input:focus + i {
+  color: var(--green-main);
+}
+
+/* Input Readonly (Địa chỉ, Thời gian) */
+.input-icon.readonly {
+  background: #f9fafb;
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  padding: 0 14px;
+  height: 46px;
+  color: #374151;
+}
+
+.input-icon.readonly i {
+  position: static; /* Icon không absolute nữa */
+  color: var(--green-main);
+  margin-right: 12px;
+}
+
+.input-icon.readonly span {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* 5. KHUNG GIÁ TIỀN */
+.price-box {
+  background: #fafafa;
+  border: 1px dashed var(--border-light);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.price-row.discount span:last-child {
+  color: #ef4444; /* Màu đỏ cho giảm giá */
+  font-weight: 600;
+}
+
+.price-row.total {
+  border-top: 1px solid var(--border-light);
+  margin-top: 10px;
+  padding-top: 15px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--green-dark);
+}
+
+/* 6. CÁC BƯỚC THANH TOÁN (PAYMENT STEPS) */
+.payment-steps {
+  margin-bottom: 30px;
+}
+
+.payment-step {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 10px;
+  background: #fff;
+  border: 1px solid var(--border-light);
+  margin-bottom: 12px;
+  transition: 0.2s;
+}
+
+.payment-step.active {
+  border-color: var(--green-main);
+  background: #ecfdf9; /* Xanh rất nhạt */
+}
+
+.step-number {
+  min-width: 70px;
+  height: 32px;
+  border-radius: 16px;
+  background: #e5e7eb;
+  color: #6b7280;
+  font-weight: 600;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.payment-step.active .step-number {
+  background: var(--green-main);
+  color: #fff;
+}
+
+.step-content strong {
+  display: block;
+  font-size: 15px;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+}
+
+.step-content p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-gray);
+}
+
+.step-content span {
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+/* 7. CHECKBOX & NÚT BẤM */
+.vat-check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+  font-size: 14px;
+  cursor: pointer;
+}
+.vat-check input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--green-main);
+}
+
+.btn-confirm {
+  width: 100%;
+  height: 50px;
+  border: none;
+  border-radius: 8px;
+  background: var(--green-main);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 4px 12px rgba(67, 198, 168, 0.3);
+}
+
+.btn-confirm:hover {
+  background: var(--green-dark);
+  transform: translateY(-2px);
+}
+
+.policy-text {
+  font-size: 13px;
+  text-align: center;
+  color: var(--text-gray);
+  margin-top: 20px;
+  line-height: 1.5;
+}
+
+.policy-text a {
+  color: var(--green-dark);
+  font-weight: 600;
+  text-decoration: none;
+}
+.policy-text a:hover {
+  text-decoration: underline;
+}
+/* Style cho dòng thông báo lỗi */
+.error-message {
+  color: #ff3b30; /* Màu đỏ */
+  font-size: 12px;
+  margin-top: 5px;
+  display: block;
+  height: 15px; /* Giữ chỗ để không bị nhảy layout */
+}
+
+/* Khi input bị lỗi thì viền đỏ */
+.input-icon input.input-error {
+  border-color: #ff3b30 !important;
+  background-color: #fff5f5;
+}
+
+/* 8. RESPONSIVE */
+@media (max-width: 768px) {
+  .booking-card {
+    width: 100%;
+    padding: 20px;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .booking-steps::after {
+    top: 50px; /* Điều chỉnh lại gạch nối trên mobile */
+  }
+}

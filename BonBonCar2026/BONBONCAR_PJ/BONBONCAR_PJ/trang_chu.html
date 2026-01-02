@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bonboncar</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="D:\BONBONCAR_PJ\kho_anh\anh_dung_chung\LOGO.png"
+    />
+    <link rel="stylesheet" href="./css_chung/kieu_dang.css" />
+    <link rel="stylesheet" href="./css_chung/trang_chu.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container header-inner">
+        <a href="${rootPath}trang_chu.html" class="brand-logo">
+          <div class="logo-circle"></div>
+          <span class="brand-name">bonboncar</span>
+        </a>
+
+        <nav class="nav-center">
+          <a href="cac_trang_con/ve_chung_toi/ve_chung_toi.html"
+            >VỀ BONBONCAR</a
+          >
+          <a href="cac_trang_con/blog/blog_tin_tuc.html">BLOG</a>
+          <a href="cac_trang_con/ky_gui_xe/ky_gui_xe.html">KÝ GỬI XE</a>
+
+          <a href="cac_trang_con/chinh_sach/chinh_sach_head.html">CHÍNH SÁCH</a>
+
+          <a href="cac_trang_con/lien_he/lien_he.html">LIÊN HỆ</a>
+        </nav>
+
+        <div class="header-right">
+          <div class="location-picker" id="locPicker">
+            <i class="fa-solid fa-location-dot"></i>
+            <span id="currentLocation">Hồ Chí Minh</span>
+            <i class="fa-solid fa-chevron-down" style="font-size: 10px"></i>
+            <ul class="city-dropdown" id="cityDropdown">
+              <li>
+                <a href="#" onclick="changeLocation('Hồ Chí Minh')"
+                  >Hồ Chí Minh</a
+                >
+              </li>
+
+              <li><a href="#" onclick="changeLocation('Hà Nội')">Hà Nội</a></li>
+              <li>
+                <a href="#" onclick="changeLocation('Bình Dương')"
+                  >Bình Dương</a
+                >
+              </li>
+              <li>
+                <a href="#" onclick="changeLocation('Đà Nẵng')">Đà Nẵng</a>
+              </li>
+              <li>
+                <a href="#" onclick="changeLocation('Khánh Hòa')">Khánh Hòa</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="divider"></div>
+          <a href="cac_trang_con/dang_nhap/dang_ki.html" class="link-register"
+            >Đăng Ký</a
+          >
+          <a href="cac_trang_con/dang_nhap/dang_nhap.html" class="btn-login"
+            >Đăng Nhập</a
+          >
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="banner">
+        <div class="banner-content">
+          <h1>THUÊ XE TỰ LÁI</h1>
+          <p>hành trình tự tại</p>
+        </div>
+        <img
+          src="././kho_anh/anh_trang_chu/banner_xe_do.png"
+          alt="Xe ô tô Audi đỏ cho thuê tự lái"
+          class="banner-car"
+        />
+        <div class="light-beam beam-left"></div>
+        <div class="light-beam beam-right"></div>
+      </section>
+
+      <!-- HÌNH 1: Thanh tìm xe -->
+      <section class="search-bar" id="openSearch">
+        <div class="search-col location">
+          <small>Địa điểm nhận xe</small>
+          <div class="value">
+            Chọn địa điểm nhận xe
+            <span class="icon">📍</span>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="search-col">
+          <small>Ngày nhận xe</small>
+          <div class="value">6/12/2025</div>
+        </div>
+        <div class="search-col">
+          <small>Giờ nhận xe</small>
+          <div class="value">21 : 00</div>
+        </div>
+        <div class="divider"></div>
+        <div class="search-col">
+          <small>Ngày trả xe</small>
+          <div class="value">7/12/2025</div>
+        </div>
+
+        <div class="search-col">
+          <small>Giờ trả xe</small>
+          <div class="value">21 : 00</div>
+        </div>
+        <a
+          href="./cac_trang_con/danh_muc_thue/danh_muc_thue.html"
+          class="btn-search-1"
+          >TÌM XE</a
+        >
+      </section>
+
+      <!-- OVERLAY -->
+      <div class="overlay" id="overlay"></div>
+      <!-- HÌNH 2: MODAL TÌM XE -->
+      <div class="modal" id="searchModal">
+        <div class="modal-header">
+          <h2>Tìm xe</h2>
+          <button id="closeModal">✕</button>
+        </div>
+
+        <div class="modal-body">
+          <label>Địa điểm</label>
+          <input
+            type="text"
+            id="locationInput"
+            placeholder="VD: Hoàng Diệu 2, Thủ Đức, TP.HCM)"
+          />
+          <div class="row">
+            <div>
+              <label>Ngày nhận xe</label>
+              <input type="date" id="pickupDate" value="2025-11-18" />
+            </div>
+            <div>
+              <label>Giờ nhận xe</label>
+              <input type="time" id="pickupTime" value="22:00" />
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <label>Ngày trả xe</label>
+              <input type="date" id="returnDate" value="2025-11-20" />
+            </div>
+            <div>
+              <label>Giờ trả xe</label>
+              <input type="time" id="returnTime" value="08:00" />
+            </div>
+          </div>
+          <p class="duration">
+            Thời gian thuê:
+            <b id="rentalDuration">--</b>
+          </p>
+          <p
+            id="timeError"
+            style="
+              color: red;
+              display: none;
+              font-size: 14px;
+              text-align: center;
+            "
+          >
+            Thời gian trả xe phải sau thời gian nhận xe. Vui lòng chọn lại.
+          </p>
+          <a
+            href="cac_trang_con/danh_muc_thue.html"
+            class="btn-search-2"
+            id="searchBtn"
+          >
+            TÌM XE
+          </a>
+        </div>
+      </div>
+
+      <!-- DANH MỤC XE -->
+      <section class="available-cars">
+        <div class="similar-cars-section">
+          <h3>Xe có ngay</h3>
+
+          <div class="slider-wrapper">
+            <button class="nav-btn prev-btn" id="btn-prev-car">
+              <i class="fa-solid fa-arrow-left"></i>
+            </button>
+
+            <div class="similar-cars-slider" id="car-slider">
+              <a
+                href="./cac_trang_con/chi_tiet_xe/chi_tiet_xe.html"
+                class="sim-car-link"
+              >
+                <div class="sim-car-card">
+                  <div class="car-thumb">
+                    <img src="././kho_anh/anh_trang_chu/car_1.png" alt="Xe 1" />
+                    <span class="discount-tag">-20%</span>
+                    <div class="owner-avatar-overlay">
+                      <img
+                        src="././kho_anh/anh_trang_chu/avt_1.png"
+                        alt="Chủ xe"
+                      />
+                    </div>
+                    <div class="car-badges">
+                      <span class="badge-pill"
+                        ><i class="fa-solid fa-shield-halved"></i> Miễn thế
+                        chấp</span
+                      >
+                    </div>
+                  </div>
+                  <div class="car-info-body">
+                    <h4 class="car-name">VINFAST LUX SA 2.0</h4>
+                    <div class="car-specs">
+                      <span><i class="fa-solid fa-gears"></i> Tự động</span>
+                      <span><i class="fa-solid fa-chair"></i> 5 chỗ</span>
+                      <span><i class="fa-solid fa-bolt"></i> Xăng</span>
+                    </div>
+                    <div class="car-location">
+                      <i class="fa-solid fa-location-dot"></i> Linh Chiểu, Thủ
+                      Đức
+                    </div>
+                    <div class="car-footer">
+                      <div class="footer-left">
+                        <div class="rating">
+                          <i class="fa-solid fa-star"></i> 5.0
+                        </div>
+                        <div class="trips">57 chuyến</div>
+                      </div>
+                      <div class="footer-right">
+                        <span class="old-price">875k</span>
+                        <span class="new-price">585k<span>/ngày</span></span>
+                        <div class="hourly-price">
+                          <i class="fa-solid fa-clock"></i> 485k gói 4 giờ
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+
+              <div class="sim-car-card">
+                <div class="car-thumb">
+                  <img src="././kho_anh/anh_trang_chu/car_2.png" alt="Xe 2" />
+                  <span class="discount-tag">-14%</span>
+                  <div class="owner-avatar-overlay">
+                    <img
+                      src="././kho_anh/anh_trang_chu/avt_2.png"
+                      alt="Chủ xe"
+                    />
+                  </div>
+                  <div class="car-badges">
+                    <span class="badge-pill"
+                      ><i class="fa-solid fa-shield-halved"></i> Miễn thế
+                      chấp</span
+                    >
+                    <span class="badge-pill"
+                      ><i class="fa-solid fa-truck-fast"></i> Giao xe</span
+                    >
+                  </div>
+                </div>
+                <div class="car-info-body">
+                  <h4 class="car-name">VINFAST VF5 2025</h4>
+                  <div class="car-specs">
+                    <span><i class="fa-solid fa-gears"></i> Tự động</span>
+                    <span><i class="fa-solid fa-chair"></i> 4 chỗ</span>
+                    <span><i class="fa-solid fa-bolt"></i> Điện</span>
+                  </div>
+                  <div class="car-location">
+                    <i class="fa-solid fa-location-dot"></i> Trường Thọ, Thủ Đức
+                  </div>
+                  <div class="car-footer">
+                    <div class="footer-left">
+                      <div class="rating">
+                        <i class="fa-solid fa-star"></i> 5.0
+                      </div>
+                      <div class="trips">1 chuyến</div>
+                    </div>
+                    <div class="footer-right">
+                      <span class="old-price">850k</span>
+                      <span class="new-price">750k<span>/ngày</span></span>
+                      <div class="hourly-price">
+                        <i class="fa-solid fa-clock"></i> 510k gói 4 giờ
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sim-car-card">
+                <div class="car-thumb">
+                  <img src="././kho_anh/anh_trang_chu/car_3.png" alt="Xe 3" />
+                  <span class="discount-tag">-16%</span>
+                  <div class="owner-avatar-overlay">
+                    <img
+                      src="././kho_anh/anh_trang_chu/avt_3.png"
+                      alt="Chủ xe"
+                    />
+                  </div>
+                  <div class="car-badges">
+                    <span class="badge-pill"
+                      ><i class="fa-solid fa-shield-halved"></i> Miễn thế
+                      chấp</span
+                    >
+                    <span class="badge-pill"
+                      ><i class="fa-solid fa-truck-fast"></i> Giao xe</span
+                    >
+                  </div>
+                </div>
+                <div class="car-info-body">
+                  <h4 class="car-name">VINFAST VF5 2025</h4>
+                  <div class="car-specs">
+                    <span><i class="fa-solid fa-gears"></i> Tự động</span>
+                    <span><i class="fa-solid fa-chair"></i> 4 chỗ</span>
+                    <span><i class="fa-solid fa-bolt"></i> Điện</span>
+                  </div>
+                  <div class="car-location">
+                    <i class="fa-solid fa-location-dot"></i> Hiệp Bình Chánh
+                  </div>
+                  <div class="car-footer">
+                    <div class="footer-left">
+                      <div class="rating">
+                        <i class="fa-solid fa-star"></i> 4.6
+                      </div>
+                      <div class="trips">23 chuyến</div>
+                    </div>
+                    <div class="footer-right">
+                      <span class="old-price">712k</span>
+                      <span class="new-price">612k<span>/ngày</span></span>
+                      <div class="hourly-price">
+                        <i class="fa-solid fa-clock"></i> 427k gói 4 giờ
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sim-car-card">
+                <div class="car-thumb">
+                  <img src="././kho_anh/anh_trang_chu/car_4.png" alt="Xe 4" />
+                  <span class="discount-tag">-18%</span>
+                  <div class="owner-avatar-overlay">
+                    <img
+                      src="././kho_anh/anh_trang_chu/avt_4.png"
+                      alt="Chủ xe"
+                    />
+                  </div>
+                  <div class="car-badges">
+                    <span class="badge-pill"
+                      ><i class="fa-solid fa-shield-halved"></i> Miễn thế
+                      chấp</span
+                    >
+                  </div>
+                </div>
+                <div class="car-info-body">
+                  <h4 class="car-name">VINFAST VF3 2025</h4>
+                  <div class="car-specs">
+                    <span><i class="fa-solid fa-gears"></i> Tự động</span>
+                    <span><i class="fa-solid fa-chair"></i> 4 chỗ</span>
+                    <span><i class="fa-solid fa-bolt"></i> Điện</span>
+                  </div>
+                  <div class="car-location">
+                    <i class="fa-solid fa-location-dot"></i> Linh Trung, Thủ Đức
+                  </div>
+                  <div class="car-footer">
+                    <div class="footer-left">
+                      <div class="rating">
+                        <i class="fa-solid fa-star"></i> 4.8
+                      </div>
+                      <div class="trips">12 chuyến</div>
+                    </div>
+                    <div class="footer-right">
+                      <span class="old-price">631k</span>
+                      <span class="new-price">731k<span>/ngày</span></span>
+                      <div class="hourly-price">
+                        <i class="fa-solid fa-clock"></i> 379k gói 4 giờ
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sim-car-card">
+                <div class="car-thumb">
+                  <img
+                    src="././kho_anh/anh_trang_chu/car_5.png"
+                    alt="VF3 Vàng"
+                  />
+                  <span class="discount-tag">-20%</span>
+                  <div class="owner-avatar-overlay">
+                    <img
+                      src="././kho_anh/anh_trang_chu/avt_5.png"
+                      alt="Chủ xe"
+                    />
+                  </div>
+                  <div class="car-badges">
+                    <span class="badge-pill"
+                      ><i class="fa-solid fa-shield-halved"></i> Miễn thế
+                      chấp</span
+                    >
+                    <span class="badge-pill"
+                      ><i class="fa-solid fa-location-dot"></i> Giao xe</span
+                    >
+                  </div>
+                </div>
+                <div class="car-info-body">
+                  <h4 class="car-name">VINFAST VF3 2025</h4>
+                  <div class="car-specs">
+                    <span><i class="fa-solid fa-gears"></i> Tự động</span>
+                    <span><i class="fa-solid fa-chair"></i> 4 chỗ</span>
+                    <span><i class="fa-solid fa-bolt"></i> Điện</span>
+                  </div>
+                  <div class="car-location">
+                    <i class="fa-solid fa-location-dot"></i> Phường Trường Thọ,
+                    Thủ Đức
+                  </div>
+                  <div class="car-footer">
+                    <div class="footer-left">
+                      <div class="rating">
+                        <i class="fa-solid fa-star"></i> 5.0
+                      </div>
+                      <div class="trips">72 chuyến</div>
+                    </div>
+                    <div class="footer-right">
+                      <span class="old-price">563k</span>
+                      <span class="new-price">463k<span>/ngày</span></span>
+                      <div class="hourly-price">
+                        <i class="fa-solid fa-clock"></i> 338k gói 4 giờ
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sim-car-card">
+                <div class="car-thumb">
+                  <img
+                    src="././kho_anh/anh_trang_chu/car_6.png"
+                    alt="VF3 Trắng"
+                  />
+                  <span class="discount-tag">-20%</span>
+                  <div class="owner-avatar-overlay">
+                    <img
+                      src="././kho_anh/anh_trang_chu/avt_1.png"
+                      alt="Chủ xe"
+                    />
+                  </div>
+                  <div class="car-badges">
+                    <span class="badge-pill"
+                      ><i class="fa-solid fa-shield-halved"></i> Miễn thế
+                      chấp</span
+                    >
+                    <span class="badge-pill"
+                      ><i class="fa-solid fa-location-dot"></i> Giao xe</span
+                    >
+                  </div>
+                </div>
+                <div class="car-info-body">
+                  <h4 class="car-name">VINFAST VF3 2025</h4>
+                  <div class="car-specs">
+                    <span><i class="fa-solid fa-gears"></i> Tự động</span>
+                    <span><i class="fa-solid fa-chair"></i> 4 chỗ</span>
+                    <span><i class="fa-solid fa-bolt"></i> Điện</span>
+                  </div>
+                  <div class="car-location">
+                    <i class="fa-solid fa-location-dot"></i> Phường Linh Chiểu,
+                    Thủ Đức
+                  </div>
+                  <div class="car-footer">
+                    <div class="footer-left">
+                      <div class="rating">
+                        <i class="fa-solid fa-star"></i> 4.8
+                      </div>
+                      <div class="trips">13 chuyến</div>
+                    </div>
+                    <div class="footer-right">
+                      <span class="old-price">573k</span>
+                      <span class="new-price">473k<span>/ngày</span></span>
+                      <div class="hourly-price">
+                        <i class="fa-solid fa-clock"></i> 345k gói 4 giờ
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="nav-btn next-btn" id="btn-next-car">
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+        <div class="load-more-wrapper">
+          <a
+            href="./cac_trang_con/danh_muc_thue/danh_muc_thue.html"
+            class="btn-load-more"
+          >
+            Xem thêm
+          </a>
+        </div>
+      </section>
+
+      <!-- CÁC XE CÓ SẴN -->
+      <section class="experience-block">
+        <div class="exp-content">
+          <div class="exp-image">
+            <img
+              src="./kho_anh/anh_trang_chu/tim_xe.jpg"
+              alt="1000+ xe và hơn thế nữa"
+            />
+          </div>
+          <div class="exp-text">
+            <h2 class="title-green">1000+ xe và hơn thế nữa</h2>
+            <p class="subtitle-black">Hãy trải nghiệm ngay hôm nay</p>
+            <a
+              href="./cac_trang_con/danh_muc_thue/danh_muc_thue.html"
+              class="btn-primary-green"
+              >TÌM XE</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- ĐĂNG KÝ CHỦ XE -->
+      <section class="owner-banner" aria-labelledby="owner-banner-title">
+        <div class="owner-banner-inner">
+          <div class="owner-banner-text">
+            <h2 id="owner-banner-title">
+              TĂNG THU NHẬP <br />
+              VỚI CHIẾC XE CỦA <br />
+              BẠN
+            </h2>
+            <a
+              href="./cac_trang_con/ky_gui_xe/ky_gui_xe.html"
+              class="btn-owner-cta"
+            >
+              ĐĂNG KÝ NGAY
+              <span class="btn-icon" aria-hidden="true"></span>
+            </a>
+          </div>
+          <figure class="owner-banner-image">
+            <img
+              src="./kho_anh/anh_trang_chu/dang_ky_xe.jpg"
+              alt="Góc nhìn người lái xe ô tô trên đường mưa"
+              loading="lazy"
+            />
+          </figure>
+        </div>
+      </section>
+
+      <!-- HƯỚNG DẪN THUÊ XE -->
+      <section class="booking-steps" aria-labelledby="booking-steps-title">
+        <!-- Background image -->
+        <img
+          src="./kho_anh/anh_trang_chu/nen_book.jpg"
+          alt=""
+          class="booking-steps-bg"
+          aria-hidden="true"
+        />
+        <div class="container">
+          <div class="section-header">
+            <h2 id="booking-steps-title">3 Bước đặt xe dễ dàng</h2>
+          </div>
+          <ol class="steps-list">
+            <li class="step-item">
+              <article class="step-card">
+                <figure class="step-image">
+                  <img
+                    src="./kho_anh/anh_trang_chu/1.jpg"
+                    alt="Giao diện website bonboncar.vn hiển thị nhiều mẫu xe"
+                    loading="lazy"
+                  />
+                </figure>
+                <p class="step-text">
+                  <strong>1.</strong> Chọn và giữ chỗ với hàng trăm xe
+                </p>
+              </article>
+            </li>
+            <li class="step-item">
+              <article class="step-card">
+                <figure class="step-image">
+                  <img
+                    src="./kho_anh/anh_trang_chu/2.jpg"
+                    alt="Người dùng thao tác đặt xe trên điện thoại"
+                    loading="lazy"
+                  />
+                </figure>
+                <p class="step-text">
+                  <strong>2.</strong> Thủ tục qua app nhanh gọn
+                </p>
+              </article>
+            </li>
+            <li class="step-item">
+              <article class="step-card">
+                <figure class="step-image">
+                  <img
+                    src="./kho_anh/anh_trang_chu/3.jpg"
+                    alt="Tay người mở cửa xe ô tô"
+                    loading="lazy"
+                  />
+                </figure>
+                <p class="step-text">
+                  <strong>3.</strong> Chủ động nhận xe mọi lúc mọi nơi
+                </p>
+              </article>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ĐÁNH GIÁ KHÁCH HÀNG -->
+      <section class="customer-reviews" aria-labelledby="reviews-title">
+        <div class="reviews-header">
+          <h2 id="reviews-title">Đánh giá khách hàng</h2>
+        </div>
+        <ul class="reviews-list">
+          <!-- Review 1 -->
+          <li class="review-item">
+            <article class="review-card">
+              <div class="review-top">
+                <figure class="review-avatar">
+                  <img
+                    src="./kho_anh/anh_trang_chu/Phung_Le.jpg"
+                    alt="Khách hàng Phụng Lê"
+                    loading="lazy"
+                  />
+                </figure>
+                <div class="review-info">
+                  <h3 class="review-name">Phụng Lê</h3>
+                  <div class="review-stars" aria-hidden="true">★ ★ ★ ★ ★</div>
+                </div>
+              </div>
+              <p class="review-location">Thủ Đức, TP HCM</p>
+              <p class="review-text">Xe sạch, dịch vụ tuyệt vời</p>
+            </article>
+          </li>
+          <!-- Review 2 -->
+          <li class="review-item">
+            <article class="review-card">
+              <div class="review-top">
+                <figure class="review-avatar">
+                  <img
+                    src="./kho_anh/anh_trang_chu/Le_Thanh.jpg"
+                    alt="Khách hàng Lê Thanh"
+                    loading="lazy"
+                  />
+                </figure>
+                <div class="review-info">
+                  <h3 class="review-name">Lê Thanh</h3>
+                  <div class="review-stars" aria-hidden="true">★ ★ ★ ★ ★</div>
+                </div>
+              </div>
+              <p class="review-location">Phú Nhuận, TP HCM</p>
+              <p class="review-text">Dịch vụ dễ sử dụng</p>
+            </article>
+          </li>
+          <!-- Review 3 -->
+          <li class="review-item">
+            <article class="review-card">
+              <div class="review-top">
+                <figure class="review-avatar">
+                  <img
+                    src="./kho_anh/anh_trang_chu/Thanh_Phuong.jpg"
+                    alt="Khách hàng Thanh Phương"
+                    loading="lazy"
+                  />
+                </figure>
+                <div class="review-info">
+                  <h3 class="review-name">Thanh Phương</h3>
+                  <div class="review-stars" aria-hidden="true">★ ★ ★ ★ ★</div>
+                </div>
+              </div>
+              <p class="review-location">Quận 9, TP HCM</p>
+              <p class="review-text">Thuê xe nhanh</p>
+            </article>
+          </li>
+          <!-- Review 4 -->
+          <li class="review-item">
+            <article class="review-card">
+              <div class="review-top">
+                <figure class="review-avatar">
+                  <img
+                    src="./kho_anh/anh_trang_chu/Quang_Dung.jpg"
+                    alt="Khách hàng Quang Dũng"
+                    loading="lazy"
+                  />
+                </figure>
+                <div class="review-info">
+                  <h3 class="review-name">Quang Dũng</h3>
+                  <div class="review-stars" aria-hidden="true">★ ★ ★ ★ ★</div>
+                </div>
+              </div>
+              <p class="review-location">Phú Nhuận, TP HCM</p>
+              <p class="review-text">Xe sạch, tốt</p>
+            </article>
+            <!-- Review 5 -->
+          </li>
+
+          <li class="review-item">
+            <article class="review-card">
+              <div class="review-top">
+                <figure class="review-avatar">
+                  <img
+                    src="./kho_anh/anh_trang_chu/Minh_Thu.jpg"
+                    alt="Khách hàng Minh Thu"
+                    loading="lazy"
+                  />
+                </figure>
+                <div class="review-info">
+                  <h3 class="review-name">Minh Thư</h3>
+                  <div class="review-stars" aria-hidden="true">★ ★ ★ ★ ★</div>
+                </div>
+              </div>
+              <p class="review-location">Gò Vấp, TP HCM</p>
+              <p class="review-text">Chất lượng tuyệt vời</p>
+            </article>
+          </li>
+        </ul>
+      </section>
+
+      <!-- CÂU HỎI THƯỜNG GẶP -->
+      <section class="faq" aria-labelledby="faq-title">
+        <header class="faq-header">
+          <h2 id="faq-title">Câu hỏi thường gặp</h2>
+        </header>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary class="faq-question">
+              Tại sao tôi nên chọn thuê xe tự lái BonbonCar?
+            </summary>
+            <div class="faq-answer">
+              <p>
+                Tại BonbonCar, chúng tôi; <br />(1) áp dụng gói thuê xe tự lái
+                linh hoạt 4h, 8h, 12h, 24h giúp bạn tiết kiệm nhất khi thuê. Bạn
+                có thể lấy xe 24/24 và thời gian bắt đầu tính tiền từ lúc lấy
+                xe. Bạn được hưởng trọn vẹn số giờ đặt thuê. <br />(2) thủ tục
+                thuê xe & nhận xe cực kì nhanh gọn 24/24, bạn chỉ cần chuẩn bị
+                các giấy tờ xác minh định danh cá nhân (CCCD / Hộ chiếu) và Bằng
+                lái xe (ít nhất 1 năm), <br />(3) bảo hiểm hai chiều, chính sách
+                xử lý sự cố minh bạch nếu có vấn đề xảy ra. Ngoài ra, đội ngũ
+                chăm sóc khách hàng của BonbonCar luôn sẵn sàng hỗ trợ 24/7 để
+                đảm bảo bạn có một trải nghiệm tốt nhất.
+              </p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">
+              Thủ tục cho thuê xe ô tô tự lái bao gồm những gì?
+            </summary>
+            <div class="faq-answer">
+              <p>
+                Thủ tục thuê xe tại BonbonCar: <br />(1) Yêu cầu bằng lái trên 1
+                năm <br />(2) Kiểm tra hồ sơ bao gồm CCCD và Bằng Lái Xe
+                <br />(3) Nhận chuyển khoản Tiền giữ chỗ 500.000 đồng <br />(4)
+                Khi nhận xe và làm Hợp đồng, thanh toán tiền thuê + cọc 10 triệu
+                cho các dòng xe thường / 30 triệu cho dòng xe cao cấp.
+              </p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">Vị trí nhận xe tại đâu?</summary>
+            <div class="faq-answer">
+              <p>
+                Chúng tôi có xe cho thuê tại gần như tất cả các quận nội thành
+                và có dịch vụ giao nhận xe trong Tp.HCM. Đội ngũ CSKH của
+                BonbonCar sẽ tư vấn mẫu xe và sắp xếp việc nhận trả xe tối ưu
+                nhất cho bạn.
+              </p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">
+              Tôi có cần vệ sinh hay đổ xăng khi trả xe?
+            </summary>
+            <div class="faq-answer">
+              <p>
+                Bạn cần trả xe theo hiện trạng ban đầu để tránh các chi phí phát
+                sinh. Do đó, vui lòng vệ sinh, rửa xe nếu cần thiết hoặc
+                BonbonCar sẽ tính thêm phí vệ sinh trong trường hợp xe quá dơ,
+                nhiều bụi bẩn. <br />Tương tự, vui lòng đảm bảo xăng khi trả ở
+                mức ban đầu hoặc BonbonCar sẽ tính thêm phụ phí về nhiên liệu ở
+                mức giá 27.000 đồng / lít xăng
+              </p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">
+              Tôi có phải nhận và trả xe đúng giờ?
+            </summary>
+            <div class="faq-answer">
+              <p>
+                Việc nhận xe đúng giờ sẽ giúp bạn tối ưu thời gian sử dụng xe.
+                Phí thuê xe được tính từ giờ nhận xe bạn đặt với chúng tôi do xe
+                đã được giữ riêng cho bạn. Khi bạn có nhu cầu gia hạn thời gian
+                thuê, vui lòng liên hệ ngay với chúng tôi để kiểm tra xem xe có
+                thể gia hạn được hay không (do chúng tôi có thể đã nhận khách
+                khác thuê ngay sau khi giờ bạn dự định trả xe ban đầu). Việc
+                thông báo gia hạn cũng sẽ giúp bạn tránh phát sinh các phí trả
+                trễ (150.000 đồng / giờ với các dòng xe thông thường và 400.000
+                đồng/giờ với dòng xe cao cấp hoặc lễ tết) cũng như các bất tiện
+                có thể phát sinh khi xe không sử dụng được khi hết giờ thuê ban
+                đầu.
+              </p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">
+              Trường hợp xe xảy ra sự cố tôi cần làm gì?
+            </summary>
+            <div class="faq-answer">
+              <p>
+                Vui lòng liên hệ đội ngũ chăm sóc khách hàng càng sớm càng tốt
+                để được hướng dẫn xử lí, vui lòng không tự ý đưa xe vào garage
+                sửa chữa hoặc khi chưa có sự đồng ý bằng văn bản của phía
+                BonbonCar.
+              </p>
+            </div>
+          </details>
+        </div>
+      </section>
+    </main>
+    <footer class="footer-exact">
+      <div class="container">
+        <div class="footer-offices">
+          <div class="office-col">
+            <h4>Văn phòng Hồ Chí Minh</h4>
+            <p>
+              69 Đường B4, Phường An Lợi Đông,<br />Thành phố Thủ Đức, Thành phố
+              Hồ Chí Minh, Việt Nam
+            </p>
+          </div>
+          <div class="office-col">
+            <h4>Văn phòng Đà Nẵng</h4>
+            <p>
+              35 Thái Phiên, Phường Phước Ninh,<br />Quận Hải Châu, Thành phố Đà
+              Nẵng, Việt Nam
+            </p>
+          </div>
+          <div class="office-col">
+            <h4>Văn phòng Hà Nội</h4>
+            <p>
+              TIKTAK 5 - Tầng 4, Tòa nhà Lancaster Luminaire,<br />số 1152 –
+              1154, Đường Láng, Phường Láng Thượng,<br />Quận Đống Đa, Tp. Hà
+              Nội, Việt Nam
+            </p>
+          </div>
+        </div>
+
+        <div class="footer-divider"></div>
+
+        <div class="footer-main-content">
+          <div class="footer-info">
+            <div class="footer-logo-row">
+              <div class="logo-circle-small"></div>
+              <span class="company-name"
+                >CÔNG TY TNHH BONBON MOBILITY VIỆT NAM</span
+              >
+            </div>
+            <p class="tax-info">MST: 0318208708. Cấp ngày: 11/12/2023</p>
+
+            <div class="contact-block">
+              <p class="highlight-text">1900 1335</p>
+              <p>Tổng đài hỗ trợ: 7:00 - 22:00</p>
+            </div>
+
+            <div class="contact-block">
+              <p class="highlight-text">cskh@bonboncar.vn</p>
+              <p>Gửi mail cho bonboncar</p>
+            </div>
+
+            <img
+              src="${imgPrefix}kho_anh/anh_dung_chung/bct.png"
+              alt="Đã thông báo BCT"
+              class="bct-badge"
+            />
+          </div>
+
+          <div class="footer-links">
+            <h4>Chính Sách</h4>
+            <ul>
+              <li>
+                <a href="cac_trang_con/chinh_sach/chinh_sach.html"
+                  >Điều kiện giao dịch chung</a
+                >
+              </li>
+              <li>
+                <a href="cac_trang_con/dat_xe/chinh_sach_bao_mat.html"
+                  >Chính sách bảo vệ dữ liệu cá nhân</a
+                >
+              </li>
+              <li>
+                <a href="cac_trang_con/dat_xe/dieu_khoan_su_dung.html"
+                  >Điều khoản sử dụng nền tảng</a
+                >
+              </li>
+              <li>
+                <a href="cac_trang_con/chinh_sach/chinh_sach_giao_nhan_xe.html"
+                  >Chính sách giao nhận xe</a
+                >
+              </li>
+              <li>
+                <a href="cac_trang_con/chinh_sach/phuong_thuc_thanh_toan.html"
+                  >Phương thức thanh toán</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-links">
+            <h4>Liên Kết Nhanh</h4>
+            <ul>
+              <li>
+                <a href="cac_trang_con/ve_chung_toi/ve_chung_toi.html"
+                  >Về BONBONCAR</a
+                >
+              </li>
+              <li>
+                <a href="cac_trang_con/ky_gui_xe/ky_gui_xe.html">Ký gửi xe</a>
+              </li>
+              <li><a href="cac_trang_con/blog/blog_tin_tuc.html">Blog</a></li>
+              <li><a href="#">Địa điểm</a></li>
+              <li>
+                <a href="cac_trang_con/lien_he/lien_he.html"
+                  >Liên hệ với BONBONCAR</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-links">
+            <h4>Tìm Hiểu Thêm</h4>
+            <ul>
+              <li><a href="#">Hướng dẫn đặt xe</a></li>
+              <li><a href="#">Hướng dẫn thanh toán</a></li>
+              <li><a href="#">Hỏi và đáp</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-social">
+            <a
+              href="https://vn.linkedin.com/jobs/view/customer-service-lead-operations-at-bonboncar-4336936750"
+              ><i class="fa-brands fa-linkedin" style="color: #0077b5"></i
+            ></a>
+            <a href="https://www.facebook.com/bonboncarrental?locale=vi_VN"
+              ><i
+                class="fa-brands fa-square-facebook"
+                style="color: #1877f2"
+              ></i
+            ></a>
+            <a href="https://www.youtube.com/@Bonboncar"
+              ><i class="fa-brands fa-youtube" style="color: #ff0000"></i
+            ></a>
+            <a href="https://www.instagram.com/bonboncarvn/"
+              ><i class="fa-brands fa-instagram" style="color: #c32aa3"></i
+            ></a>
+            <a href="https://www.tiktok.com/@bonboncarvietnam"
+              ><i class="fa-brands fa-tiktok" style="color: #fe2c55"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="./js_chung/chuc_nang.js"></script>
+    <script src="./js_chung/trang_chu.js"></script>
+  </body>
+</html>
