@@ -22,7 +22,7 @@ function loadHeader() {
     const headerContent = `
         <header>
           <div class="container header-inner">
-            <a href="${rootPath}trang_chu.html" class="brand-logo">
+            <a href="${rootPath}index.html" class="brand-logo">
               <div class="logo-circle"></div>
               <span class="brand-name">bonboncar</span>
             </a>

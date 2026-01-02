@@ -1,55 +1,51 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BonbonCar | Mở khóa xe thành công</title>
+    <title>Bonboncar</title>
     <link
-            rel="icon"
-            type="image/png"
-            href="../../kho_anh/anh_dung_chung/LOGO.png"
-        />
-
-    <!-- CSS dùng chung -->
-    <link rel="stylesheet" href="../../css_chung/kieu_dang.css">
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../kho_anh/anh_dung_chung/LOGO.png"
+    />
+    <link rel="stylesheet" href="../../css_chung/kieu_dang.css" />
 
     <!-- CSS riêng trang -->
-    <link rel="stylesheet" href="../../css_chung/mo_khoa_thanh_cong.css">
+    <link rel="stylesheet" href="../../css_chung/mo_khoa_thanh_cong.css" />
+  </head>
 
-    <!-- Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-</head>
-
-<body>
-
+  <body>
     <!-- HEADER -->
     <div id="header-placeholder"></div>
 
     <main class="main-content">
-        <section class="success-container">
+      <section class="success-container">
+        <div class="success-card">
+          <div class="success-icon">✔</div>
 
-            <div class="success-card">
+          <h1>Mở khóa xe thành công</h1>
 
-                <div class="success-icon">✔</div>
+          <p class="success-desc">
+            Xe đã được mở khóa thành công.<br />
+            Chúc bạn có chuyến đi an toàn và thuận lợi!
+          </p>
 
-                <h1>Mở khóa xe thành công</h1>
+          <div class="success-info">
+            <p><strong>Thời gian:</strong> <span id="unlock-time"></span></p>
+          </div>
 
-                <p class="success-desc">
-                    Xe đã được mở khóa thành công.<br>
-                    Chúc bạn có chuyến đi an toàn và thuận lợi!
-                </p>
-
-                <div class="success-info">
-                    <p><strong>Thời gian:</strong> <span id="unlock-time"></span></p>
-                </div>
-
-                <button class="success-btn">
-                    BẮT ĐẦU CHUYẾN ĐI
-                </button>
-
-            </div>
-
-        </section>
+          <button class="success-btn">BẮT ĐẦU CHUYẾN ĐI</button>
+        </div>
+      </section>
     </main>
 
     <!-- FOOTER -->
@@ -57,5 +53,5 @@
 
     <script src="../../js_chung/chuc_nang.js"></script>
     <script src="../../js_chung/mo_khoa_thanh_cong.js"></script>
-</body>
+  </body>
 </html>
