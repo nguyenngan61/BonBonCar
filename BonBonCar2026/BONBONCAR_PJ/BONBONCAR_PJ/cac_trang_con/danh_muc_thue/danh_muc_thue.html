@@ -29,17 +29,21 @@
       <div class="container">
         <div class="search-box">
           <div class="input-group" id="openLocation">
-            <span class="icon" style="color: #00d1b2">📍</span>
+            <span class="icon">📍</span>
             <div class="input-text">
               <label>ĐỊA ĐIỂM</label>
-              <div class="display-value" id="locValue">Chọn địa điểm</div>
+              <div class="display-value" id="locValue">
+                Chọn địa điểm tìm xe
+              </div>
             </div>
+
             <div id="locationDropdown" class="custom-dropdown">
               <ul class="location-list">
-                <li onclick="selectLocation('Hồ Chí Minh')">Hồ Chí Minh</li>
-                <li onclick="selectLocation('Hà Nội')">Hà Nội</li>
-                <li onclick="selectLocation('Đà Nẵng')">Đà Nẵng</li>
-                <li onclick="selectLocation('Bình Dương')">Bình Dương</li>
+                <li>Hà Nội</li>
+                <li>Bình Dương</li>
+                <li>Đà Nẵng</li>
+                <li>Khánh Hòa</li>
+                <li>Hồ Chí Minh</li>
               </ul>
             </div>
           </div>
@@ -47,15 +51,83 @@
           <div class="divider"></div>
 
           <div class="input-group" id="openTime">
-            <span class="icon" style="color: #00d1b2">📅</span>
+            <span class="icon">📅</span>
             <div class="input-text">
               <label>THỜI GIAN</label>
-              <div class="display-value" id="timeDisplay">
-                07:00 06/01 - 19:00 07/01
+              <div class="display-value">Giờ, Ngày, Tháng, Năm</div>
+            </div>
+
+            <div id="timeDropdown" class="time-modal">
+              <div class="time-modal-content">
+                <div class="time-header">
+                  Tìm xe <span class="close-small">&times;</span>
+                </div>
+                <div class="time-body">
+                  <div class="time-row-label">Thời gian nhận xe:</div>
+                  <div class="time-grid">
+                    <div class="grid-item">
+                      <input
+                        type="date"
+                        id="startDate"
+                        class="input-style"
+                        value="2025-12-28"
+                      />
+                    </div>
+                    <div class="grid-item">
+                      <input
+                        type="time"
+                        id="startTime"
+                        class="input-style"
+                        value="07:00"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="time-row-label" style="margin-top: 10px">
+                    Thời gian trả xe:
+                  </div>
+                  <div class="time-grid">
+                    <div class="grid-item">
+                      <input
+                        type="date"
+                        id="endDate"
+                        class="input-style"
+                        value="2025-12-29"
+                      />
+                    </div>
+                    <div class="grid-item">
+                      <input
+                        type="time"
+                        id="endTime"
+                        class="input-style"
+                        value="19:00"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="duration-status">
+                    Thời gian thuê: <strong id="totalDuration">...</strong>
+                  </div>
+                  <button
+                    class="btn-chon-gio"
+                    style="
+                      width: 100%;
+                      margin-top: 15px;
+                      padding: 10px;
+                      background: #00d1b2;
+                      color: white;
+                      border: none;
+                      border-radius: 8px;
+                      font-weight: bold;
+                      cursor: pointer;
+                    "
+                  >
+                    Xác nhận thời gian
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-
           <button class="btn-search">TÌM XE</button>
         </div>
 
@@ -93,7 +165,7 @@
       </div>
       
       <div class="car-badges">
-        <span class="badge-pill"><i class="fa-solid fa-shield-halved"></i> Miễn thế chấp</span>
+<span class="badge-pill"><i class="fa-solid fa-shield-halved"></i> Miễn thế chấp</span>
         </div>
     </div>
     
@@ -164,7 +236,7 @@
                       <span class="old-price">884k</span>
                       <span class="new-price">784k<span>/ngày</span></span>
                       <div class="hourly-price">
-                        <i class="fa-solid fa-clock"></i> 530k gói 4 giờ
+<i class="fa-solid fa-clock"></i> 530k gói 4 giờ
                       </div>
                     </div>
                   </div>
@@ -236,7 +308,7 @@
                     />
                   </div>
                   <div class="car-badges">
-                    <span class="badge-pill"
+<span class="badge-pill"
                       ><i class="fa-solid fa-shield-halved"></i> Miễn thế
                       chấp</span
                     >
@@ -303,7 +375,7 @@
                   <div class="car-location">
                     <i class="fa-solid fa-location-dot"></i> Linh Trung, Thủ Đức
                   </div>
-                  <div class="car-footer">
+<div class="car-footer">
                     <div class="footer-left">
                       <div class="rating">
                         <i class="fa-solid fa-star"></i> 4.8
@@ -372,9 +444,7 @@
                   </div>
                 </div>
               </div>
-
-
-            </div>
+</div>
     </div>
 </div>
 </div>
