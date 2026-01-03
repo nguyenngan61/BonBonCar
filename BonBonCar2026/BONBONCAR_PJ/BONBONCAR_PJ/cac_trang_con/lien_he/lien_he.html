@@ -207,14 +207,15 @@
 
         <!-- RIGHT -->
         <div class="support-form">
-  <form action="gui_thanh_cong.html" method="post">
+          <form id="contactForm">
             <div class="form-row">
-              <input type="text" placeholder="Tên">
-              <input type="text" placeholder="Họ">
+              <input type="text" placeholder="Tên" required>
+              <input type="text" placeholder="Họ" required>
             </div>
-            <input type="text" placeholder="SĐT">
-            <input type="email" placeholder="Email">
-            <textarea placeholder="Nội dung"></textarea>
+            <input type="text" placeholder="SĐT" required>
+            <input type="email" placeholder="Email" required>
+            <textarea placeholder="Nội dung" required></textarea>
+            
             <button type="submit">Gửi</button>
           </form>
         </div>
@@ -434,6 +435,14 @@ function chooseLocation(el) {
   document.getElementById("location-dropdown").style.display = "none";
 }
 </script>
-
+<script>document.getElementById('contactForm').addEventListener('submit', function(e) {
+  // 1. Ngăn chặn hành vi gửi form mặc định (thủ phạm gây lỗi 405)
+  e.preventDefault();
+  
+  // 2. Chuyển hướng người dùng sang trang thành công
+  // Lưu ý: Đảm bảo file gui_thanh_cong.html nằm cùng thư mục với file này
+  window.location.href = "gui_thanh_cong.html";
+});
+</script>
   </body>
 </html>
