@@ -106,7 +106,7 @@
         <div class="bank-box">
           <div class="copy-row">
             <span>Số tiền:</span>
-            <b>500000</b>
+            <b>100000</b>
             <button class="copy-btn">Sao chép</button>
           </div>
 
@@ -149,12 +149,12 @@
 
         <div class="detail-row">
           <span>Tên khách thuê</span>
-          <b>Nguyễn Văn Anh</b>
+          <b id="confirm-customer-name">...</b>
         </div>
 
         <div class="detail-row">
           <span>Số điện thoại</span>
-          <b>8423456789</b>
+          <b id="confirm-customer-phone">...</b>
         </div>
 
         <div class="detail-row">
@@ -348,6 +348,27 @@
           }
         }, 1000);
       }
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const customerData = JSON.parse(localStorage.getItem("customerInfo"));
+
+        // DEBUG – nếu muốn kiểm tra
+        console.log("customerInfo:", customerData);
+
+        if (!customerData) return;
+
+        const nameEl = document.getElementById("confirm-customer-name");
+        const phoneEl = document.getElementById("confirm-customer-phone");
+
+        if (nameEl && customerData.name) {
+          nameEl.innerText = customerData.name;
+        }
+
+        if (phoneEl && customerData.phone) {
+          phoneEl.innerText = customerData.phone;
+        }
+      });
     </script>
   </body>
 </html>

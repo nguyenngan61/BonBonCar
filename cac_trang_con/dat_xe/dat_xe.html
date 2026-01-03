@@ -102,6 +102,7 @@
                   <i class="fa-solid fa-user"></i>
                   <input
                     type="text"
+                    id="customerName"
                     placeholder="Nhập tên"
                     name="customer_name"
                     required
@@ -115,11 +116,11 @@
                   <i class="fa-solid fa-phone"></i>
                   <input
                     type="tel"
+                    id="customerPhone"
                     placeholder="Nhập số điện thoại"
                     name="customer_phone"
                     required
                     pattern="^[0-9]{10}$"
-                    title="Vui lòng nhập đúng 11 chữ số"
                   />
                 </div>
               </div>
@@ -220,7 +221,7 @@
                 alert(
                   "Không tìm thấy thông tin đặt xe. Vui lòng quay lại chọn xe."
                 );
-                window.location.href = "../index.html"; // Redirect nếu ko có data
+                window.location.href = "../trang_chu.html"; // Redirect nếu ko có data
                 return;
               }
 
@@ -367,6 +368,33 @@
       function formatMoney(n) {
         return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + "đ";
       }
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const nameInput = document.getElementById("customerName");
+        const phoneInput = document.getElementById("customerPhone");
+
+        // 1. Load lại dữ liệu nếu có (khi quay lại)
+        const customerData = JSON.parse(localStorage.getItem("customerInfo"));
+        if (customerData) {
+          if (nameInput) nameInput.value = customerData.name || "";
+          if (phoneInput) phoneInput.value = customerData.phone || "";
+        }
+
+        // 2. Lưu dữ liệu khi submit
+        const form = document.querySelector("form");
+        if (form) {
+          form.addEventListener("submit", function () {
+            localStorage.setItem(
+              "customerInfo",
+              JSON.stringify({
+                name: nameInput.value.trim(),
+                phone: phoneInput.value.trim(),
+              })
+            );
+          });
+        }
+      });
     </script>
   </body>
 </html>

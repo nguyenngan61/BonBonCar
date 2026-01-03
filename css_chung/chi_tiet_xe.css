@@ -1892,6 +1892,14 @@
   color: #e67e22;
   font-weight: 600;
 }
+/* Class cho ngày bị vô hiệu hóa */
+.day-cell.disabled {
+  background-color: #f0f0f0; /* Nền xám */
+  color: #ccc; /* Chữ nhạt */
+  cursor: not-allowed; /* Chuột hiện dấu cấm */
+  opacity: 0.5; /* Làm mờ */
+  pointer-events: none; /* Quan trọng: Ngăn chặn mọi hành động click/hover */
+}
 .day.selected-start {
   background-color: #00d2ba;
   color: #fff;

@@ -829,6 +829,7 @@ function renderMonth(y, m, tid, gid) {
   g.innerHTML = "";
   const fd = new Date(y, m, 1).getDay();
   const dim = new Date(y, m + 1, 0).getDate();
+  const disabledDays = [1, 2];
   for (let i = 0; i < fd; i++)
     g.innerHTML += `<div class="day-cell empty"></div>`;
   for (let i = 1; i <= dim; i++) {
@@ -836,6 +837,9 @@ function renderMonth(y, m, tid, gid) {
     let c = "day-cell";
     if (i === 21 || i === 28 || i === 30) c += " partially-booked";
     if (i === 14 || i === 15) c += " holiday";
+    if (disabledDays.includes(i)) {
+      c += " disabled";
+    }
     if (startDate && isSameDay(d, startDate)) c += " selected range-start";
     else if (endDate && isSameDay(d, endDate)) c += " selected range-end";
     else if (startDate && endDate && d > startDate && d < endDate)
@@ -843,7 +847,10 @@ function renderMonth(y, m, tid, gid) {
     let div = document.createElement("div");
     div.className = c;
     div.innerText = i;
-    div.onclick = () => selectDate(d);
+    if (!c.includes("disabled")) {
+      div.onclick = () => selectDate(d);
+    }
+
     g.appendChild(div);
   }
 }
