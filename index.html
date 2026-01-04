@@ -128,66 +128,66 @@
       </section>
 
       <!-- OVERLAY -->
-      <div class="overlay" id="overlay"></div>
-      <!-- HÌNH 2: MODAL TÌM XE -->
-      <div class="modal" id="searchModal">
-        <div class="modal-header">
-          <h2>Tìm xe</h2>
-          <button id="closeModal">✕</button>
-        </div>
+      <div class="overlay" id="overlay">
+        <!-- HÌNH 2: MODAL TÌM XE -->
+        <div class="modal" id="searchModal">
+          <div class="modal-header">
+            <h2>Tìm xe</h2>
+            <button id="closeModal">✕</button>
+          </div>
 
-        <div class="modal-body">
-          <label>Địa điểm</label>
-          <input
-            type="text"
-            id="locationInput"
-            placeholder="VD: Hoàng Diệu 2, Thủ Đức, TP.HCM"
-          />
-          <div class="row">
-            <div>
-              <label>Ngày nhận xe</label>
-              <input type="date" id="pickupDate" value="2025-11-18" />
+          <div class="modal-body">
+            <label>Địa điểm</label>
+            <input
+              type="text"
+              id="locationInput"
+              placeholder="VD: Hoàng Diệu 2, Thủ Đức, TP.HCM"
+            />
+            <div class="row">
+              <div>
+                <label>Ngày nhận xe</label>
+                <input type="date" id="pickupDate" value="2025-11-18" />
+              </div>
+              <div>
+                <label>Giờ nhận xe</label>
+                <input type="time" id="pickupTime" value="22:00" />
+              </div>
             </div>
-            <div>
-              <label>Giờ nhận xe</label>
-              <input type="time" id="pickupTime" value="22:00" />
+            <div class="row">
+              <div>
+                <label>Ngày trả xe</label>
+                <input type="date" id="returnDate" value="2025-11-20" />
+              </div>
+              <div>
+                <label>Giờ trả xe</label>
+                <input type="time" id="returnTime" value="08:00" />
+              </div>
             </div>
+            <p class="duration">
+              Thời gian thuê:
+              <b id="rentalDuration">--</b>
+            </p>
+            <p
+              id="timeError"
+              style="
+                color: red;
+                display: none;
+                font-size: 14px;
+                text-align: center;
+              "
+            >
+              Thời gian trả xe phải sau thời gian nhận xe. Vui lòng chọn lại.
+            </p>
+            <a
+              href="cac_trang_con/danh_muc_thue/danh_muc_thue.html"
+              class="btn-search-2"
+              id="searchBtn"
+            >
+              TÌM XE
+            </a>
           </div>
-          <div class="row">
-            <div>
-              <label>Ngày trả xe</label>
-              <input type="date" id="returnDate" value="2025-11-20" />
-            </div>
-            <div>
-              <label>Giờ trả xe</label>
-              <input type="time" id="returnTime" value="08:00" />
-            </div>
-          </div>
-          <p class="duration">
-            Thời gian thuê:
-            <b id="rentalDuration">--</b>
-          </p>
-          <p
-            id="timeError"
-            style="
-              color: red;
-              display: none;
-              font-size: 14px;
-              text-align: center;
-            "
-          >
-            Thời gian trả xe phải sau thời gian nhận xe. Vui lòng chọn lại.
-          </p>
-          <a
-            href="cac_trang_con/danh_muc_thue/danh_muc_thue.html"
-            class="btn-search-2"
-            id="searchBtn"
-          >
-            TÌM XE
-          </a>
         </div>
       </div>
-
       <!-- DANH MỤC XE -->
       <section class="available-cars">
         <div class="similar-cars-section">
@@ -829,6 +829,7 @@
         </div>
       </section>
     </main>
+
     <footer class="footer-exact">
       <div class="container">
         <div class="footer-offices">

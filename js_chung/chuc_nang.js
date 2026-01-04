@@ -134,7 +134,7 @@ function loadFooter() {
                   <li><a href="${root}/chinh_sach/chinh_sach.html">Điều kiện giao dịch chung</a></li>
                   <li><a href="${root}/dat_xe/chinh_sach_bao_mat.html">Chính sách bảo vệ dữ liệu cá nhân</a></li>
                   <li><a href="${root}/dat_xe/dieu_khoan_su_dung.html">Điều khoản sử dụng nền tảng</a></li>
-                  <li><a href="${root}/chinh_sach/chinh_sach_giao_nhan_Xe.html">Chính sách giao nhận xe</a></li>
+                  <li><a href="${root}/chinh_sach/chinh_sach_giao_nhan_xe.html">Chính sách giao nhận xe</a></li>
                   <li><a href="${root}/chinh_sach/phuong_thuc_thanh_toan.html">Phương thức thanh toán</a></li>
                 </ul>
               </div>
